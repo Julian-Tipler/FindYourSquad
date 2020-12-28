@@ -9,7 +9,19 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  platform: { 
+    type: String, 
+    required: false
+  },
+  communityRating: { 
+    type: Number, 
+    required: false 
+  },
+  bio: { 
+    type: String, 
+    required: false 
+  },
 }, {
   timestamps: true
 })

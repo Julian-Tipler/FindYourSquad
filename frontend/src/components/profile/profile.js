@@ -10,12 +10,12 @@ class Profile extends React.Component {
         }
     }
     
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         console.log(this.props.currentUser.id)
         this.props.fetchUserSquads(this.props.currentUser.id);
     }
 
-    componentWillReceiveProps(newState) {
+    UNSAFE_componentWillReceiveProps(newState) {
         this.setState({ squads: newState.squads });
     }   
     

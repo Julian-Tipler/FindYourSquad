@@ -15,7 +15,7 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
       this.props.history.push('/login');
     }
@@ -35,6 +35,9 @@ class SignupForm extends React.Component {
       username: this.state.username,
       password: this.state.password,
       password2: this.state.password2
+      //       platform: "",
+      // communityRating: 0.0,
+      // bio: ""
     };
 
     this.props.signup(user, this.props.history); 
