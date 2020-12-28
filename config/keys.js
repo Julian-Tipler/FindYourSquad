@@ -11,9 +11,15 @@
 
 
 module.exports = {
-    mongoURI: '',
+    mongoURI: 'mongodb+srv://dev:Qb1llNwU6CraDy76@squadmaker.0gnoj.mongodb.net/test?retryWrites=true&w=majority',
     secretOrKey: 'secret'
 }
 
 // squadmaker123@gmail.com
 // Squadmaker
+
+
+// Qb1llNwU6CraDy76  
+
+
+// mongodb+srv://dev:Qb1llNwU6CraDy76@squadmaker.0gnoj.mongodb.net/test?retryWrites=true&w=majority
