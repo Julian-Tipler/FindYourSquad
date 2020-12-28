@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require("./routes/api/users");
-const tweets = require("./routes/api/tweets");
+const squads = require("./routes/api/squads");
 // const path = require('path');
 
 // if (process.env.NODE_ENV === 'production') {
@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
-app.use("/api/tweets", tweets);
+app.use("/api/squads", squads);
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

@@ -1,29 +1,29 @@
 import React from 'react';
-import TweetBox from './tweet_box';
+import SquadBox from './squad_box';
 
-class TweetCompose extends React.Component {
+class SquadCreate extends React.Component {
   constructor(props) {
       super(props);
 
       this.state = {
           text: "",
-          newTweet: ""
+          newSquad: ""
       }
 
       this.handleSubmit = this.handleSubmit.bind(this);
   } 
 
   // componentWillReceiveProps(nextProps) {
-  //     this.setState({newTweet: nextProps.newTweet.text});
+  //     this.setState({newSquad: nextProps.newSquad.text});
   // }
 
   handleSubmit(e) {
     e.preventDefault();
-    let tweet = {
+    let squad = {
       text: this.state.text
     };
 
-    this.props.composeTweet(tweet); 
+    this.props.createSquad(squad); 
     this.setState({text: ''})
   }
 
@@ -41,16 +41,16 @@ class TweetCompose extends React.Component {
                     <input type="textarea"
                         value={this.state.text}
                         onChange={this.update()}
-                        placeholder="Write your tweet..."
+                        placeholder="Create your squad..."
                     />
                     <input type="submit" value="Submit" />
                 </div>
             </form>
             <br />
-            <TweetBox text={this.state.newTweet} />
+            <SquadBox text={this.state.newSquad} />
         </div>
     )
   }
 }
 
-export default TweetCompose;
+export default SquadCreate;
