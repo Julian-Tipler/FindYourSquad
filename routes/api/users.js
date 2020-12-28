@@ -17,6 +17,15 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
+// router.get('/user/:user_id', (req, res) => {
+//     User.find({user: req.params.user_id})
+//         .then(user => res.json(user))
+//         .catch(err =>
+//             res.status(404).json({ nosquadsfound: 'No user found' }    need something like this to get user profile
+//         )
+//     );
+// });
+
 
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
