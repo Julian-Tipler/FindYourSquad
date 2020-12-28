@@ -71,7 +71,7 @@ router.post("/login", (req, res) => {
 
   User.findOne({ username }).then(user => {
     if (!user) {
-      errors.username = "Provide a valid user username";
+      errors.username = "Provide a valid username";
       return res.status(400).json(errors);
     }
 
