@@ -39,5 +39,3 @@ app.use("/api/squads", squads);
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
-
-
