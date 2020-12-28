@@ -40,7 +40,8 @@ router.post('/',
       }
   
       const newSquad = new Squad({
-        text: req.body.text,
+        name: req.body.name,
+        generalBio: req.body.generalBio,
         user: req.user.id
       });
   

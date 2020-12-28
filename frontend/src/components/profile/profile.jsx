@@ -27,7 +27,7 @@ class Profile extends React.Component {
             <div>
               <h2>All of {this.props.currentUser.username}'s Squads</h2>
               {this.state.squads.map(squad => (
-                <SquadBox key={squad._id} text={squad.text} />
+                <SquadBox key={squad._id} name={squad.name} generalBio={squad.generalBio}/>
               ))}
             </div>
           );

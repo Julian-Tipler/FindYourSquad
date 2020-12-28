@@ -6,7 +6,8 @@ class SquadCreate extends React.Component {
       super(props);
 
       this.state = {
-          text: "",
+          name: "",
+          generalBio: "",
           newSquad: ""
       }
 
@@ -20,16 +21,24 @@ class SquadCreate extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let squad = {
-      text: this.state.text
+      name: this.state.name,
+      generalBio: this.state.generalBio
     };
 
     this.props.createSquad(squad); 
-    this.setState({text: ''})
+    this.setState({name: ''})
+    this.setState({generalBio: ''})
   }
 
-  update() {
+  updateName() {
     return e => this.setState({
-      text: e.currentTarget.value
+      name: e.currentTarget.value
+    });
+  }
+
+  updateBio() {
+    return e => this.setState({
+      generalBio: e.currentTarget.value
     });
   }
 
@@ -37,11 +46,17 @@ class SquadCreate extends React.Component {
     return (
         <div>
             <form onSubmit={this.handleSubmit}>
-                <div>
+                <div> 
+                    <input type="text"
+                        value={this.state.name}
+                        onChange={this.updateName()}
+                        placeholder="Name your squad..."
+                    />
+                    <br/>
                     <input type="textarea"
-                        value={this.state.text}
-                        onChange={this.update()}
-                        placeholder="Create your squad..."
+                        value={this.state.generalBio}
+                        onChange={this.updateBio()}
+                        placeholder="Squad Bio"
                     />
                     <input type="submit" value="Submit" />
                 </div>

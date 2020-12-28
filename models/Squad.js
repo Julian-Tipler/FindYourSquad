@@ -6,10 +6,13 @@ const SquadSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  text: {
-    type: String,
-    required: true
+  name: { 
+    type: String, 
+    required: false 
   },
+  generalBio: {
+    type: String,
+    required: false },
   date: {
     type: Date,
     default: Date.now

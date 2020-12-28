@@ -4,14 +4,19 @@ const validText = require('./valid-text');
 module.exports = function validateSquadInput(data) {
   let errors = {};
 
-  data.text = validText(data.text) ? data.text : '';
+  data.name = validText(data.name) ? data.name : '';
+  data.generalBio = validText(data.generalBio) ? data.generalBio : '';
 
-  if (!Validator.isLength(data.text, { min: 5, max: 140 })) {
-    errors.text = 'Squad must be between 5 and 140 characters';
+  if (!Validator.isLength(data.name, { max: 60 })) {
+    errors.name = 'Squad name must be less than 60 characters';
   }
 
-  if (Validator.isEmpty(data.text)) {
-    errors.text = 'Text field is required';
+  if (Validator.isEmpty(data.name)) {
+    errors.name = 'Squad name is required';
+  }
+
+  if (!Validator.isLength(data.generalBio, { max: 200 })) {
+    errors.generalBio = 'Squad bio must be less than 200 characters';
   }
 
   return {
