@@ -4,6 +4,10 @@ export const getSquads = () => {
   return axios.get('/api/squads')
 };
 
+// export const getSpecificSquads = data {
+//   return axios.get('api/squads',data)
+// }
+
 export const getUserSquads = id => {
   return axios.get(`/api/squads/user/${id}`)
 };

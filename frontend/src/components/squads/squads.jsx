@@ -8,6 +8,7 @@ class Squad extends React.Component {
 
     this.state = {
       squads: []
+      
     }
   }
 
@@ -31,8 +32,13 @@ class Squad extends React.Component {
               squad={squad} 
               currentUserId={this.props.currentUserId} 
               editSquad={this.props.editSquad} 
-              key={squad._id} name={squad.name} 
-              generalBio={squad.generalBio} />
+              key={squad._id} 
+              name={squad.name} 
+              generalBio={squad.generalBio}
+              skillLevel={squad.skillLevel} 
+              game={squad.game}
+              squadSize={squad.squadSize}
+              />
           ))}
         </div>
       );

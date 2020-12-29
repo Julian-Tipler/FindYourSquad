@@ -8,17 +8,12 @@ const SquadSchema = new Schema({
   },
   name: {
     type: String,
-    required: false,
+    required: true,
   },
   generalBio: {
     type: String,
     required: false,
   },
-  // game: {
-  //   type: String,
-  //   required: true,
-  //make a reference to games collection
-  // },
   members: [
     {
       type: Schema.Types.ObjectId,
@@ -35,6 +30,25 @@ const SquadSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  game: {
+    type: String,
+    required: true
+  },
+  skillLevel: {
+    type: String,
+    required: true
+  },
+  squadSize: {
+    //change to Number
+    type: String,
+    required: true
+  },
+  
+  // game: {
+  //   type: String,
+  //   required: true,
+  //make a reference to games collection
+  // },
 
 });
 

@@ -14,7 +14,13 @@ class SquadBox extends React.Component {
       <div>
         <h3>{this.props.name}</h3>
         <span>{this.props.generalBio}</span>
-        <button style={{ color: "grey" }} onClick={() => this.props.editSquad(data)}>
+        <span>{this.props.skillLevel} </span>
+        <span>{this.props.game} </span>
+        <span>{this.props.squadSize}</span>
+        <button
+          style={{ color: "grey" }}
+          onClick={() => this.props.editSquad(data)}
+        >
           Request to Join Squad
         </button>
       </div>
