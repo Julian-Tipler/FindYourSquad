@@ -18,3 +18,20 @@ export const formSquad = data => {
 }
 
 
+export const updateSquad = (data) => {
+  return axios.put(`/api/squads/${data.id}`, data);
+};
+
+// id: group id
+// type: remove or add
+// user_id: memberId
+
+// onclick={()=this.updateSquad}
+
+
+// const updateSquad = () => {
+//   const data = {
+//     id: this.props.groupID,
+//     newUser: this.props.currentUser
+//   }
+// }

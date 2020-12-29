@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
-import { fetchSquads } from '../../actions/squad_actions';
+import { fetchSquads, editSquad } from '../../actions/squad_actions';
 import Squads from './squads';
 
 const mapStateToProps = (state) => {
   return {
-    squads: Object.values(state.squads.all)
+    squads: Object.values(state.squads.all),
+    currentUserId: state.session.user.id
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSquads: () => dispatch(fetchSquads())
+    fetchSquads: () => dispatch(fetchSquads()),
+    editSquad: (data) => dispatch(editSquad(data))
   };
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import SquadBox from './squad_box';
+// import SquadBox from './squad_box';
 
 class SquadCreate extends React.Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class SquadCreate extends React.Component {
                 </div>
             </form>
             <br />
-            <SquadBox text={this.state.newSquad} />
+            {/* <SquadBox currentUserId={this.props.currentUserId} editSquad={this.props.editSquad} key={squad._id} name={squad.name} generalBio={squad.generalBio} /> */}
         </div>
     )
   }
