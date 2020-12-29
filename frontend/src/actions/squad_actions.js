@@ -1,4 +1,4 @@
-import { getSquads, getUserSquads, formSquad } from '../util/squad_api_util';
+import { getSquads, getUserSquads, formSquad, editSquad, getFilteredSquads } from '../util/squad_api_util';
 
 export const RECEIVE_SQUADS = "RECEIVE_SQUADS";
 export const RECEIVE_USER_SQUADS = "RECEIVE_USER_SQUADS";
@@ -17,13 +17,23 @@ export const receiveUserSquads = squads => ({
 export const receiveNewSquad = squad => ({
   type: RECEIVE_NEW_SQUAD,
   squad
-})
+});
+
+
+
+
 
 export const fetchSquads = () => dispatch => (
   getSquads()
     .then(squads => dispatch(receiveSquads(squads)))
     .catch(err => console.log(err))
 );
+
+export const fetchFilteredSquads = (searchParams) => dispatch => (
+  getFilteredSquads(searchParams)
+    .then(squads => dispatch(receiveSquads(squads)))
+    .catch(err => console.log(err))
+)
 
 export const fetchUserSquads = id => dispatch => (
   getUserSquads(id)
@@ -34,5 +44,11 @@ export const fetchUserSquads = id => dispatch => (
 export const createSquad = data => dispatch => (
   formSquad(data)
     .then(squad => dispatch(receiveNewSquad(squad)))
+    .catch(err => console.log(err))
+);
+
+export const updateSquad = data => dispatch => (
+  editSquad(data)
+    .then((squad) => dispatch(receiveNewSquad(squad)))
     .catch(err => console.log(err))
 );
