@@ -31,8 +31,6 @@ class SearchSquad extends React.Component {
       });
     }
 
-      
-
     render() {
         return (
           <div>

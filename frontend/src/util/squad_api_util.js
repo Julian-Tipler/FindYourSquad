@@ -17,9 +17,14 @@ export const getSquads = () => {
    return str;
  }
 
+// export const getFilteredSquads = (searchParams) => {
+//   console.log(serialize(searchParams))
+//   return axios.get(`/api/squads/`, searchParams);
+// };
+
 export const getFilteredSquads = (searchParams) => {
-  console.log(serialize(searchParams))
-  return axios.get(`/api/squads/search${serialize(searchParams)}`);
+  console.log(serialize(searchParams));
+  return axios.get(`/api/squads/${serialize(searchParams)}`);
 };
 
 export const getUserSquads = (id) => {
