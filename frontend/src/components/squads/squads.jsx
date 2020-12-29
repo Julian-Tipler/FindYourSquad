@@ -11,11 +11,16 @@ class Squad extends React.Component {
       squads: []
       
     }
+    // this.fetchSquads = this.props.fetchSquads.bind(this);
   }
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.props.fetchSquads();
   }
+
+  // refresh() {
+  //   this.props.fetchSquads();
+  // }
 
   UNSAFE_componentWillReceiveProps(newState) {
     this.setState({ squads: newState.squads });

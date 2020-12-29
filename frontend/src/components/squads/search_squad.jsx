@@ -16,12 +16,24 @@ class SearchSquad extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let searchParams = {
-            game: this.state.game,
-            squadSize: this.state.squadSize,
-            skillLevel: this.state.skillLevel,
-        };
+        let searchParams = {}
+        if (this.state.game !== ""){
+          Object.assign(searchParams, {game: this.state.game})
+        }
+        if (this.state.squadSize !== ""){
+          Object.assign(searchParams, {squadSize: this.state.squadSize})
+        }
+        if (this.state.skillLevel !== ""){
+          Object.assign(searchParams, {skillLevel: this.state.skillLevel})
+        }
+        // let searchParams = {
+        //     game: this.state.game,
+        //     squadSize: this.state.squadSize,
+        //     skillLevel: this.state.skillLevel,
+        // };
+        console.log(searchParams)
         this.props.fetchFilteredSquads(searchParams)
+        
     }
 
     update(field) {
@@ -43,9 +55,9 @@ class SearchSquad extends React.Component {
                 </select>
                 <select onChange={this.update("squadSize")}>
                   <option value="">Squad Size</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
                 </select>
                 <select onChange={this.update("skillLevel")}>
                   <option value="">Skill Level</option>
