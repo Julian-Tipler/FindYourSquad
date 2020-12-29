@@ -19,7 +19,7 @@ class SquadBox extends React.Component {
         <span>{this.props.squadSize}</span>
         <button
           style={{ color: "grey" }}
-          onClick={() => this.props.editSquad(data)}
+          onClick={() => this.props.updateSquad(data)}
         >
           Request to Join Squad
         </button>

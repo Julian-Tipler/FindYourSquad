@@ -9,7 +9,10 @@ const validateSquadInput = require('../../validation/squads');
 
 //Squad index
 router.get('/', (req, res) => {
-  if (Object.values(req.body).length === 0) {
+  console.log(req);
+  console.log(req.params.searchParams)
+  if (Object.values(req.params).length === 0) {
+    console.log('no params')
     Squad.find()
       .sort({ date: -1 })
       .then((squads) => res.json(squads))
@@ -19,11 +22,39 @@ router.get('/', (req, res) => {
   }
   else {
     Squad.find()
-
+      console.log('YES params')
       .sort({ date: 1 })
-      .where('game').equals(req.body.game)  
-      .where('skillLevel').equals(req.body.skillLevel)
-      .where('squadSize').equals(req.body.squadSize)
+      .where('game').equals(req.params.game)  
+      .where('skillLevel').equals(req.params.skillLevel)
+      .where('squadSize').equals(req.params.squadSize)
+
+      .then((squads) => res.json(squads))
+      .catch((err) =>
+        res.status(404).json({ nosquadsfound: "No squads found" })
+      );
+  }
+ 
+})
+
+router.get('/search/:searchParams', (req, res) => {
+  console.log(req);
+  console.log(req.params.searchParams)
+  if (Object.values(req.params).length === 0) {
+    console.log('no params')
+    Squad.find()
+      .sort({ date: -1 })
+      .then((squads) => res.json(squads))
+      .catch((err) =>
+        res.status(404).json({ nosquadsfound: "No squads found" })
+      );
+  }
+  else {
+    Squad.find()
+      console.log('YES params')
+      .sort({ date: 1 })
+      .where('game').equals(req.params.game)  
+      .where('skillLevel').equals(req.params.skillLevel)
+      .where('squadSize').equals(req.params.squadSize)
 
       .then((squads) => res.json(squads))
       .catch((err) =>
@@ -55,7 +86,6 @@ router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateSquadInput(req.body);
-    // console.log(req.user.id)
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -124,14 +154,14 @@ router.put("/:id", (req, res) => {
     
     
     
-    router.get('/user/:user_id', (req, res) => {
-        Squad.find({user: req.params.user_id})
-            .then(squads => res.json(squads))
-            .catch(err =>
-                res.status(404).json({ nosquadsfound: 'No squads found from that user' }
-            )
-        );
-    });
+    // router.get('/user/:user_id', (req, res) => {
+    //     Squad.find({user: req.params.user_id})
+    //         .then(squads => res.json(squads))
+    //         .catch(err =>
+    //             res.status(404).json({ nosquadsfound: 'No squads found from that user' }
+    //         )
+    //     );
+    // });
     
     
     

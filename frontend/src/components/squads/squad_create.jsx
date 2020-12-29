@@ -101,7 +101,7 @@ class SquadCreate extends React.Component {
           </div>
         </form>
         <br />
-        {/* <SquadBox currentUserId={this.props.currentUserId} editSquad={this.props.editSquad} key={squad._id} name={squad.name} generalBio={squad.generalBio} /> */}
+        {/* <SquadBox currentUserId={this.props.currentUserId} updateSquad={this.props.updateSquad} key={squad._id} name={squad.name} generalBio={squad.generalBio} /> */}
       </div>
     );
   }

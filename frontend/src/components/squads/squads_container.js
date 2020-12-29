@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSquads, editSquad } from '../../actions/squad_actions';
+import { fetchSquads, updateSquad } from '../../actions/squad_actions';
 import Squads from './squads';
 
 const mapStateToProps = (state) => {
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchSquads: () => dispatch(fetchSquads()),
-    editSquad: (data) => dispatch(editSquad(data))
+    updateSquad: (data) => dispatch(updateSquad(data))
   };
 };
 

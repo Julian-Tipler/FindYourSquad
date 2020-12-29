@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import SquadBox from './squad_box';
+import SearchSquadContainer from './search_squad_container'
 
 class Squad extends React.Component {
   constructor(props) {
@@ -26,12 +27,15 @@ class Squad extends React.Component {
     } else {
       return (
         <div>
+          <div>
+            <SearchSquadContainer/>
+          </div>
           <h2>All Squads</h2>
           {this.state.squads.map(squad => (
             <SquadBox 
               squad={squad} 
               currentUserId={this.props.currentUserId} 
-              editSquad={this.props.editSquad} 
+              updateSquad={this.props.updateSquad} 
               key={squad._id} 
               name={squad.name} 
               generalBio={squad.generalBio}

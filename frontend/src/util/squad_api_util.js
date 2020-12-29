@@ -4,12 +4,26 @@ export const getSquads = () => {
   return axios.get('/api/squads')
 };
 
-// export const getSpecificSquads = data {
-//   return axios.get('api/squads',data)
-// }
 
-export const getUserSquads = id => {
-  return axios.get(`/api/squads/user/${id}`)
+ const serialize = (obj) => {
+   let str =
+     "?" +
+     Object.keys(obj)
+       .reduce(function (a, k) {
+         a.push(k + "=" + encodeURIComponent(obj[k]));
+         return a;
+       }, [])
+       .join("&");
+   return str;
+ }
+
+export const getFilteredSquads = (searchParams) => {
+  console.log(serialize(searchParams))
+  return axios.get(`/api/squads/search${serialize(searchParams)}`);
+};
+
+export const getUserSquads = (id) => {
+  return axios.get(`/api/squads/user/${id}`);
 };
 
 
@@ -22,7 +36,7 @@ export const formSquad = data => {
 }
 
 
-export const updateSquad = (data) => {
+export const editSquad = (data) => {
   return axios.put(`/api/squads/${data.id}`, data);
 };
 
@@ -30,10 +44,10 @@ export const updateSquad = (data) => {
 // type: remove or add
 // user_id: memberId
 
-// onclick={()=this.updateSquad}
+// onclick={()=this.editSquad}
 
 
-// const updateSquad = () => {
+// const editSquad = () => {
 //   const data = {
 //     id: this.props.groupID,
 //     newUser: this.props.currentUser
