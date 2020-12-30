@@ -27,7 +27,12 @@ class Squad extends React.Component {
         <div>
           <h2>All Squads</h2>
           {this.state.squads.map(squad => (
-            <SquadBox key={squad._id} name={squad.name} generalBio={squad.generalBio} />
+            <SquadBox 
+                key={squad._id} 
+                id={squad._id} 
+                name={squad.name} 
+                generalBio={squad.generalBio} 
+            />
           ))}
         </div>
       );
