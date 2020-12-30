@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const User = require('./User');
-
+const Game = require('./Game')
 
 const MessageSchema = new Schema({
     squad: {
@@ -55,7 +55,10 @@ const SquadSchema = new Schema({
   },
   game: {
     type: String,
-    required: true
+    required: false
+    // type: Schema.Types.ObjectId,
+    // ref: "Game",
+    // required: false
   },
   skillLevel: {
     type: String,

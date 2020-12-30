@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require("./routes/api/users");
 const squads = require("./routes/api/squads");
+const games = require("./routes/api/games")
 // const path = require('path');
 
 // if (process.env.NODE_ENV === 'production') {
@@ -36,6 +37,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/squads", squads);
+app.use("/api/games", games)
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

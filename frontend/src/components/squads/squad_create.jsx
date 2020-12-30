@@ -65,38 +65,38 @@ class SquadCreate extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.update("name")}
-              placeholder="Name your squad..."
-            />
-            <br />
-            <input
-              type="textarea"
-              value={this.state.generalBio}
-              onChange={this.update("generalBio")}
-              placeholder="Squad Bio"
-            />
-            <input
-              type="textarea"
-              value={this.state.skillLevel}
-              onChange={this.update("skillLevel")}
-              placeholder="Skill level"
-            />
-            <input
-              type="textarea"
-              value={this.state.game}
-              onChange={this.update("game")}
-              placeholder="Game"
-            />
-            <input
-              type="textarea"
-              value={this.state.squadSize}
-              onChange={this.update("squadSize")}
-              placeholder="Squad Size"
-            />
 
+            <input
+             type="text"
+            value={this.state.name}
+              onChange={this.update("name")}
+             placeholder="Name your squad..."
+             />
+             <br />
+            <input
+            type="textarea"
+            value={this.state.generalBio}
+             onChange={this.update("generalBio")}
+             placeholder="Squad Bio"
+            />
+            <select onChange={this.update("game")}>
+              <option value="">Game</option>
+              <option value="Apex">Apex</option>
+              <option value="Call of Duty">Call of Duty</option>
+            </select>
+            <select onChange={this.update("squadSize")}>
+              <option value="">Squad Size</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <select onChange={this.update("skillLevel")}>
+              <option value="">Skill Level</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Skilled">Skilled</option>
+              <option value="Expert">Expert</option>
+              <option value="Master">Master</option>
+            </select>
             <input type="submit" value="Submit" />
           </div>
         </form>
@@ -108,3 +108,36 @@ class SquadCreate extends React.Component {
 }
 
 export default SquadCreate;
+
+
+            // <input
+            //   type="text"
+            //   value={this.state.name}
+            //   onChange={this.update("name")}
+            //   placeholder="Name your squad..."
+            // />
+            // <br />
+            // <input
+            //   type="textarea"
+            //   value={this.state.generalBio}
+            //   onChange={this.update("generalBio")}
+            //   placeholder="Squad Bio"
+            // />
+            // <input
+            //   type="textarea"
+            //   value={this.state.skillLevel}
+            //   onChange={this.update("skillLevel")}
+            //   placeholder="Skill level"
+            // />
+            // <input
+            //   type="textarea"
+            //   value={this.state.game}
+            //   onChange={this.update("game")}
+            //   placeholder="Game"
+            // />
+            // <input
+            //   type="textarea"
+            //   value={this.state.squadSize}
+            //   onChange={this.update("squadSize")}
+            //   placeholder="Squad Size"
+            // />
