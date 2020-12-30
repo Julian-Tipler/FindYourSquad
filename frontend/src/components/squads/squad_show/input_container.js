@@ -1,44 +1,16 @@
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { postMessage } from '../../../actions/squad_actions';
+import Input from './input';
 
-class InputContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sender: "",
-            squad: "",
-            content: "",
-        }
-    };
+const mapStateToProps = (state) => ({
+    currentSquad: state.squads.currentSquad,
+    currentUser: state.session.user
+})
 
-    // update(field) {
-    //     return e =>
-    //         this.setState({
-    //             [field]: e.currentTarget.value
-    //         });
-    // };
-
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     // App.cable.subscriptions.subscriptions[0].speak({
-    //     //     message: this.state.body
-    //     // });
-    //     this.props.action(this.state);
-    //     this.setState(this.baseState);
-    // };
-
-    render() {
-        return (
-            <div></div>
-            // // <form onSubmit={this.handleSubmit}>
-            //     {/* <textarea
-            //         value={this.state.body}
-            //         onChange={this.update("body")}
-            //         placeholder={`Message #${Halleluigh}`}>
-            //     </textarea>
-            //     <input type="submit" value={this.props.formType} /> */}
-            // // </form>
-        );
-    };
+const mapDispatchToProps = dispatch => {
+    return{
+        postMessage: (data) => dispatch(postMessage(data))
+    }
 }
 
-export default InputContainer;
+export default connect(mapStateToProps,mapDispatchToProps)(Input)

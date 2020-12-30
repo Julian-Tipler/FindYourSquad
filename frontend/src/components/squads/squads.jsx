@@ -47,6 +47,7 @@ class Squad extends React.Component {
               skillLevel={squad.skillLevel} 
               game={squad.game}
               squadSize={squad.squadSize}
+              members={squad.members}
               />
           ))}
         </div>

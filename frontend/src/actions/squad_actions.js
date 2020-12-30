@@ -78,6 +78,6 @@ export const updateSquad = data => dispatch => (
 
 export const postMessage = data => dispatch => (
   APISquad.postMessage(data)
-    .then((squad) => dispatch(receiveNewSquad(squad)))
+    .then((squad) => dispatch(receiveSquad(squad)))
     .catch(err => console.log(err))
 );

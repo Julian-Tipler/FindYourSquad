@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-import MessagesContainer from './messages_container';
-import InputContainer from './input_container';
+import MessagesComponent from './messages_container';
+import InputComponent from './input_container';
 import './css_grid_system.css';
 
 class SquadShow extends React.Component {
@@ -29,10 +29,10 @@ class SquadShow extends React.Component {
               </div>
                 <div className="item-mid">
                     <div className="item-top">
-                        <MessagesContainer messages={this.props.currentSquad.messages}/>
+                        <MessagesComponent messages={this.props.currentSquad.messages}/>
                     </div>
                     <div className="item-bottom">
-                        <InputContainer />
+                        <InputComponent />
                     </div>
                 </div>
                 <div className="item-right">
