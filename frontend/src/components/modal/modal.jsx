@@ -1,16 +1,17 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import ProfileContainer from '../profile/profile_container';
+import './modal.css'
+import RequestMessageContainer from '../squads/request_message_container';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
-    case 'profile':
-      component = <ProfileContainer />;
+  switch (modal.word) {
+    case 'request':
+      component = <RequestMessageContainer />;
       break;
     default:
       return null;
@@ -24,7 +25,7 @@ function Modal({modal, closeModal}) {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     modal: state.ui.modal
   };

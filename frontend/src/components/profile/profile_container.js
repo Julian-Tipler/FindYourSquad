@@ -11,13 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUserSquads: id => dispatch(fetchUserSquads(id)),
-    otherForm: (
-      <button onClick={() => dispatch (openModal('login'))}>
-        Request to Join Group
-      </button>
-    ),
-    closeModal: () => dispatch(closeModal())
+    fetchUserSquads: id => dispatch(fetchUserSquads(id))
   };
 };
 

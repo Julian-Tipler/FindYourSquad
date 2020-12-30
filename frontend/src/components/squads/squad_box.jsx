@@ -1,14 +1,18 @@
 import React from 'react';
 
 class SquadBox extends React.Component {
+  constructor(props){
+    super(props);
+    // console.log(props)
+  }
+  
   render() {
     
-    const data = {
-      id: this.props.squad._id,
-      newMemberId: this.props.currentUserId,
-      type: "addRequest"
-    }
-
+    // const data = {
+    //   id: this.props.squad._id,
+    //   newMemberId: this.props.currentUserId,
+    //   type: "addRequest"
+    // }
 
     return (
       <div>
@@ -17,12 +21,15 @@ class SquadBox extends React.Component {
         <span>{this.props.skillLevel} </span>
         <span>{this.props.game} </span>
         <span>{this.props.squadSize}</span>
-        <button
+        {/* <button
           style={{ color: "grey" }}
           onClick={() => this.props.updateSquad(data)}
         >
           Request to Join Squad
-        </button>
+        </button> */}
+        <span>
+          {this.props.otherForm}
+        </span>
       </div>
     );
   }

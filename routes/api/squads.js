@@ -9,8 +9,8 @@ const validateSquadInput = require('../../validation/squads');
 
 //Squad index
 router.get('/', (req, res) => {
-  console.log(req);
-  console.log(req.params.searchParams)
+  // console.log(req);
+  // console.log(req.params.searchParams)
   if (Object.values(req.params).length === 0) {
     console.log('no params')
     Squad.find()
