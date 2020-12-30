@@ -19,7 +19,14 @@ class SquadShow extends React.Component {
         } else{
             return (
             <div className="container">
-              <div className="item-left"></div>
+              <div className="item-left">
+                <div className="members">
+
+                </div>
+                <div className="requests">
+                    
+                </div>
+              </div>
                 <div className="item-mid">
                     <div className="item-top">
                         <MessagesContainer messages={this.props.currentSquad.messages}/>
@@ -28,7 +35,9 @@ class SquadShow extends React.Component {
                         <InputContainer />
                     </div>
                 </div>
-                <div className="item-right"></div>
+                <div className="item-right">
+                    
+                </div>
             </div>
         )
         }      

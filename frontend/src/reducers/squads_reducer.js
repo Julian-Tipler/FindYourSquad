@@ -1,8 +1,9 @@
-import { 
+import {
     RECEIVE_SQUAD,
     RECEIVE_SQUADS, 
     RECEIVE_USER_SQUADS, 
-    RECEIVE_NEW_SQUAD 
+    RECEIVE_NEW_SQUAD,
+    RECEIVE_MESSAGE,
 } from '../actions/squad_actions';
   
   const SquadsReducer = (state = { all: {}, currentSquad: {}, user: {}, new: undefined }, action) => {
@@ -10,6 +11,9 @@ import {
     let newState = Object.assign({}, state);
     
     switch(action.type) {
+        case RECEIVE_MESSAGE:
+            newState.currentSquad = action.squad.data;
+            return newState;
         case RECEIVE_SQUAD:
             newState.currentSquad = action.squad.data;
             return newState;

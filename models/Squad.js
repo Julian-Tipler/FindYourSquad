@@ -25,7 +25,7 @@ const MessageSchema = new Schema({
 const SquadSchema = new Schema({
   leader: {
     type: Schema.Types.ObjectId,
-    ref: "users",
+    ref: "User",
   },
   name: {
     type: String,
@@ -38,13 +38,13 @@ const SquadSchema = new Schema({
   members: [
     {
       type: Schema.Types.ObjectId,
-      ref: "users",
+      ref: "User",
     },
   ],  
   requests: [
     {
       type: Schema.Types.ObjectId,
-      ref: "users",
+      ref: "User",
     },
   ],
   date: {
@@ -73,4 +73,4 @@ const SquadSchema = new Schema({
   messages: [MessageSchema],
 });
 
-module.exports = Squad = mongoose.model('squad', SquadSchema);
+module.exports = Squad = mongoose.model('Squad', SquadSchema);
