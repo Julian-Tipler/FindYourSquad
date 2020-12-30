@@ -9,62 +9,105 @@ const validateSquadInput = require('../../validation/squads');
 
 //Squad index
 router.get('/', (req, res) => {
-  console.log(req);
-  console.log(req.params.searchParams)
-  if (Object.values(req.params).length === 0) {
-    console.log('no params')
-    Squad.find()
-      .sort({ date: -1 })
-      .then((squads) => res.json(squads))
-      .catch((err) =>
-        res.status(404).json({ nosquadsfound: "No squads found" })
+  Squad.find(req.query)
+        .sort({ date: -1})
+        .then((squads) => res.json(squads))
+        .catch((err) =>
+          res.status(404).json({ nosquadsfound: "No squads found" })
       );
-  }
-  else {
-    Squad.find()
-      console.log('YES params')
-      .sort({ date: 1 })
-      .where('game').equals(req.params.game)  
-      .where('skillLevel').equals(req.params.skillLevel)
-      .where('squadSize').equals(req.params.squadSize)
-
-      .then((squads) => res.json(squads))
-      .catch((err) =>
-        res.status(404).json({ nosquadsfound: "No squads found" })
-      );
-  }
- 
 })
+  // console.log(req.query);
+  // if (Object.values(req.query).every(el=> el == "")) {
+  //   console.log('no query')
+  //   Squad.find()
+  //     .sort({ date: -1 })
+  //     .then((squads) => res.json(squads))
+  //     .catch((err) =>
+  //       res.status(404).json({ nosquadsfound: "No squads found" })
+  //     );
+  // } else {
+    // var gameSearch = [] 
+    // Squad.find().where('game').equals(req.query.game).then(search=> gameSearch.push(search))
+    // var squadSizeSearch = []
+    // Squad.find().where('squadSizeSearch').equals(req.query.squadSize).then(search => squadSizeSearch.push(search))
+    // var skillLevelSearch = []
+    // Squad.find().where('skillLevelSearch').equals(req.query.skillLevel).then(search => skillLevelSearch.push(search))
 
-router.get('/search/:searchParams', (req, res) => {
-  console.log(req);
-  console.log(req.params.searchParams)
-  if (Object.values(req.params).length === 0) {
-    console.log('no params')
-    Squad.find()
-      .sort({ date: -1 })
-      .then((squads) => res.json(squads))
-      .catch((err) =>
-        res.status(404).json({ nosquadsfound: "No squads found" })
-      );
-  }
-  else {
-    Squad.find()
-      console.log('YES params')
-      .sort({ date: 1 })
-      .where('game').equals(req.params.game)  
-      .where('skillLevel').equals(req.params.skillLevel)
-      .where('squadSize').equals(req.params.squadSize)
+    // allSearch = gameSearch.concat(skillLevelSearch,squadSizeSearch)
+    // allSearch = [...new Set([...gameSearch,...skillLevelSearch,...squadSizeSearch])]
+    
+    // acceptableFields = [];
+    // for(var key in req.query) {
+    //   if (req.query[key] !== ""){
+    //     filteredQuery.push(key)
+    //   }
+    // res.json()
 
-      .then((squads) => res.json(squads))
-      .catch((err) =>
-        res.status(404).json({ nosquadsfound: "No squads found" })
-      );
-  }
+    // if (req.query.game === undefined) {
+    //     let game = undefined;
+    // }
+
+    // if (req.query.skillLevel == undefined) {
+    //     let skillLevel = undefined;
+    // }
+
+    // if (req.query.squadSize == undefined) {
+    //     let squadSize = undefined;
+    // }
+    // Squad.find({
+    //   'game': req.query.game,
+    //   'skillLevel': req.query.skillLevel,
+    //   'squadSize': req.query.squadSize},
+    //      function(err, squads) {
+    //         res.json(squads);
+    //     });
+
+
+    // Squad.find(
+    // {
+    //     "$or": [
+    //         { "game": req.query.game}, 
+    //         { "skillLevel": req.query.skillLevel }, 
+    //         { "squadSize": req.query.squadSize },  
+
+    //     ]
+    // }, function(err, squads) {
+    //     res.json(squads);
+    // }
+    // );
+
+// var filteredQuery = [],
+//     acceptableFields = ['game', 'skillLevel', "squadSize"];
+
+    // acceptableFields.forEach(field =>
+    //   req.query.field && filteredQuery[field] === req.query[field];
+    // );
+    
+    // var query = Squad.find(filteredQuery);
+    // var searchQuery = Squad.find()
+    // for(var key in req.query) {
+    //   if (req.query[key] !== ""){
+    //     filteredQuery.push(key)
+    //   }
+    //   // Squad.find()
+    //   //   .where(req.query[key]).equals(key);
+    // }
+    // searchQuery(filteredQuery)
+    
+      // Squad.find()
+      //   .where(req.query[key]).equals(key)
+    // console.log('YES query')
+    // Squad.find()
+    //   .sort({ date: 1 })
+    //   .where('game').equals(req.query.game)  
+    //   .where('skillLevel').equals(req.query.skillLevel)
+    //   .where('squadSize').equals(req.query.squadSize)
+    //   .then((squads) => res.json(squads))
+    //   .catch((err) =>
+    //     res.status(404).json({ nosquadsfound: "No squads found" })
+    //   );
+  // }
  
-})
-
-
 // router.get("/game/game_id", (req, res) => {
 //   Squad.find()
 //     .sort({ date: -1 })
