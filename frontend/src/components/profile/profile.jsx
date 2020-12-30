@@ -1,5 +1,5 @@
 import React from 'react';
-import SquadBox from '../squads/squad_box';
+import SquadBoxContainer from '../squads/squad_box_container';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class Profile extends React.Component {
             <div>
               <h2>All of {this.props.currentUser.username}'s Squads</h2>
               {this.state.squads.map(squad => (
-                <SquadBox key={squad._id} name={squad.name} generalBio={squad.generalBio} skillLevel={squad.skillLevel} game={squad.game} squadSize={squad.size}/>
+                <SquadBoxContainer key={squad._id} name={squad.name} generalBio={squad.generalBio} skillLevel={squad.skillLevel} game={squad.game} squadSize={squad.size}/>
               ))}
             </div>
           );

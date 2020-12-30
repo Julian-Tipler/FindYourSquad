@@ -9,11 +9,13 @@ const validateSquadInput = require('../../validation/squads');
 
 //Squad index
 router.get('/', (req, res) => {
+
   Squad.find(req.query)
         .sort({ date: -1})
         .then((squads) => res.json(squads))
         .catch((err) =>
           res.status(404).json({ nosquadsfound: "No squads found" })
+
       );
 })
   // console.log(req.query);
