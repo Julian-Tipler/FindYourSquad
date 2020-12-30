@@ -1,0 +1,32 @@
+.container {
+    display: grid;
+    grid-template-columns: 
+        [col1-start] 25% 
+        [col1-end col2-start] 50% 
+        [col2-end col3-start] 25% 
+        [col3-end];
+    grid-template-rows: [row1-start] 75% [row1-end row2-start] [row2-end];
+}
+
+.item-left {
+    grid-column-start: col1-start;
+    grid-column-end: col1-end;
+}
+
+.item-mid {
+    grid-column-start: col1-end;
+    grid-column-end: col2-end;
+}
+
+.item-right {
+    grid-column-start: col3-start;
+    grid-column-end: col3-end;
+}
+
+.item-top {
+    height: 75vh;
+}
+
+.item-bottom {
+
+}

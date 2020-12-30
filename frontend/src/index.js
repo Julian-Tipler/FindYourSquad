@@ -6,6 +6,11 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
+// TESTING
+import { fetchSquad } from './actions/squad_actions';
+import {  } from './util/squad_api_util';
+// END TESTING
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -13,7 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setAuthToken(localStorage.jwtToken);
     const decodedUser = jwt_decode(localStorage.jwtToken);
 
-    const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
+    const preloadedState = { 
+        session: { 
+            isAuthenticated: true, 
+            user: decodedUser 
+        } 
+    };
 
     store = configureStore(preloadedState);
 
@@ -25,7 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
-  const root = document.getElementById('root');
 
+  // TESTING START
+  window.dispatch = store.dispatch
+  window.fetchSquad = fetchSquad
+  // TESTING END
+  
+  const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });

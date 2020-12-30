@@ -117,7 +117,7 @@ router.get('/', (req, res) => {
 //     .catch((err) => res.status(404).json({ nosquadsfound: "No squads found" }));
 // });
 
-//Squad show page
+// SHOW squad page
 router.get('/:id', (req, res) => {
   Squad.findById(req.params.id)
     .then(squad => res.json(squad))
@@ -126,7 +126,7 @@ router.get('/:id', (req, res) => {
     );
   });
   
-//Squad create
+// POST squad
 router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
@@ -149,81 +149,83 @@ router.post('/',
   });
   
   
-//squad update
+// Update Squad
+//------------------------------------------------------------------------------
+// router.put("/:id", (req, res) => {
+//   if (req.body.type === 'addRequest'){
+//     let id = req.params.id;  //body
+//     let update = { $push: { requests: req.body.newMemberId }}
+//     Squad.findByIdAndUpdate(id, update, {new: true})
+//     .then(squad => res.json(squad));
+//   }
+  
+//   if (req.body.type === 'declineRequest') {
+//     let id = req.params.id;
+//     let remove = { $pull: { requests: req.body.newMemberId }}
+//     Squad.findByIdAndUpdate(id, remove, {new: true}).then(squad => res.json(squad));
+//   }
+  
+//   if (req.body.type === 'acceptMember') {
+//     let id = req.params.id;    
+//     // let remove = { $pull: { requests: req.body.newMemberId }}
+//     // Squad.findByIdAndUpdate(id, remove, {new: true})
+//     let update = { $push: { members: req.body.newMemberId }, $pull: { requests: req.body.newMemberId }};
+//     Squad.findByIdAndUpdate(id, update, { new: true } ).then(squad => res.json(squad));
+//   }
+  
+//   if (req.body.type === 'removeMember') {
+//     let id = req.params.id;
+//     let remove = { $pull: { members: req.body.newMemberId }}
+//     Squad.findByIdAndUpdate(id, remove, {new: true}).then(squad => res.json(squad));
+//     }
+// });
+//------------------------------------------------------------------------------
 router.put("/:id", (req, res) => {
-  if (req.body.type === 'addRequest'){
-    let id = req.params.id;  //body
-    let update = { $push: { requests: req.body.newMemberId }}
-    Squad.findByIdAndUpdate(id, update, {new: true})
-    .then(squad => res.json(squad));
-  }
-  
-  if (req.body.type === 'declineRequest') {
     let id = req.params.id;
-    let remove = { $pull: { requests: req.body.newMemberId }}
-    Squad.findByIdAndUpdate(id, remove, {new: true}).then(squad => res.json(squad));
-  }
-  
-  if (req.body.type === 'acceptMember') {
-    let id = req.params.id;    
-    // let remove = { $pull: { requests: req.body.newMemberId }}
-    // Squad.findByIdAndUpdate(id, remove, {new: true})
-    let update = { $push: { members: req.body.newMemberId }, $pull: { requests: req.body.newMemberId }};
-    Squad.findByIdAndUpdate(id, update, { new: true } ).then(squad => res.json(squad));
-  }
-  
-  if (req.body.type === 'removeMember') {
-    let id = req.params.id;
-    let remove = { $pull: { members: req.body.newMemberId }}
-    Squad.findByIdAndUpdate(id, remove, {new: true}).then(squad => res.json(squad));
-    }
+    let update, remove;
+
+    switch(req.body.type) {
+        case 'addRequest':
+            update = { $push: { requests: req.body.newMemberId }};
+            Squad
+                .findByIdAndUpdate(id, update, {new: true})
+                .then(squad => res.json(squad));
+        case 'declineRequest':
+            remove = { $pull: { requests: req.body.newMemberId }}
+            Squad
+                .findByIdAndUpdate(id, remove, {new: true})
+                .then(squad => res.json(squad));
+        case 'acceptMember': 
+            // let remove = { $pull: { requests: req.body.newMemberId }}
+            // Squad.findByIdAndUpdate(id, remove, {new: true})
+            update = { $push: { members: req.body.newMemberId }, $pull: { requests: req.body.newMemberId }};
+            Squad
+                .findByIdAndUpdate(id, update, { new: true })
+                .then(squad => res.json(squad));
+        case 'removeMember':
+            remove = { $pull: { members: req.body.newMemberId }}
+            Squad
+                .findByIdAndUpdate(id, remove, {new: true})
+                .then(squad => res.json(squad));
+        case 'addMessage':
+            update = { $push: { messages: {
+                squad: req.body.squad,
+                sender: req.body.sender,
+                content: req.body.content 
+            }}}
+            Squad
+                .findByIdAndUpdate(id, update, {new: true})
+                .then(squad => res.json(squad))
+                .catch(err =>
+                    res.status(404).json({ nosquadfound: 'Could not process request.' })
+                );
+        default:
+            Squad.findById(req.params.id)
+                .then(squad => res.json(squad))
+                .catch(err =>
+                    res.status(404).json({ nosquadfound: 'Could not process request.' })
+                );
+    };
 });
   
-  
-  module.exports = router;
-  
-  
-  
-  // router.patch('/:id', (req, res) => {
-    //   const squad = Squad.findById(req.params.id)
-    
-    // })
-    
-    // 5fea74db4ab7ef31c0b94a37
-    // 5fea7355a8e58e3104bf79f7
-  
-  
-  // addRequest declineRequest declineMember removeMember 
-  
-  
-    
-    
-    
-    // router.get('/user/:user_id', (req, res) => {
-    //     Squad.find({user: req.params.user_id})
-    //         .then(squads => res.json(squads))
-    //         .catch(err =>
-    //             res.status(404).json({ nosquadsfound: 'No squads found from that user' }
-    //         )
-    //     );
-    // });
-    
-    
-    
-    
-    
-
-
-
-
-
-
-
-
-// 5fea1c8b721efa6fc37480bd
-
-
-//squadid
-//5fea29a7ec6c0280f5fefdf3
-//newUseId
-//5fe976e157c91efde5f904dd
+module.exports = router;

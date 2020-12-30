@@ -1,6 +1,27 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const MessageSchema = new Schema({
+    squad: {
+        type: String,
+        required: true,
+        ref: "Squad",
+    },
+    sender: {
+        type: String,
+        required: true,
+        ref: "User",
+    },
+    content: {
+        type: String
+    },
+    timestamp: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+
 const SquadSchema = new Schema({
   leader: {
     type: Schema.Types.ObjectId,
@@ -49,9 +70,7 @@ const SquadSchema = new Schema({
   //   required: true,
   //make a reference to games collection
   // },
-
+  messages: [MessageSchema],
 });
-
-
 
 module.exports = Squad = mongoose.model('squad', SquadSchema);

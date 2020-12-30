@@ -5,7 +5,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 const msp = (state, ownProps) => {
   // console.log(ownProps)
   return {
-    groupId: ownProps.squad._id
+    squadId: ownProps.squad._id
   }
 } 
 
