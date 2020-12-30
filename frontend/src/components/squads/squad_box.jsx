@@ -8,7 +8,8 @@ class SquadBox extends React.Component {
   }
   
   render() {
-    
+    // let requestToJoinSquad
+    // if 
     return (
       <div>
         <h3>
@@ -36,6 +37,7 @@ class SquadBox extends React.Component {
         >
           Request to Join Squad
         </button> */}
+        
         <span>{this.props.otherForm}</span>
       </div>
     );

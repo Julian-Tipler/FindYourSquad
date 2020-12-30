@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const User = require('./User');
+
 
 const MessageSchema = new Schema({
     squad: {
@@ -74,3 +76,6 @@ const SquadSchema = new Schema({
 });
 
 module.exports = Squad = mongoose.model('Squad', SquadSchema);
+
+
+// members: [User]

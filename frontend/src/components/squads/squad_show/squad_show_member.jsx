@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 
-class Member extends React.Component {
+class SquadShowMember extends React.Component {
     render() {
         return (
           <div>
@@ -17,4 +17,4 @@ class Member extends React.Component {
     }
 }
 
-export default Member
+export default SquadShowMember

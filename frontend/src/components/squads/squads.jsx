@@ -41,13 +41,14 @@ class Squad extends React.Component {
               squad={squad} 
               currentUserId={this.props.currentUserId} 
               updateSquad={this.props.updateSquad} 
+              game={squad.game}
               key={squad._id} 
               name={squad.name} 
               generalBio={squad.generalBio}
               skillLevel={squad.skillLevel} 
-              game={squad.game}
               squadSize={squad.squadSize}
               members={squad.members}
+              leader={squad.leader}
               />
           ))}
         </div>
