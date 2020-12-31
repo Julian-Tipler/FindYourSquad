@@ -10,7 +10,7 @@ const validateSquadInput = require('../../validation/squads');
 //index squad
 router.get('/', (req, res) => {
   Squad.find(req.query)
-    .populate('members')
+    .populate({ path: 'members', populate: { path: 'userStats' }})
     .populate('game')
     .sort({ date: -1})
     .then((squads) => res.json(squads))
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 // show squad page
 router.get('/:id', (req, res) => {
   Squad.findById(req.params.id)
-    .populate("members")
+    .populate({ path: 'members', populate: { path: 'userStats' }})
     .populate("requests")
     .populate("game")
     .then((squad) => res.json(squad))
