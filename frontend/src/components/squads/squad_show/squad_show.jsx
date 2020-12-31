@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import MessagesComponent from './messages_container';
 import InputComponent from './input_container';
@@ -6,9 +7,9 @@ import SquadShowMember from './squad_show_member'
 import './css_grid_system.css';
 
 class SquadShow extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     componentDidMount() {
         this.props.fetchSquad(this.props.squadId);

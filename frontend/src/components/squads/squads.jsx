@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import SquadBoxContainer from './squad_box_container';
 import SearchSquadContainer from './search_squad_container'
+import './squad_index.css'
 
 class Squad extends React.Component {
   constructor(props) {
@@ -28,10 +29,10 @@ class Squad extends React.Component {
 
   render() {
     if (this.props.squads.length === 0) {
-      return (<div>There are no Squads</div>)
+      return (<div className="squad-index-main">There are no Squads</div>)
     } else {
       return (
-        <div>
+        <div className="squad-index-main">
           <div>
             <SearchSquadContainer/>
           </div>

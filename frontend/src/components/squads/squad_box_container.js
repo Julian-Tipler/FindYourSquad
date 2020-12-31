@@ -12,7 +12,7 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch, ownProps) => {
   return{
     otherForm: (
-      <button onClick={() => dispatch (openModal( { word: 'request', squad: ownProps.squad} ))}>
+      <button className="request-button" onClick={() => dispatch (openModal( { word: 'request', squad: ownProps.squad} ))}>
         Request to Join Squad
       </button>
     ),
