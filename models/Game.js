@@ -3,28 +3,25 @@ const Schema = mongoose.Schema;
 
 
 const GameSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    squadSize: {
-        min: {
-            type: Number, required: false,
-        },
-        max: {
-            type: Number, required: false,
-        }
-    },
-    // images: {
-      
-    // },
-    stats: { 
-        type: Array, "default": []
-    },
-    timestamp: {
-        type: Date,
-        default: Date.now
-    }
+  name: {
+    type: String,
+    required: true,
+  },
+  squadSize: {
+    type: String,
+    required: true,
+  },
+  // images: {
+
+  // },
+  stats: {
+    type: Array,
+    default: [],
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 

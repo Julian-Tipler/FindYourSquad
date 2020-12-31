@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Squad = require('../../models/Squad');
-const User = require('../../models/User');
+const Game = require('../../models/Game');
 const validateSquadInput = require('../../validation/squads');
 
 //index squad
@@ -31,9 +31,9 @@ router.get('/:id', (req, res) => {
   });
   
 // create squad
-router.post('/',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
+router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    // const maxSquadSize = Game.findById(req.body.game)(game => game.squadSize)
+    
     const { errors, isValid } = validateSquadInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);
@@ -71,38 +71,58 @@ router.put("/:id/messages", (req, res) => {
 
 // update squad  
 router.put("/:id", (req, res) => {
-    let id = req.params.id;
+     console.log(req.body.type)
+     let id = req.params.id;
     let update, remove;
+ 
+    switch (req.body.type) {
+      case "addRequest":
+        update = { $push: { requests: req.body.newMemberId } };
+        Squad.findByIdAndUpdate(id, update, { new: true })
+          .then((squad) => res.json(squad))
+          .catch((err) =>
+            res.status(404).json({ nosquadfound: "Could not process request." })
+          );
+        break;
 
-    switch(req.body.type) {
-        case 'addRequest':
-            update = { $push: { requests: req.body.newMemberId }};
-            Squad
-                .findByIdAndUpdate(id, update, {new: true})
-                .then(squad => res.json(squad));
-        case 'declineRequest':
-            remove = { $pull: { requests: req.body.newMemberId }}
-            Squad
-                .findByIdAndUpdate(id, remove, {new: true})
-                .then(squad => res.json(squad));
-        case 'acceptMember': 
-            // let remove = { $pull: { requests: req.body.newMemberId }}
-            // Squad.findByIdAndUpdate(id, remove, {new: true})
-            update = { $push: { members: req.body.newMemberId }, $pull: { requests: req.body.newMemberId }};
-            Squad
-                .findByIdAndUpdate(id, update, { new: true })
-                .then(squad => res.json(squad));
-        case 'removeMember':
-            remove = { $pull: { members: req.body.newMemberId }}
-            Squad
-                .findByIdAndUpdate(id, remove, {new: true})
-                .then(squad => res.json(squad));
-        default:
-            Squad.findById(req.params.id)
-                .then(squad => res.json(squad))
-                .catch(err =>
-                    res.status(404).json({ nosquadfound: 'Could not process request.' })
-                );
+      case "declineRequest":
+        remove = { $pull: { requests: req.body.newMemberId } };
+        Squad.findByIdAndUpdate(id, remove, { new: true })
+          .then((squad) => res.json(squad))
+          .catch((err) =>
+            res.status(404).json({ nosquadfound: "Could not process request." })
+          );
+        break;
+
+      case "acceptMember":
+        // let remove = { $pull: { requests: req.body.newMemberId }}
+        // Squad.findByIdAndUpdate(id, remove, {new: true})
+        update = {
+          $push: { members: req.body.newMemberId },
+          $pull: { requests: req.body.newMemberId },
+        };
+        Squad.findByIdAndUpdate(id, update, { new: true })
+          .then((squad) => res.json(squad))
+          .catch((err) =>
+            res.status(404).json({ nosquadfound: "Could not process request." })
+          );
+        break;
+
+      case "removeMember":
+        remove = { $pull: { members: req.body.newMemberId } };
+        Squad.findByIdAndUpdate(id, remove, { new: true })
+          .then((squad) => res.json(squad))
+          .catch((err) =>
+            res.status(404).json({ nosquadfound: "Could not process request." })
+          );
+        break;
+
+      default:
+        Squad.findById(id)
+          .then((squad) => res.json(squad))
+          .catch((err) =>
+            res.status(404).json({ nosquadfound: "Could not process request." })
+          );
     };
 });
   

@@ -1,7 +1,7 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
 
-module.exports = function validateSquadInput(data) {
+module.exports = function validateSquadInput(data, squadSize) {
   let errors = {};
 
   data.name = validText(data.name) ? data.name : '';
@@ -10,6 +10,8 @@ module.exports = function validateSquadInput(data) {
   if (!Validator.isLength(data.name, { max: 60 })) {
     errors.name = 'Squad name must be less than 60 characters';
   }
+
+  // if (Validator.isLessThan())
 
   if (Validator.isEmpty(data.name)) {
     errors.name = 'Squad name is required';

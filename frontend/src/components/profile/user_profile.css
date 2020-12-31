@@ -1,0 +1,16 @@
+/* .header-nav-logo {
+    float: left;
+    padding-left: 20px;
+    padding-top: 10px;
+} */
+
+.up-nav-list {
+    float: right;
+    padding-right: 20px;
+}
+
+.up-nav-list > li {
+    float: left;
+    padding: 10px;
+    padding-right: 30px;
+}

@@ -54,10 +54,18 @@ class SquadCreate extends React.Component {
 
 
   render() {
-       if (Object.values(this.props.games).length === 0) {
+      if (Object.values(this.props.games).length === 0) {
         return <> </>
       }
- 
+        // let squadSizeDropdown = []
+        // for (let num = 2; num <= this.props.games[this.state.game].squadSize; num++) {
+        //   squadSizeDropdown.push(num)
+        // }
+        // console.log(squadSizeDropdown)
+
+        //   this.props.games
+
+      
     return (
 
       <div>
@@ -85,14 +93,23 @@ class SquadCreate extends React.Component {
                     <option key={`${game._id}`} value={`${game._id}`}>{game.name}</option>
                   );
                 })}
-         
             </select>
             <select onChange={this.update("squadSize")}>
               <option value="">Squad Size</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
+              <option value="4">4</option>
             </select>
+            {/* <select onChange={this.update("squadSize")}>
+              <option value="">Squad Size</option>
+              {squadSizeDropdown.map(num => {
+                return(
+                  <option key={`${num}`} value={`${num}`}>{num}</option>
+                )
+              })}
+            </select> */} 
+
             <select onChange={this.update("skillLevel")}>
               <option value="">Skill Level</option>
               <option value="Beginner">Beginner</option>
@@ -112,7 +129,7 @@ class SquadCreate extends React.Component {
 
 export default SquadCreate;
 
-
+{/* 
             // <input
             //   type="text"
             //   value={this.state.name}
@@ -143,4 +160,4 @@ export default SquadCreate;
             //   value={this.state.squadSize}
             //   onChange={this.update("squadSize")}
             //   placeholder="Squad Size"
-            // />
+            // /> */}

@@ -19,7 +19,7 @@ class NavBar extends React.Component {
         return (
             <div>
                 <Link to={'/squads'}>All Squads</Link>
-                <Link to={'/profile'}>Profile</Link>
+                <Link to={`/profile/${this.props.currentUserid}`}>Profile</Link>
                 <Link to={'/new_squad'}>Create a Squad</Link>
                 <button onClick={this.logoutUser}>Logout</button>
             </div>
