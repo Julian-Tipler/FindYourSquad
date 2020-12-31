@@ -54,11 +54,11 @@ const SquadSchema = new Schema({
     default: Date.now,
   },
   game: {
-    type: String,
-    required: false
-    // type: Schema.Types.ObjectId,
-    // ref: "Game",
+    // type: String,
     // required: false
+    type: Schema.Types.ObjectId,
+    ref: "Game",
+    required: false
   },
   skillLevel: {
     type: String,

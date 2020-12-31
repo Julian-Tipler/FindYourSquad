@@ -8,11 +8,11 @@ const passport = require("passport");
 const Game = require("../../models/Game");
 
 router.post("/", (req, res) => {
-
+    console.log(req.body)
     const newGame = new Game({
       name: req.body.name,
-      squadSize: req.body.squadSize,
-      stats: req.body.stats,
+      // squadSize: req.body.squadSize,
+      stats: req.body.stats
     });
 
     newGame.save().then((game) => res.json(game));
@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
 
 
 router.get("/", (req, res) => {
-  Squad.find(req.query)
+  Game.find()
     .then((games) => res.json(games))
     .catch((err) => res.status(404).json({ nogamesfound: "Could not retreive games" }));
 });

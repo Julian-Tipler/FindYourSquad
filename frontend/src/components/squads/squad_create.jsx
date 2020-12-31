@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 // import SquadBox from './squad_box';
 
 class SquadCreate extends React.Component {
@@ -20,6 +21,9 @@ class SquadCreate extends React.Component {
   // componentWillReceiveProps(nextProps) {
   //     this.setState({newSquad: nextProps.newSquad.text});
   // }
+  componentDidMount() {
+    this.props.fetchGames()
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -37,21 +41,8 @@ class SquadCreate extends React.Component {
     this.setState({ skillLevel: "" });
     this.setState({ game: "" });
     this.setState({ squadSize: "" });
+    this.props.history.push('/squads');
   }
-
-  // updateName() {
-  //   return (e) =>
-  //     this.setState({
-  //       name: e.currentTarget.value,
-  //     });
-  // }
-
-  // updateBio() {
-  //   return (e) =>
-  //     this.setState({
-  //       generalBio: e.currentTarget.value,
-  //     });
-  // }
 
   update(field) {
     return (e) =>
@@ -60,29 +51,41 @@ class SquadCreate extends React.Component {
       });
   }
 
+
+
   render() {
+       if (Object.values(this.props.games).length === 0) {
+        return <> </>
+      }
+ 
     return (
+
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-
             <input
-             type="text"
-            value={this.state.name}
+              type="text"
+              value={this.state.name}
               onChange={this.update("name")}
-             placeholder="Name your squad..."
-             />
-             <br />
+              placeholder="Name your squad..."
+            />
+            <br />
             <input
-            type="textarea"
-            value={this.state.generalBio}
-             onChange={this.update("generalBio")}
-             placeholder="Squad Bio"
+              type="textarea"
+              value={this.state.generalBio}
+              onChange={this.update("generalBio")}
+              placeholder="Squad Bio"
             />
             <select onChange={this.update("game")}>
               <option value="">Game</option>
-              <option value="Apex">Apex</option>
-              <option value="Call of Duty">Call of Duty</option>
+              {/* <option value="Apex">Apex</option>
+              <option value="Call of Duty">Call of Duty</option> */}
+                {this.props.games.map((game) => {
+                  return (
+                    <option key={`${game._id}`} value={`${game._id}`}>{game.name}</option>
+                  );
+                })}
+         
             </select>
             <select onChange={this.update("squadSize")}>
               <option value="">Squad Size</option>

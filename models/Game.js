@@ -18,10 +18,8 @@ const GameSchema = new Schema({
     // images: {
       
     // },
-
-    stats: {
-        type: Array,
-        required: false, 
+    stats: { 
+        type: Array, "default": []
     },
     timestamp: {
         type: Date,

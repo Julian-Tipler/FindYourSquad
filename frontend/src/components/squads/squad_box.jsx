@@ -16,13 +16,13 @@ class SquadBox extends React.Component {
           <Link to={`/squads/${this.props.squadId}`}>{this.props.name}</Link>
         </h3>
         {/* <h3>{this.props.name}</h3> */}
-        <span>{this.props.generalBio}</span>
-        <span>{this.props.skillLevel} </span>
-        <span>{this.props.game} </span>
-        <span>{this.props.squadSize}</span>
+        <span>{this.props.squad.generalBio}</span>
+        <span>{this.props.squad.skillLevel} </span>
+        <span>{this.props.squad.game.name} </span>
+        <span>{this.props.squad.squadSize}</span>
 
         <div>
-          {this.props.members.map((member) => {
+          {this.props.squad.members.map((member) => {
             return (
               <li key={member._id}>
                 <Member member={member} />

@@ -27,7 +27,7 @@ class Squad extends React.Component {
   }
 
   render() {
-    if (this.state.squads.length === 0) {
+    if (this.props.squads.length === 0) {
       return (<div>There are no Squads</div>)
     } else {
       return (
@@ -36,19 +36,19 @@ class Squad extends React.Component {
             <SearchSquadContainer/>
           </div>
           <h2>All Squads</h2>
-          {this.state.squads.map(squad => (
+          {this.props.squads.map(squad => (
             <SquadBoxContainer 
               squad={squad} 
               currentUserId={this.props.currentUserId} 
               updateSquad={this.props.updateSquad} 
-              game={squad.game}
+              // game={squad.game}
               key={squad._id} 
-              name={squad.name} 
-              generalBio={squad.generalBio}
-              skillLevel={squad.skillLevel} 
-              squadSize={squad.squadSize}
-              members={squad.members}
-              leader={squad.leader}
+              // name={squad.name} 
+              // generalBio={squad.generalBio}
+              // skillLevel={squad.skillLevel} 
+              // squadSize={squad.squadSize}
+              // members={squad.members}
+              // leader={squad.leader}
               />
           ))}
         </div>

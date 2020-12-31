@@ -11,6 +11,7 @@ const validateSquadInput = require('../../validation/squads');
 router.get('/', (req, res) => {
   Squad.find(req.query)
     .populate('members')
+    .populate('game')
     .sort({ date: -1})
     .then((squads) => res.json(squads))
     .catch((err) =>
@@ -21,10 +22,11 @@ router.get('/', (req, res) => {
 // show squad page
 router.get('/:id', (req, res) => {
   Squad.findById(req.params.id)
-    .populate('members')
-    .then(squad => res.json(squad))
-    .catch(err =>
-      res.status(404).json({ nosquadfound: 'No squad found with that ID' })
+    .populate("members")
+    .populate("game")
+    .then((squad) => res.json(squad))
+    .catch((err) =>
+      res.status(404).json({ nosquadfound: "No squad found with that ID" })
     );
   });
   
