@@ -33,7 +33,7 @@ class UserProfile extends React.Component{
                 <header className='user-profile-header'>
                     <nav className='user-profile-nav'>
                         {/* <img className='logo' src=""/> */}
-                        <ul className='up-nav-list'>
+                        {/* <ul className='up-nav-list'>
                             <li>
                                 <Link id="nav-home" className="btn" to="/">Home</Link>
                             </li>
@@ -46,7 +46,7 @@ class UserProfile extends React.Component{
                             <li>
                                 <Link id="nav-squad" className="btn" to="/squads">Squad</Link>
                             </li>
-                        </ul>
+                        </ul> */}
                     </nav>
                 </header>
                 <br/>

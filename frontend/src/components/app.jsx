@@ -8,7 +8,6 @@ import SquadsContainer from './squads/squads_container';
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-import ProfileContainer from './legacy_profile/profile_container';
 import SquadShowContainer from './squads/squad_show/squad_show_container';
 import SquadCreateContainer from './squads/squad_create_container';
 import UserProfileContainer from './profile/user_profile_container';
@@ -25,7 +24,6 @@ const App = () => (
       <ProtectedRoute exact path="/profile/:userId" component={UserProfileContainer} />
       <ProtectedRoute exact path="/squads/:squadId" component={SquadShowContainer} />
       <ProtectedRoute exact path="/squads" component={SquadsContainer} />
-      <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       <ProtectedRoute exact path="/new_squad" component={SquadCreateContainer} />
     </Switch>
   </div>
