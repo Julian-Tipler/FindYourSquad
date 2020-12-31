@@ -3,18 +3,31 @@ import { Link } from "react-router-dom";
 
 
 class SquadShowMember extends React.Component {
-    render() {
-        return (
-          <div>
-            <div>{this.props.member.username}</div>
-              <div>
-                <Link to={`/profile/${this.props.member._id}`}>
-                  Gamer Profile
-                </Link>
-              </div>
-            </div>
-        );
-    }
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   id: this.props.squad._id,
+    //   newMemberId: this.props.currentUserId,
+    //   type: "removeMember",
+    // };
+    // this.handleRemoveMember = this.handleRemoveMember.bind(this)
+  }
+
+  // handleRemoveMember() {
+  //   this.props.updateSquad(this.state);
+  // }
+
+  render() {
+    return (
+      <div>
+        <div>{this.props.member.username}</div>
+        <div>
+          <Link to={`/profile/${this.props.member._id}`}>Gamer Profile</Link>
+        </div>
+        <button>removeMember</button>
+      </div>
+    );
+  }
 }
 
 export default SquadShowMember
