@@ -17,11 +17,14 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 //   });
 // })
 
-// router.get('/user/:user_id', (req, res) => {
-//     User.find({user: req.params.user_id})
+// router.get('/user/:userId', (req, res) => {
+//     User.find({id: req.params.user_id})
+//         .populate("userStats", {
+//           select: 'Stat.stats'
+//         })
 //         .then(user => res.json(user))
 //         .catch(err =>
-//             res.status(404).json({ nosquadsfound: 'No user found' }    need something like this to get user profile
+//             res.status(404).json({ nouserfound: 'No user found' }  
 //         )
 //     );
 // });
