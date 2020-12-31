@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const User = require('./User');
+const Game = require('./Game')
 
 const MessageSchema = new Schema({
     squad: {
@@ -25,7 +27,7 @@ const MessageSchema = new Schema({
 const SquadSchema = new Schema({
   leader: {
     type: Schema.Types.ObjectId,
-    ref: "users",
+    ref: "User",
   },
   name: {
     type: String,
@@ -38,13 +40,13 @@ const SquadSchema = new Schema({
   members: [
     {
       type: Schema.Types.ObjectId,
-      ref: "users",
+      ref: "User",
     },
   ],  
   requests: [
     {
       type: Schema.Types.ObjectId,
-      ref: "users",
+      ref: "User",
     },
   ],
   date: {
@@ -52,8 +54,11 @@ const SquadSchema = new Schema({
     default: Date.now,
   },
   game: {
-    type: String,
-    required: true
+    // type: String,
+    // required: false
+    type: Schema.Types.ObjectId,
+    ref: "Game",
+    required: false
   },
   skillLevel: {
     type: String,
@@ -73,4 +78,7 @@ const SquadSchema = new Schema({
   messages: [MessageSchema],
 });
 
-module.exports = Squad = mongoose.model('squad', SquadSchema);
+module.exports = Squad = mongoose.model('Squad', SquadSchema);
+
+
+// members: [User]

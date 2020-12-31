@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
-
+  // window.getStore() = store.getStore
   // TESTING START
   window.dispatch = store.dispatch
   window.fetchSquad = fetchSquad

@@ -1,16 +1,22 @@
-import {
-    getSquad,
-    getSquads, 
-    getUserSquads, 
-    formSquad, 
-    editSquad, 
-    getFilteredSquads 
-} from '../util/squad_api_util';
+// import {
+//     getSquad,
+//     getSquads, 
+//     getUserSquads, 
+//     formSquad,
+//     postMessage, 
+//     editSquad, 
+//     getFilteredSquads 
+// } from '../util/squad_api_util';
+
+import * as APISquad from '../util/squad_api_util';
 
 export const RECEIVE_SQUAD = "RECEIVE_SQUAD";
 export const RECEIVE_SQUADS = "RECEIVE_SQUADS";
 export const RECEIVE_USER_SQUADS = "RECEIVE_USER_SQUADS";
 export const RECEIVE_NEW_SQUAD = "RECEIVE_NEW_SQUAD";
+export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
+
+
 
 export const receiveSquad = squad => ({
   type: RECEIVE_SQUAD,
@@ -35,37 +41,43 @@ export const receiveNewSquad = squad => ({
 
 
 export const fetchSquad = id => dispatch => (
-  getSquad(id)
+  APISquad.getSquad(id)
     .then(squad => dispatch(receiveSquad(squad)))
     .catch(err => console.log(err))
 );
 
 export const fetchSquads = () => dispatch => (
-  getSquads()
+  APISquad.getSquads()
     .then(squads => dispatch(receiveSquads(squads)))
     .catch(err => console.log(err))
 );
 
 export const fetchFilteredSquads = (searchParams) => dispatch => (
-  getFilteredSquads(searchParams)
+  APISquad.getFilteredSquads(searchParams)
     .then(squads => dispatch(receiveSquads(squads)))
     .catch(err => console.log(err))
 )
 
 export const fetchUserSquads = id => dispatch => (
-  getUserSquads(id)
+  APISquad.getUserSquads(id)
     .then(squads => dispatch(receiveUserSquads(squads)))
     .catch(err => console.log(err))
 );
 
 export const createSquad = data => dispatch => (
-  formSquad(data)
+  APISquad.formSquad(data)
     .then(squad => dispatch(receiveNewSquad(squad)))
     .catch(err => console.log(err))
 );
 
 export const updateSquad = data => dispatch => (
-  editSquad(data)
+  APISquad.editSquad(data)
     .then((squad) => dispatch(receiveNewSquad(squad)))
+    .catch(err => console.log(err))
+);
+
+export const postMessage = data => dispatch => (
+  APISquad.postMessage(data)
+    .then((squad) => dispatch(receiveSquad(squad)))
     .catch(err => console.log(err))
 );

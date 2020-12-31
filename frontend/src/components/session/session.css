@@ -1,0 +1,78 @@
+body {
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #0d0c22;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+   
+}
+
+/* div {
+    display: block;
+} */
+
+
+.session-container {
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+
+
+.auth-sidebar-section {
+    display: block;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -ms-flex-positive: 1;
+    font-size: 14px;
+    line-height: 14px;
+    color: inherit;
+    padding: 25px 64px 35px;
+    margin: 0;
+    width: 514px;
+}
+
+
+.auth-sidebar-div {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+.auth-sidebar-header {
+    padding: 64px 64px 30px;
+    display: block;
+}
+
+.main-auth-right {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+
+.session-form-div {
+    width: 100%;
+    max-width: 416px;
+    margin: auto;
+}

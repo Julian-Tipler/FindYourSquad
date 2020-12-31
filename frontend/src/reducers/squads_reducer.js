@@ -1,8 +1,8 @@
-import { 
+import {
     RECEIVE_SQUAD,
     RECEIVE_SQUADS, 
     RECEIVE_USER_SQUADS, 
-    RECEIVE_NEW_SQUAD 
+    RECEIVE_NEW_SQUAD
 } from '../actions/squad_actions';
   
   const SquadsReducer = (state = { all: {}, currentSquad: {}, user: {}, new: undefined }, action) => {

@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require("./routes/api/users");
 const squads = require("./routes/api/squads");
+const games = require("./routes/api/games")
+
+//heroku stuff
+
 // const path = require('path');
 
 // if (process.env.NODE_ENV === 'production') {
@@ -31,11 +35,12 @@ mongoose
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/squads", squads);
+app.use("/api/games", games)
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
