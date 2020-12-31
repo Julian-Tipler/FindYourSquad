@@ -23,6 +23,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Squad.findById(req.params.id)
     .populate("members")
+    .populate("requests")
     .populate("game")
     .then((squad) => res.json(squad))
     .catch((err) =>
@@ -73,7 +74,7 @@ router.put("/:id/messages", (req, res) => {
 router.put("/:id", (req, res) => {
      console.log(req.body.type)
      let id = req.params.id;
-    let update, remove;
+     let update, remove;
  
     switch (req.body.type) {
       case "addRequest":

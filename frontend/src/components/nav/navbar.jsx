@@ -16,7 +16,6 @@ class NavBar extends React.Component {
 
   getLinks() {
       if (this.props.loggedIn) {
-        console.log(this.props.currentUserId)
         return (
             <div>
                 <Link to={'/squads'}>All Squads</Link>
