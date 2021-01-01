@@ -9,14 +9,19 @@ const validateSquadInput = require('../../validation/squads');
 
 //index squad
 router.get('/', (req, res) => {
-  Squad.find(req.query)
-    .populate({ path: 'members', populate: { path: 'userStats' }})
-    .populate('game')
-    .sort({ date: -1})
-    .then((squads) => res.json(squads))
-    .catch((err) =>
-        res.status(404).json({ nosquadsfound: "No squads found" })
-    );
+  // if (!req.query.game){
+  //   Squad.find()
+  //     .populate()
+  // } else {
+    Squad.find(req.query) // game: Call of Duty
+      .populate({ path: 'members', populate: { path: 'userStats', match: {game: req.query.game }}})
+      .populate('game')
+      .sort({ date: -1})
+      .then((squads) => res.json(squads))
+      .catch((err) =>
+          res.status(404).json({ nosquadsfound: "No squads found" })
+      );
+  // }
 })
 
 // show squad page

@@ -24,10 +24,12 @@ const UserSchema = new Schema({
     type: String, 
     required: false 
   },
-  userStats: [{
-    type: Schema.Types.ObjectId,
-    ref: "Stat",
-  }],
+  userStats: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Stat",
+    },
+  ],
 }, {
   timestamps: true
 })

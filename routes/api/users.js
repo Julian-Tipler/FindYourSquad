@@ -8,6 +8,8 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const Stat = require("../../models/Stat");
+const Game = require("../../models/Game");
+const Squad = require("../../models/Squad");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -18,17 +20,43 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 //   });
 // })
 
-// router.get('/user/:userId', (req, res) => {
-//     User.find({id: req.params.user_id})
-//         .populate("userStats", {
-//           select: 'Stat.stats'
-//         })
-//         .then(user => res.json(user))
-//         .catch(err =>
-//             res.status(404).json({ nouserfound: 'No user found' }  
-//         )
-//     );
+//Returns user state
+router.get('/:userId', (req, res) => {
+    User.findById(req.params.userId)
+        .populate("userStats")
+        // {
+        //   select: 'Stat.stats'
+        // }
+        .then(user => res.json(user))
+        .catch(err =>
+            res.status(404).json({ nouserfound: 'No user found' }  
+        )
+    );
+});
+
+
+// //Updates user
+
+// router.put('/:userId', (req, res) => {
+//   console.log(req.body);
+//   console.log(req.params.userId);
+//   let update = { $push: { userStats: req.body.newGameStatsId } };
+
+//   User.findByIdAndUpdate(req.params.userId, update, { new: true })
+//     .then((stat) => res.json(stat))
+//     .catch(err =>
+//         res.status(404).json({ dataTypeError: 'Wrong data type' }  
+//     )
+//   );
 // });
+
+  //  Squad.findByIdAndUpdate(id, update, { new: true })
+  //         .then((squad) => res.json(squad))
+  //         .catch((err) =>
+  //           res.status(404).json({ nosquadfound: "Could not process request." })
+
+
+
 
 
 router.post("/register", (req, res) => {
@@ -56,7 +84,29 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             .then(user => {
+
+              //makes new empty stats for each game when new user is made, one option of a way of doing it
+              // Game.find().then(games => {
+              //   games.forEach(game=> {
+              //     const newStat = new Stat({
+              //       user: user.id,
+              //       game: game._id,
+              //       gameName: game.name,
+              //       stats: {}
+
+              //   });
+              //       newStat.save().then((stat) => res.json(stat));
+              //   })
+              // })
+               
+              ///
+
+
               const payload = { id: user.id, username: user.username };
+              
+              
+              
+           
 
               jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                 res.json({
@@ -107,6 +157,53 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+
+router.post("/:id/stats", passport.authenticate('jwt', { session: false }), (req, res) => {
+// user id
+//     stats/gameId,  (stats: {"kd": })
+
+    const newStat = new Stat({
+        user: req.params.id,
+        game: req.body.gameId,
+        gameName: req.body.gameName,
+        stats: req.body.stats
+    });
+
+    newStat.save().then((stat) => {
+
+      let update = { $push: { userStats: stat._id } };
+
+      User.findByIdAndUpdate(req.params.id, update, { new: true })
+        .then((user) => res.json(user))
+
+    });
+})
+
+
+router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req, res) => {
+
+    
+    Stat.findByIdAndUpdate(req.body.statId, {stats : req.body.stats}, {new: true})
+      .then(stat => res.json(stat))
+
+})
+ 
+    
+
+
+// router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req, res) => {
+// // user id
+// //     stats/gameId,  (stats: {"kd": })
+//     const statId = req.params.id
+    
+//     Stat.findByIdAndUpdate(statId, {stats: req.body.stats}, { new: true })
+//         .then((stat) => res.json(stat))
+//         .catch((err) =>
+//             res.status(404).json({ nostatfound: "Could not process request." })
+//         );
+    
+// });
 
 
 

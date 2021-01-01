@@ -16,6 +16,10 @@ const StatSchema = new Schema({
   stats: {
     type: Object,
     required: false,    
+  },
+  gameName: {
+    type: String,
+    required: false,    
   }
 });
 
