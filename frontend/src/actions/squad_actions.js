@@ -1,14 +1,5 @@
-// import {
-//     getSquad,
-//     getSquads, 
-//     getUserSquads, 
-//     formSquad,
-//     postMessage, 
-//     editSquad, 
-//     getFilteredSquads 
-// } from '../util/squad_api_util';
-
 import * as APISquad from '../util/squad_api_util';
+import MySocket from '../socket';
 
 export const RECEIVE_SQUAD = "RECEIVE_SQUAD";
 export const RECEIVE_SQUADS = "RECEIVE_SQUADS";
@@ -76,8 +67,13 @@ export const updateSquad = data => dispatch => (
     .catch(err => console.log(err))
 );
 
-export const postMessage = data => dispatch => (
-  APISquad.postMessage(data)
-    .then((squad) => dispatch(receiveSquad(squad)))
-    .catch(err => console.log(err))
-);
+export const postMessage = (data) => dispatch => {
+    return (
+        APISquad.postMessage(data)
+            .then((squad) => {
+                dispatch(receiveSquad(squad));
+                MySocket.getSocket().emit('new-message', squad);
+            })
+            .catch(err => console.log(err))
+    )
+};

@@ -52,12 +52,11 @@ router.post('/',
 
 // POST squad message
 router.put("/:id/messages", (req, res) => {
-    debugger
     let id = req.params.id;
     let update = { $push: { messages: {
         squad: req.body.squad,
         sender: req.body.sender,
-        content: req.body.content 
+        content: req.body.content
     }}};
     Squad
         .findByIdAndUpdate(id, update, {new: true})

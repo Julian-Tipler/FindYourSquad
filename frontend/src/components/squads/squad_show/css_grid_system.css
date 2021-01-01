@@ -27,6 +27,10 @@
     height: 75vh;
 }
 
+.messages-container {
+    overflow-y: scroll;
+}
+
 .item-bottom {
 
 }

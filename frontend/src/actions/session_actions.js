@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
+import MySocket from "../socket";
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
@@ -46,7 +47,7 @@ export const login = user => dispatch => (
 )
 
 export const logout = () => dispatch => {
-    localStorage.removeItem('jwtToken')
-    APIUtil.setAuthToken(false)
-    dispatch(logoutUser())
+    localStorage.removeItem('jwtToken');
+    APIUtil.setAuthToken(false);
+    dispatch(logoutUser());
 };
