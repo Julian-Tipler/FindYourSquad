@@ -7,18 +7,34 @@ const passport = require("passport");
 // const User = require("../../models/User");
 const Stat = require("../../models/Stat");
 
-// router.post("/", (req, res) => {
-//     console.log(req.body)
+// router.post("/", passport.authenticate('jwt', { session: false }), (req, res) => {
+// // user id
+// //     stats/gameId,  (stats: {"kd": })
+
 //     const newStat = new Stat({
-//       name: req.body.name,
-//       // squadSize: req.body.squadSize,
-//       stats: req.body.stats
+//         user: req.user.id,
+//         game: req.body.gameId,
+//         gameName: req.body.gameName,
+//         stats: req.body.stats
+
 //     });
 
-//     newStat.save().then((game) => res.json(game));
-//   }
-// );
+//     newStat.save().then((stat) => res.json(stat));
+    
+// });
 
+// router.put("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
+// // user id
+// //     stats/gameId,  (stats: {"kd": })
+//     const statId = req.params.id
+    
+//     Stat.findByIdAndUpdate(statId, {stats: req.body.stats}, { new: true })
+//         .then((stat) => res.json(stat))
+//         .catch((err) =>
+//             res.status(404).json({ nostatfound: "Could not process request." })
+//         );
+    
+// });
 
 // router.get("/", (req, res) => {
 //   Game.find()
@@ -27,3 +43,6 @@ const Stat = require("../../models/Stat");
 // });
 
 module.exports = router;
+
+
+

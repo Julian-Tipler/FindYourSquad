@@ -26,3 +26,20 @@ const GameSchema = new Schema({
 
 
 module.exports = Game = mongoose.model("Game", GameSchema);
+
+
+
+// [["K/D", "number"], "Total Kills", "Level", "Main"]
+
+// Stat
+
+// {
+//   "K/D": type: Number, 
+// }
+
+// {
+//   "K/D": Number, 
+// }
+
+// stat.K/D = Number
+// type: stat.K/D

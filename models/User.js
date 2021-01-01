@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Stat = require('./Stat')
+
 
 const UserSchema = new Schema({
   username: {
@@ -22,6 +24,12 @@ const UserSchema = new Schema({
     type: String, 
     required: false 
   },
+  userStats: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Stat",
+    },
+  ],
 }, {
   timestamps: true
 })

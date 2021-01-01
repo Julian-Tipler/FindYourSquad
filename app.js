@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require("./routes/api/users");
 const squads = require("./routes/api/squads");
-const games = require("./routes/api/games")
+const games = require("./routes/api/games");
+const stats = require("./routes/api/stats");
 
 //heroku stuff
 
@@ -40,7 +41,8 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/squads", squads);
-app.use("/api/games", games)
+app.use("/api/games", games);
+app.use("/api/stats", stats);
 
 const port = process.env.PORT || 5100;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
