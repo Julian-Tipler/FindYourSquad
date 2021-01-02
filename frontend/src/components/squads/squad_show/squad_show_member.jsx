@@ -19,6 +19,10 @@ class SquadShowMember extends React.Component {
 
   render() {
     console.log("render");
+
+    if (!this.props.member){
+      return <> </>
+    }
     return (
       <div>
         <div>{this.props.member.username}</div>

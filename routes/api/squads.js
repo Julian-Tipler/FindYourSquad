@@ -115,6 +115,9 @@ router.put("/:id", (req, res) => {
           $pull: { requests: req.body.requestId },
         };
         Squad.findByIdAndUpdate(id, update, { new: true })
+          .populate({ path: 'members', populate: { path: 'userStats' }})
+          .populate({ path: "requests", populate: {path: 'userStats'}})
+          .populate("game")
           .then((squad) => {
             let userUpdate = { $push: { squads: id } };
 
@@ -129,6 +132,9 @@ router.put("/:id", (req, res) => {
       case "removeMember":
         remove = { $pull: { members: req.body.memberId } };
         Squad.findByIdAndUpdate(id, remove, { new: true })
+            .populate({ path: 'members', populate: { path: 'userStats' }})
+            .populate({ path: "requests", populate: {path: 'userStats'}})
+            .populate("game")
           .then((squad) => res.json(squad))
           .catch((err) =>
             res.status(404).json({ nosquadfound: "Could not process request." })

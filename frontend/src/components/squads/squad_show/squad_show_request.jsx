@@ -16,13 +16,16 @@ class SquadShowRequest extends React.Component {
 
   handleAcceptMember(e) {
     e.preventDefault();
+
     this.state.type = "acceptMember";
+    // this.setState({type: "acceptMember"});
     this.props.updateSquad(this.state);
   }
 
   handleDeclineRequest(e) {
     e.preventDefault();
-    this.state.type = "declineRequest";
+    this.state.type = "acceptMember";
+    // this.setState({type: "declineRequest"});
     this.props.updateSquad(this.state);
   }
 

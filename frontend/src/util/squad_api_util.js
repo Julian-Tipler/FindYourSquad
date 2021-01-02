@@ -45,8 +45,8 @@ export const formSquad = data => {
 }
 
 export const postMessage = data => {
-  return axios.post(`/api/squads/${data.id}/messages`, data)
-}
+  return axios.put(`/api/squads/${data.squadId}/messages`, data)
+};
 
 export const editSquad = (data) => {
   return axios.put(`/api/squads/${data.id}`, data);
