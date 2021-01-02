@@ -11,7 +11,7 @@ class Profile extends React.Component {
     }
     
     UNSAFE_componentWillMount() {
-        console.log(this.props.currentUser.id)
+        // console.log(this.props.currentUser.id)
         this.props.fetchUserSquads(this.props.currentUser.id);
     }
 

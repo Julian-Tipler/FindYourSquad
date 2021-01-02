@@ -34,7 +34,7 @@ class SearchSquad extends React.Component {
     //     squadSize: this.state.squadSize,
     //     skillLevel: this.state.skillLevel,
     // };
-    console.log(searchParams);
+    // console.log(searchParams);
     this.props.fetchFilteredSquads(searchParams);
   }
 

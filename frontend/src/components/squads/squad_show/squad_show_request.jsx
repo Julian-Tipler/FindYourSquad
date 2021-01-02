@@ -12,6 +12,7 @@ class SquadShowRequest extends React.Component {
     };
     this.handleAcceptMember = this.handleAcceptMember.bind(this);
     this.handleDeclineRequest = this.handleDeclineRequest.bind(this);
+    this.renderButtons = this.renderButtons.bind(this)
   }
 
   handleAcceptMember(e) {
@@ -24,20 +25,37 @@ class SquadShowRequest extends React.Component {
 
   handleDeclineRequest(e) {
     e.preventDefault();
-    this.state.type = "acceptMember";
+    this.state.type = "declineRequest";
     // this.setState({type: "declineRequest"});
     this.props.updateSquad(this.state);
   }
 
+  renderButtons() {
+    if (this.props.currentUser.id===this.props.currentSquad.leader) {
+      return (
+        <div>
+          <button onClick={this.handleAcceptMember}>Accept Member</button>
+          <button onClick={this.handleDeclineRequest}>Decline Request</button>
+        </div>
+      )
+    }
+  }
+
   render() {
+
+
+
     return (
       <div>
         <div>{this.props.request.username}</div>
         <div>
           <Link to={`/profile/${this.props.request._id}`}>Gamer Profile</Link>
         </div>
-        <button onClick={this.handleAcceptMember}>Accept Member</button>
-        <button onClick={this.handleDeclineRequest}>Decline Request</button>
+        <div>
+          {this.renderButtons()}
+        </div>
+        
+
       </div>
     );
   }

@@ -41,12 +41,14 @@ const SquadSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "User",
+      unique: true,
     },
   ],  
   requests: [
     {
       type: Schema.Types.ObjectId,
       ref: "User",
+      unique: true,
     },
   ],
   date: {
@@ -68,6 +70,11 @@ const SquadSchema = new Schema({
     //change to Number
     type: Number,
     required: true
+  },
+  squadFull: {
+    type: Boolean,
+    required: true,
+    default: false
   },
   
   // game: {

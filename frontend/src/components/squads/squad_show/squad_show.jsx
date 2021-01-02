@@ -33,7 +33,6 @@ class SquadShow extends React.Component {
         if (Object.values(this.props.currentSquad).length === 0){
             return <> </>
         } else{
-            console.log(this.props.currentSquad.requests)
             return (
               <div className="container">
                 <div className="item-left">
@@ -48,6 +47,8 @@ class SquadShow extends React.Component {
                               member={member}
                               squadId={this.props.squadId}
                               updateSquad={this.props.updateSquad}
+                              currentUser={this.props.currentUser}
+                              currentSquad={this.props.currentSquad}
                             />
                           </li>
                         );
@@ -59,13 +60,14 @@ class SquadShow extends React.Component {
                     <div>
                       {(this.props.currentSquad.requests) ? 
                         this.props.currentSquad.requests.map((request, idx) => {
-                            console.log(request)
                             return (
                               <li key={`request-${idx}`}>
                                 <SquadShowRequest
                                   request={request}
                                   squadId={this.props.squadId}
                                   updateSquad={this.props.updateSquad}
+                                  currentUser={this.props.currentUser}
+                                  currentSquad={this.props.currentSquad}
                                 />
                               </li>
                             );
@@ -73,6 +75,7 @@ class SquadShow extends React.Component {
                       :
                       <div>No Requests</div>}
                     </div>
+                    {/* <span>{this.props.otherForm}</span> */}
                   </div>
                   <div className="requests"></div>
                 </div>

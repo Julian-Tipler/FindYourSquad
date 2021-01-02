@@ -88,7 +88,6 @@ router.put("/:id/messages", (req, res) => {
 
 // update squad  
 router.put("/:id", (req, res) => {
-     console.log(req.body.type)
      let id = req.params.id;
      let update, remove;
  
