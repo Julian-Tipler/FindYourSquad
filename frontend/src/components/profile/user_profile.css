@@ -36,3 +36,37 @@
     justify-content: space-evenly;
     width: 100%;
 }
+
+
+.user-stat-box {
+    border: 2px solid blue;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+/* .stat-item {
+    
+} */
+
+.user-stat-form {
+    margin-bottom: 10px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+
+.user-stat-section {
+    width: 30%;
+}
+
+.user-stat-form-section {
+    width: 30%;
+}
+
+/* body {
+    background: black;
+    color: white;
+} */

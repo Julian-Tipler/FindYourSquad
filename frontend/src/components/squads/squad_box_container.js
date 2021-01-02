@@ -5,7 +5,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 
 
 const msp = (state, ownProps) => {
-  console.log(ownProps)
+
   return {
     squadId: ownProps.squad._id,
     comingFromProfile: ownProps.comingFromProfile,

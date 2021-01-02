@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import './user_profile.css';
 import SquadBoxContainer from '../squads/squad_box_container'
+import GameStatsFormContainer from './game_stats_form_container'
 
 class UserProfile extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            game: "Apex Legends"
-        }
+        // this.state = {
+        //     game: "Apex Legends"
+        // }
 
 
     }
@@ -24,22 +25,22 @@ class UserProfile extends React.Component{
         if (!this.props.profileUser.squads){
             return <> </>
         }
-        let kd, level, main, bio;
-        if (this.state.game === "Apex Legends"){
-            kd = 1.5;
-            level = 500;
-            main = "Horizon";
-            bio = "I'm a casual apex player who can fit any playstyle";
+        // let kd, level, main, bio;
+        // if (this.state.game === "Apex Legends"){
+        //     kd = 1.5;
+        //     level = 500;
+        //     main = "Horizon";
+        //     bio = "I'm a casual apex player who can fit any playstyle";
 
-        } else {
-            // kd = 
-            // level = 
-            // main = 
-            // bio = 
-        }
+        // } else {
+        //     // kd = 
+        //     // level = 
+        //     // main = 
+        //     // bio = 
+        // }
         
 
-        const { profileUser} = this.props
+        const { profileUser, profileUserId} = this.props
 
         return(
             <div>
@@ -60,13 +61,30 @@ class UserProfile extends React.Component{
                 })}
                 <div className="user-profile-body">
                     <div className="user-profile-main">
-                        <div>
-                            <div>{this.state.game}</div>
-                            <li>{bio}</li>
-                            <li>{kd}</li>
-                            <li>{level}</li>
-                            <li>{main}</li>
-                        </div>   
+                        <div className="user-stat-section">
+                          {profileUser.userStats.map(stat => {
+                            return (
+                                <div className="user-stat-box">
+                                 <h2>{stat.gameName}</h2>
+                                {Object.keys(stat.stats).map(key => {
+                                    return (
+                                        
+                                        <h3 className="stat-item">{key}: {stat.stats[key]}</h3> 
+                                        
+                                    )
+                                })}
+                                </div> )
+                          })}
+                        </div>
+
+                {this.props.games.map((game) => {
+                  return (
+                    <div className="user-stat-form-section">
+                        <GameStatsFormContainer game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                    </div>
+                  );
+                })}   
+                        
                         
                     </div>
                     <div className="profile-squad-boxes">
@@ -121,3 +139,9 @@ export default UserProfile;
                             </li>
                         </ul> */
                     /* </nav> */}
+
+                      {/* <div>{this.state.game}</div>
+                            <li>{bio}</li>
+                            <li>{kd}</li>
+                            <li>{level}</li>
+                            <li>{main}</li> */}

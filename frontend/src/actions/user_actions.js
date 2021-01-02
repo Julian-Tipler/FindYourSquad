@@ -14,3 +14,9 @@ export const fetchUser = id => dispatch => (
     .then(user => dispatch(receiveUser(user)))
     .catch(err => console.log(err))
 );
+
+export const addUserStats = data => dispatch => (
+  APIUser.createUserStats(data)
+    .then(user => dispatch(receiveUser(user)))
+    .catch(err => console.log(err))
+);

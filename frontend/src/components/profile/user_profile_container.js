@@ -5,7 +5,7 @@ import { fetchGames } from '../../actions/game_actions'
 import UserProfile from './user_profile';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps)
+
   return {
     currentUserId: state.session.user.id,
     profileUserId: ownProps.match.params.userId,

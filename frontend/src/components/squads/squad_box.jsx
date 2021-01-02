@@ -6,11 +6,14 @@ import Member from './member'
 class SquadBox extends React.Component {
   constructor(props){
     super(props);
+    
   }
   
   render() {
     // let requestToJoinSquad
-
+    if (Object.values(this.props).length < 1){
+      return <> </>
+    }
     let chooseDisplay
     if (this.props.comingFromProfile === true) {
       chooseDisplay = 
