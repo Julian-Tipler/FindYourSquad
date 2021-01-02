@@ -49,11 +49,11 @@ export const fetchFilteredSquads = (searchParams) => dispatch => (
     .catch(err => console.log(err))
 )
 
-export const fetchUserSquads = id => dispatch => (
-  APISquad.getUserSquads(id)
-    .then(squads => dispatch(receiveUserSquads(squads)))
-    .catch(err => console.log(err))
-);
+// export const fetchUserSquads = id => dispatch => (
+//   APISquad.getUserSquads(id)
+//     .then(squads => dispatch(receiveUserSquads(squads)))
+//     .catch(err => console.log(err))
+// );
 
 export const createSquad = data => dispatch => (
   APISquad.formSquad(data)

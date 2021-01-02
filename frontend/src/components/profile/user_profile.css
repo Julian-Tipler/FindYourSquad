@@ -14,3 +14,12 @@
     padding: 10px;
     padding-right: 30px;
 }
+
+.user-profile-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-profile-main {
+    width: 75%;
+}

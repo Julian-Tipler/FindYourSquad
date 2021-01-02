@@ -31,9 +31,9 @@ export const getFilteredSquads = (searchParams) => {
   return axios.get(`/api/squads/${serialize(searchParams)}`);
 };
 
-export const getUserSquads = (id) => {
-  return axios.get(`/api/squads/user/${id}`);
-};
+// export const getUserSquads = (id) => {
+//   return axios.get(`/api/squads/user/${id}`);
+// };
 
 
 // export const getUser = id => {
