@@ -21,25 +21,9 @@ class UserProfile extends React.Component{
 
     render() {
 
-        // console.log(this.props.profileUser.squads)
         if (!this.props.profileUser.squads){
             return <> </>
         }
-        // let kd, level, main, bio;
-        // if (this.state.game === "Apex Legends"){
-        //     kd = 1.5;
-        //     level = 500;
-        //     main = "Horizon";
-        //     bio = "I'm a casual apex player who can fit any playstyle";
-
-        // } else {
-        //     // kd = 
-        //     // level = 
-        //     // main = 
-        //     // bio = 
-        // }
-        
-
         const { profileUser, profileUserId} = this.props
 
         return(
@@ -63,6 +47,7 @@ class UserProfile extends React.Component{
                     <div className="user-profile-main">
                         <div className="user-stat-section">
                           {profileUser.userStats.map(stat => {
+                              
                             return (
                                 <div className="user-stat-box">
                                  <h2>{stat.gameName}</h2>
@@ -77,33 +62,27 @@ class UserProfile extends React.Component{
                           })}
                         </div>
 
-                {this.props.games.map((game) => {
-                  return (
-                    <div className="user-stat-form-section">
-                        <GameStatsFormContainer game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
-                    </div>
-                  );
-                })}   
-                        
-                        
+                    {this.props.games.map((game) => {
+                        // if (game.id )
+                        if (profileUser.userStats.map(stat => stat.game === game._id).length > 0){
+                            return <> </>
+                        }
+                        return (
+                        <div className="user-stat-form-section">
+                            <GameStatsFormContainer game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                        </div>
+                        );
+                    })}   
+                            
                     </div>
                     <div className="profile-squad-boxes">
                         <h3>{profileUser.username}'s Squads</h3>
                         {profileUser.squads.map(squad => (
-                            
                             <SquadBoxContainer 
                             squad={squad} 
                             currentUserId={this.props.currentUserId} 
-                            // updateSquad={this.props.updateSquad} 
-                            // game={squad.game}
                             key={squad._id} 
                             comingFromProfile={true}
-                            // name={squad.name} 
-                            // generalBio={squad.generalBio}
-                            // skillLevel={squad.skillLevel} 
-                            // squadSize={squad.squadSize}
-                            // members={squad.members}
-                            // leader={squad.leader}
                             />
                         ))}
                         </div>
@@ -112,36 +91,7 @@ class UserProfile extends React.Component{
 
             </div>
         )
-
     }
-
 }
 
-
 export default UserProfile;
-
-
-
-                {/* <nav className='user-profile-nav'>
-                        {/* <img className='logo' src=""/> */
-                        /* <ul className='up-nav-list'>
-                            <li>
-                                <Link id="nav-home" className="btn" to="/">Home</Link>
-                            </li>
-                            <li>
-                                <Link id="nav-profile" className="btn" to="/profile">Profile</Link>
-                            </li>
-                            <li>
-                                <p>Notifications</p>
-                            </li>
-                            <li>
-                                <Link id="nav-squad" className="btn" to="/squads">Squad</Link>
-                            </li>
-                        </ul> */
-                    /* </nav> */}
-
-                      {/* <div>{this.state.game}</div>
-                            <li>{bio}</li>
-                            <li>{kd}</li>
-                            <li>{level}</li>
-                            <li>{main}</li> */}

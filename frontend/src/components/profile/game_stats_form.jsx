@@ -26,7 +26,7 @@ class GameStatsForm extends React.Component {
     e.preventDefault();
     let data = {
       id: this.props.profileUser._id,
-      game: this.props.game._id,
+      gameId: this.props.game._id,
       gameName: this.props.game.name,
       stats: this.state
     };
@@ -53,6 +53,7 @@ class GameStatsForm extends React.Component {
     //   if (Object.values(this.props.games).length === 0) {
     //     return <> </>
     //   }
+    console.log(this.props.game._id)
       
     return (
 
