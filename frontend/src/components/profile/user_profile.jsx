@@ -7,9 +7,10 @@ import GameStatsFormContainer from './game_stats_form_container'
 class UserProfile extends React.Component{
     constructor(props){
         super(props);
+        // if (this.props.games[0] !== undefined){
         // this.state = {
-        //     game: "Apex Legends"
-        // }
+        //     gameState: this.props.games[0]
+        // }}
 
 
     }
@@ -17,11 +18,19 @@ class UserProfile extends React.Component{
     componentDidMount(){
         this.props.fetchUser(this.props.profileUserId)
         this.props.fetchGames()
+        .then(games => 
+         this.setState({gameState:games.games.data[0]._id})   )
+        
     }
 
     render() {
+        // {
+        //     // this.setState({gameState: this.props.games[0]._id})
+        //     return <> </>
+        // }
+        console.log(this.state)
 
-        if (!this.props.profileUser.squads){
+        if (!this.props.profileUser.squads || !this.state){
             return <> </>
         }
         const { profileUser, profileUserId} = this.props
@@ -40,36 +49,37 @@ class UserProfile extends React.Component{
                 
                 {this.props.games.map((game) => {
                   return (
-                    <button key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
+                    <button onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
                   );
                 })}
                 <div className="user-profile-body">
                     <div className="user-profile-main">
                         <div className="user-stat-section">
                           {profileUser.userStats.map(stat => {
-                              
-                            return (
-                                <div className="user-stat-box">
-                                 <h2>{stat.gameName}</h2>
-                                {Object.keys(stat.stats).map(key => {
-                                    return (
-                                        
-                                        <h3 className="stat-item">{key}: {stat.stats[key]}</h3> 
-                                        
-                                    )
-                                })}
-                                </div> )
+                            if (stat.game === this.state.gameState){
+                                return (
+                                    <div className="user-stat-box">
+                                    <h2>{stat.gameName}</h2>
+                                    {Object.keys(stat.stats).map(key => {
+                                        return (
+                                            
+                                            <h3 className="stat-item">{key}: {stat.stats[key]}</h3> 
+                                            
+                                        )
+                                    })}
+                                    </div> )
+                            }
                           })}
                         </div>
 
                     {this.props.games.map((game) => {
                         // if (game.id )
-                        if (profileUser.userStats.map(stat => stat.game === game._id).length > 0){
+                        if (game._id !== this.state.gameState){
                             return <> </>
                         }
                         return (
                         <div className="user-stat-form-section">
-                            <GameStatsFormContainer game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                            <GameStatsFormContainer type="create" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
                         </div>
                         );
                     })}   
