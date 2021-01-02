@@ -72,7 +72,7 @@ export const createSquad = data => dispatch => (
 
 export const updateSquad = data => dispatch => (
   APISquad.editSquad(data)
-    .then((squad) => dispatch(receiveNewSquad(squad)))
+    .then((squad) => dispatch(receiveSquad(squad)))
     .catch(err => console.log(err))
 );
 

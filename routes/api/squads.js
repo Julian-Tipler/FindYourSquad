@@ -127,7 +127,7 @@ router.put("/:id", (req, res) => {
         break;
 
       case "removeMember":
-        remove = { $pull: { members: req.body.requestId } };
+        remove = { $pull: { members: req.body.memberId } };
         Squad.findByIdAndUpdate(id, remove, { new: true })
           .then((squad) => res.json(squad))
           .catch((err) =>

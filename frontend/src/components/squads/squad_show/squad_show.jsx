@@ -30,7 +30,11 @@ class SquadShow extends React.Component {
                       {this.props.currentSquad.members.map((member) => {
                         return (
                           <li key={member._id}>
-                            <SquadShowMember member={member} />
+                            <SquadShowMember
+                              member={member}
+                              squadId={this.props.squadId}
+                              updateSquad={this.props.updateSquad}
+                            />
                           </li>
                         );
                       })}
@@ -41,9 +45,13 @@ class SquadShow extends React.Component {
                         this.props.currentSquad.requests.map((request) => {
                             console.log(request)
                             return (
-                            <li key={request._id}>
-                                <SquadShowRequest request={request} />
-                            </li>
+                              <li key={request._id}>
+                                <SquadShowRequest
+                                  request={request}
+                                  squadId={this.props.squadId}
+                                  updateSquad={this.props.updateSquad}
+                                />
+                              </li>
                             );
                         })
                       :
