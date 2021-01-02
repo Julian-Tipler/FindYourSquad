@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
   //     .populate()
   // } else {
     Squad.find(req.query) // game: Call of Duty
-      .populate({ path: 'members', populate: { path: 'userStats', match: {game: req.query.game }}})
+      .populate({ path: 'members', populate: { path: 'userStats'}}) //, match: {game: req.query.game }
       .populate('game')
       .sort({ date: -1})
       .then((squads) => res.json(squads))
@@ -55,7 +55,14 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
       squadSize: req.body.squadSize
     });
     
-    newSquad.save().then(squad => res.json(squad));
+    newSquad.save().then(squad => {
+      let update = { $push: { squads: squad._id } };
+
+      User.findByIdAndUpdate(req.user.id, update, { new: true })
+        .then((user) => res.json(squad))
+     //res.json(squad));
+    })
+
   });
 
 // POST squad message
@@ -108,7 +115,12 @@ router.put("/:id", (req, res) => {
           $pull: { requests: req.body.newMemberId },
         };
         Squad.findByIdAndUpdate(id, update, { new: true })
-          .then((squad) => res.json(squad))
+          .then((squad) => {
+            let userUpdate = { $push: { squads: id } };
+
+            User.findByIdAndUpdate(req.body.newMemberId, userUpdate, { new: true })
+              .then((user) => res.json(squad))
+          })
           .catch((err) =>
             res.status(404).json({ nosquadfound: "Could not process request." })
           );

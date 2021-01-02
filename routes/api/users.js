@@ -125,8 +125,8 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
-  console.log(req.body)
-  debugger
+  // console.log(req.body)
+  // debugger
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -189,7 +189,10 @@ router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req,
 
 })
  
-    
+  // userId param
+  // game_id body
+  // game_name body
+  // stats body  {kd: 5, kills: 5}
 
 
 // router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req, res) => {
