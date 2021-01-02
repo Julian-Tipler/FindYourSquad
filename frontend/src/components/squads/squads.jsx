@@ -38,6 +38,7 @@ class Squad extends React.Component {
           </div>
           <h2>All Squads</h2>
           {this.props.squads.map(squad => (
+            
             <SquadBoxContainer 
               squad={squad} 
               currentUserId={this.props.currentUserId} 

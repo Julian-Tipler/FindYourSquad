@@ -55,7 +55,8 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
       squadSize: req.body.squadSize
     });
     
-    newSquad.save().then(squad => {
+    newSquad.save()
+    .then(squad => {
       let update = { $push: { squads: squad._id } };
 
       User.findByIdAndUpdate(req.user.id, update, { new: true })
@@ -76,6 +77,9 @@ router.put("/:id/messages", (req, res) => {
     }}};
     Squad
         .findByIdAndUpdate(id, update, {new: true})
+        .populate({ path: 'members', populate: { path: 'userStats' }})
+        .populate({ path: "requests", populate: {path: 'userStats'}})
+        .populate("game")
         .then(squad => res.json(squad))
         .catch(err =>
             res.status(404).json({ nosquadfound: 'Could not process request.' })
@@ -92,6 +96,9 @@ router.put("/:id", (req, res) => {
       case "addRequest":
         update = { $push: { requests: req.body.newMemberId } };
         Squad.findByIdAndUpdate(id, update, { new: true })
+            .populate({ path: 'members', populate: { path: 'userStats' }})
+            .populate({ path: "requests", populate: {path: 'userStats'}})
+            .populate("game")
           .then((squad) => res.json(squad))
           .catch((err) =>
             res.status(404).json({ nosquadfound: "Could not process request." })
@@ -101,6 +108,9 @@ router.put("/:id", (req, res) => {
       case "declineRequest":
         remove = { $pull: { requests: req.body.requestId } };
         Squad.findByIdAndUpdate(id, remove, { new: true })
+            .populate({ path: 'members', populate: { path: 'userStats' }})
+            .populate({ path: "requests", populate: {path: 'userStats'}})
+            .populate("game")
           .then((squad) => res.json(squad))
           .catch((err) =>
             res.status(404).json({ nosquadfound: "Could not process request." })
@@ -135,7 +145,12 @@ router.put("/:id", (req, res) => {
             .populate({ path: 'members', populate: { path: 'userStats' }})
             .populate({ path: "requests", populate: {path: 'userStats'}})
             .populate("game")
-          .then((squad) => res.json(squad))
+          .then((squad) => {
+            let userUpdate = { $pull: { squads: id } };
+
+            User.findByIdAndUpdate(req.body.memberId, userUpdate, { new: true })
+              .then((user) => res.json(squad))
+          })
           .catch((err) =>
             res.status(404).json({ nosquadfound: "Could not process request." })
           );
