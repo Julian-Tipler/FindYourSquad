@@ -8,7 +8,6 @@ const passport = require("passport");
 const Game = require("../../models/Game");
 
 router.post("/", (req, res) => {
-    console.log(req.body)
     const newGame = new Game({
       name: req.body.name,
       // squadSize: req.body.squadSize,
