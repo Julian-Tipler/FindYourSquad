@@ -15,6 +15,7 @@ class UserProfile extends React.Component{
 
     componentDidMount(){
         this.props.fetchUser(this.props.profileUserId)
+        this.props.fetchGames()
     }
 
     render() {
@@ -44,12 +45,19 @@ class UserProfile extends React.Component{
             <div>
                 <header className='user-profile-header'>
                         <h2>{profileUser.username}</h2>
-                       
+                       <div className="user-header-div">
+                           <span>Bio:{`${profileUser.bio}`}</span>
+                           <span>Platform:{`${profileUser.platform}`}</span>
+                           
+                           <span>Community Rating:{`${profileUser.communityRating}`}</span>
+                       </div>
                 </header>
-
                 
-                <button id="COD-button">Call of Duty</button>
-                <button id="Apex-button">Apex Legends</button>
+                {this.props.games.map((game) => {
+                  return (
+                    <button key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
+                  );
+                })}
                 <div className="user-profile-body">
                     <div className="user-profile-main">
                         <div>
@@ -62,6 +70,7 @@ class UserProfile extends React.Component{
                         
                     </div>
                     <div className="profile-squad-boxes">
+                        <h3>{profileUser.username}'s Squads</h3>
                         {profileUser.squads.map(squad => (
                             
                             <SquadBoxContainer 

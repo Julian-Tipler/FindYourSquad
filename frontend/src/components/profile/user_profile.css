@@ -20,6 +20,19 @@
     flex-direction: row;
 }
 
+.user-profile-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .user-profile-main {
     width: 75%;
+}
+
+
+.user-header-div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 }
