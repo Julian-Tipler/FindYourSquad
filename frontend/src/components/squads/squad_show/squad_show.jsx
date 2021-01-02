@@ -38,9 +38,10 @@ class SquadShow extends React.Component {
               <div className="container">
                 <div className="item-left">
                   <div className="members">
-                      <h2>Members</h2>
+                      <h2>Members:</h2>
                     <div>
-                      {this.props.currentSquad.members.map((member, idx) => {
+                      {(this.props.currentSquad.requests) ? 
+                      this.props.currentSquad.members.map((member, idx) => {
                         return (
                           <li key={`member-${idx}`}>
                             <SquadShowMember
@@ -50,7 +51,9 @@ class SquadShow extends React.Component {
                             />
                           </li>
                         );
-                      })}
+                      })
+                      :
+                    <div>No Requests</div>}
                     </div>
                     <h2>Requests:</h2>
                     <div>
