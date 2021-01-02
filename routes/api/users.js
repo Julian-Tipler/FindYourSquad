@@ -42,8 +42,12 @@ router.put('/:userId', (req, res) => {
   User.findByIdAndUpdate(req.params.userId, update, { new: true })
     .then((user) => res.json(user))
     .catch(err =>
-        res.status(404).json({ dataTypeError: 'Wrong data type' }  ))
+        res.status(404).json({ dataTypeError: 'Wrong data type or no user found' }  ))
 });
+
+
+///need user extra fields (outside of username and password) to be validated, but first need to 
+// see if the info will be input during registration or a put action afterwards
 
 
 
