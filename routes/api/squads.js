@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Squad.findById(req.params.id)
     .populate({ path: 'members', populate: { path: 'userStats' }})
-    .populate("requests")
+    .populate({ path: "requests", populate: {path: 'userStats'}})
     .populate("game")
     .then((squad) => res.json(squad))
     .catch((err) =>
@@ -99,7 +99,7 @@ router.put("/:id", (req, res) => {
         break;
 
       case "declineRequest":
-        remove = { $pull: { requests: req.body.newMemberId } };
+        remove = { $pull: { requests: req.body.requestId } };
         Squad.findByIdAndUpdate(id, remove, { new: true })
           .then((squad) => res.json(squad))
           .catch((err) =>
@@ -111,14 +111,14 @@ router.put("/:id", (req, res) => {
         // let remove = { $pull: { requests: req.body.newMemberId }}
         // Squad.findByIdAndUpdate(id, remove, {new: true})
         update = {
-          $push: { members: req.body.newMemberId },
-          $pull: { requests: req.body.newMemberId },
+          $push: { members: req.body.requestId },
+          $pull: { requests: req.body.requestId },
         };
         Squad.findByIdAndUpdate(id, update, { new: true })
           .then((squad) => {
             let userUpdate = { $push: { squads: id } };
 
-            User.findByIdAndUpdate(req.body.newMemberId, userUpdate, { new: true })
+            User.findByIdAndUpdate(req.body.requestId, userUpdate, { new: true })
               .then((user) => res.json(squad))
           })
           .catch((err) =>
@@ -127,7 +127,7 @@ router.put("/:id", (req, res) => {
         break;
 
       case "removeMember":
-        remove = { $pull: { members: req.body.newMemberId } };
+        remove = { $pull: { members: req.body.requestId } };
         Squad.findByIdAndUpdate(id, remove, { new: true })
           .then((squad) => res.json(squad))
           .catch((err) =>
