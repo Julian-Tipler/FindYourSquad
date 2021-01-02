@@ -39,7 +39,7 @@ class SquadBox extends React.Component {
             {this.props.squad.members.map((member) => {
               return (
                 <li className="squad-box-member-li" 
-                  key={member._id}>
+                  key={`${member._id}${this.props.squadId}`}>
                   <Member member={member} />
                 </li>
               );

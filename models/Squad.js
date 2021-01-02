@@ -58,7 +58,7 @@ const SquadSchema = new Schema({
     // required: false
     type: Schema.Types.ObjectId,
     ref: "Game",
-    required: false
+    required: true
   },
   skillLevel: {
     type: String,
@@ -66,7 +66,7 @@ const SquadSchema = new Schema({
   },
   squadSize: {
     //change to Number
-    type: String,
+    type: Number,
     required: true
   },
   

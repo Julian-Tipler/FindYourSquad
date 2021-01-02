@@ -41,7 +41,7 @@ class SquadCreate extends React.Component {
     this.setState({ skillLevel: "" });
     this.setState({ game: "" });
     this.setState({ squadSize: "" });
-    this.props.history.push('/squads');
+    this.props.history.push('/squads');  /// goes to squad page, but without new squad 
   }
 
   update(field) {

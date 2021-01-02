@@ -7,6 +7,16 @@ const passport = require("passport");
 // const User = require("../../models/User");
 const Stat = require("../../models/Stat");
 
+
+
+//Chose to nest stats under users
+
+
+
+
+
+
+
 // router.post("/", passport.authenticate('jwt', { session: false }), (req, res) => {
 // // user id
 // //     stats/gameId,  (stats: {"kd": })
