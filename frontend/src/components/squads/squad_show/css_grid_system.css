@@ -29,6 +29,7 @@
 
 .messages-container {
     overflow-y: scroll;
+    max-height: 700px;
 }
 
 .item-bottom {
