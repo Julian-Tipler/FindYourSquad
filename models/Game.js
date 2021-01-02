@@ -8,7 +8,7 @@ const GameSchema = new Schema({
     required: true,
   },
   squadSize: {
-    type: String,
+    type: Number,
     required: true,
   },
   // images: {

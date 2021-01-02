@@ -14,11 +14,23 @@ module.exports = function validateSquadInput(data, squadSize) {
   // if (Validator.isLessThan())
 
   if (Validator.isEmpty(data.name)) {
-    errors.name = 'Squad name is required';
+    errors.name = 'Squad name field is required';
   }
 
   if (!Validator.isLength(data.generalBio, { max: 200 })) {
     errors.generalBio = 'Squad bio must be less than 200 characters';
+  }
+
+  if (Validator.isEmpty(data.game)) {
+    errors.name = 'Game field is required';
+  }
+
+  if (Validator.isEmpty(data.skillLevel)) {
+    errors.name = 'Skill level field is required';
+  }
+
+  if (Validator.isEmpty(data.squadSize)) {
+    errors.name = 'Squad size field is required';
   }
 
   return {

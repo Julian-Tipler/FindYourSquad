@@ -24,9 +24,6 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 router.get('/:userId', (req, res) => {
     User.findById(req.params.userId)
         .populate("userStats")
-        // {
-        //   select: 'Stat.stats'
-        // }
         .then(user => res.json(user))
         .catch(err =>
             res.status(404).json({ nouserfound: 'No user found' }  
@@ -37,23 +34,17 @@ router.get('/:userId', (req, res) => {
 
 // //Updates user
 
-// router.put('/:userId', (req, res) => {
-//   console.log(req.body);
-//   console.log(req.params.userId);
-//   let update = { $push: { userStats: req.body.newGameStatsId } };
+router.put('/:userId', (req, res) => {
+  let update = { 
+    platform: req.body.username,
+    bio: req.body.bio
+  } 
+  User.findByIdAndUpdate(req.params.userId, update, { new: true })
+    .then((user) => res.json(user))
+    .catch(err =>
+        res.status(404).json({ dataTypeError: 'Wrong data type' }  ))
+});
 
-//   User.findByIdAndUpdate(req.params.userId, update, { new: true })
-//     .then((stat) => res.json(stat))
-//     .catch(err =>
-//         res.status(404).json({ dataTypeError: 'Wrong data type' }  
-//     )
-//   );
-// });
-
-  //  Squad.findByIdAndUpdate(id, update, { new: true })
-  //         .then((squad) => res.json(squad))
-  //         .catch((err) =>
-  //           res.status(404).json({ nosquadfound: "Could not process request." })
 
 
 
