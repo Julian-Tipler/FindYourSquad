@@ -7,13 +7,16 @@
 #search-bar{
     margin: auto;
     width: 80%;
-    margin-top: 50px;
+    margin-top: 15px;
 }
 
 #squad-forum-title{
     margin: auto;
     color: whitesmoke;
-    font-weight: 200px
+    font-weight: 200px;
+    font-size: 24px;
+    margin-top: 25px;
+
 }
 
 .squad-box-body {
@@ -29,7 +32,6 @@
 
 
 .squad-box-left-div {
-    margin-left: 15px;
     width: 253px;
     padding: 5px
 }
@@ -111,6 +113,14 @@
 
 .squad-box-picture {
     width: 150px;
+    padding-right: 2px;
+    padding-left: 13px;
+
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    align-items: center;
 }
 
 #squad-link:hover{
@@ -122,4 +132,27 @@
     width: 130px;
 }
 
+.search-bar{
+    background: black;
+    color: rgb(174, 37, 37)
+}
 
+.search-bar:active,
+.search-bar:focus{
+    outline: none;
+}
+
+#search-submit{
+    background-color: black;
+    color: rgb(174, 37, 37);
+    border: solid;
+    border-color: #767676;
+    border-width: 1px;
+}
+
+.search-bar:hover,
+#search-submit:hover{
+    cursor: pointer;
+    background:rgb(174, 37, 37);
+    color: white;
+}

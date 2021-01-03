@@ -1,4 +1,5 @@
 import React from 'react';
+import './squads.css';
 
 class SearchSquad extends React.Component {
   constructor(props) {
@@ -54,8 +55,8 @@ class SearchSquad extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <select onChange={this.update("game")}>
+          <div className='custom-select'>
+            <select className='search-bar' onChange={this.update("game")}>
               <option value="">Game</option>
                {this.props.games.map((game) => {
                   return (
@@ -63,13 +64,13 @@ class SearchSquad extends React.Component {
                   );
                 })}
             </select>
-            <select onChange={this.update("squadSize")}>
+            <select className='search-bar' onChange={this.update("squadSize")}>
               <option value="">Squad Size</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
             </select>
-            <select onChange={this.update("skillLevel")}>
+            <select className='search-bar' onChange={this.update("skillLevel")}>
               <option value="">Skill Level</option>
               <option value="Beginner">Beginner</option>
               <option value="Skilled">Skilled</option>
@@ -77,7 +78,7 @@ class SearchSquad extends React.Component {
               <option value="Master">Master</option>
             </select>
 
-            <input type="submit" value="Submit" />
+            <input id='search-submit' type="submit" value="Submit" />
           </div>
         </form>
         <br />
