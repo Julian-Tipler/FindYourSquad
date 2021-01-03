@@ -81,7 +81,7 @@ class SquadBox extends React.Component {
               return (
                 <li className="squad-box-member-li"
                   key={member._id}>
-                  <Member member={member} />
+                  <Member member={member} groupGameId={this.props.squad.game._id}/>
                 </li>
               );
             })}
