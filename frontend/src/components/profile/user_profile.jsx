@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './user_profile.css';
 import SquadBoxContainer from '../squads/squad_box_container'
 import GameStatsFormContainer from './game_stats_form_container'
+import ImageUpload from './image_upload'
 
 class UserProfile extends React.Component{
     constructor(props){
@@ -84,7 +85,15 @@ class UserProfile extends React.Component{
                         </div>
                         );
                     })}   
-                            
+                    <div className="user-images-section">
+                        {profileUser.profileImages.map(image => {
+                            return (
+                                <img className="user-image" key={`${image}`} src={`${image}`} alt=""/>
+                            )
+                        })}
+
+                    </div>
+                           <ImageUpload profileUserId={profileUserId}/> 
                     </div>
                     <div className="profile-squad-boxes">
                         <h3>{profileUser.username}'s Squads</h3>
