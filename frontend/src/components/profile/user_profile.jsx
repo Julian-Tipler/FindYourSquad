@@ -60,6 +60,7 @@ class UserProfile extends React.Component{
                                 return (
                                     <div className="user-stat-box">
                                     <h2>{stat.gameName}</h2>
+                                    <h3>{stat.updatedAt}</h3>
                                     {Object.keys(stat.stats).map(key => {
                                         return (
                                             

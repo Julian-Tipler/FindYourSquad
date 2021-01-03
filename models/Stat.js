@@ -20,7 +20,9 @@ const StatSchema = new Schema({
   gameName: {
     type: String,
     required: false,    
-  }
+  },
+  }, {
+  timestamps: true
 });
 
 
