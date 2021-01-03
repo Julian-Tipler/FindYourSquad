@@ -27,13 +27,12 @@ export const getSquads = () => {
 // };
 
 export const getFilteredSquads = (searchParams) => {
-  console.log(serialize(searchParams));
   return axios.get(`/api/squads/${serialize(searchParams)}`);
 };
 
-export const getUserSquads = (id) => {
-  return axios.get(`/api/squads/user/${id}`);
-};
+// export const getUserSquads = (id) => {
+//   return axios.get(`/api/squads/user/${id}`);
+// };
 
 
 // export const getUser = id => {

@@ -24,6 +24,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 router.get('/:userId', (req, res) => {
     User.findById(req.params.userId)
         .populate("userStats")
+        .populate({path: "squads", populate: { path: 'members' }})
         .then(user => res.json(user))
         .catch(err =>
             res.status(404).json({ nouserfound: 'No user found' }  
@@ -170,6 +171,8 @@ router.post("/:id/stats", passport.authenticate('jwt', { session: false }), (req
       let update = { $push: { userStats: stat._id } };
 
       User.findByIdAndUpdate(req.params.id, update, { new: true })
+        .populate("userStats")
+        .populate({path: "squads", populate: { path: 'members' }})
         .then((user) => res.json(user))
 
     });
@@ -180,6 +183,8 @@ router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req,
 
     
     Stat.findByIdAndUpdate(req.body.statId, {stats : req.body.stats}, {new: true})
+      .populate("userStats")
+      .populate({path: "squads", populate: { path: 'members' }})
       .then(stat => res.json(stat))
 
 })

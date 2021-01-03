@@ -58,34 +58,40 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-
-
       <div className="session-container">
 
-        <section className="auth-sidebar-section">
+        {/* <section className="auth-sidebar-section">
           <div className="auth-sidebar-div">
             <header className="auth-side-header"></header>
           </div>
 
-        </section>
+        </section> */}
 
         <div className="main-auth-right">
+          
           <div className="session-form-div">
+            <h1 id='login-title'>Welcome to Find Your Squad</h1>
+            <p id='login-desc'>Log In Below</p>
+
+            
             <form onSubmit={this.handleSubmit}>
               <div>
                   <input type="text"
+                    id='un'
+                    autocomplete='off'
                     value={this.state.username}
                     onChange={this.update('username')}
                     placeholder="Username"
                   />
                 <br/>
                   <input type="password"
+                    id='pass'
                     value={this.state.password}
                     onChange={this.update('password')}
                     placeholder="Password"
                   />
                 <br/>
-                <input type="submit" value="Submit" />
+                <input id='login-button' type="submit" value="Login" />
                 {this.renderErrors()}
               </div>
             </form>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './squad_overview.css'
 
 class SquadShowMember extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class SquadShowMember extends React.Component {
       type: "removeMember",
     };
     this.handleRemoveMember = this.handleRemoveMember.bind(this);
+    this.renderButton = this.renderButton.bind(this)
   }
 
   handleRemoveMember(e) {
@@ -17,19 +19,30 @@ class SquadShowMember extends React.Component {
     this.props.updateSquad(this.state);
   }
 
+  renderButton() {
+    if (this.props.currentUser.id===this.props.currentSquad.leader) {
+      return (
+        <div>
+          <button onClick={this.handleRemoveMember}>removeMember</button>
+        </div>
+      )
+    }
+  }
+
   render() {
-    console.log("render");
 
     if (!this.props.member){
       return <> </>
     }
     return (
-      <div>
+      <div className='member-box'>
         <div>{this.props.member.username}</div>
         <div>
           <Link to={`/profile/${this.props.member._id}`}>Gamer Profile</Link>
         </div>
-        <button onClick={this.handleRemoveMember}>removeMember</button>
+        <div>
+          {this.renderButton()}
+        </div>
       </div>
     );
   }

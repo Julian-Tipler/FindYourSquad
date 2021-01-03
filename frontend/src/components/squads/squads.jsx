@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import SquadBoxContainer from './squad_box_container';
 import SearchSquadContainer from './search_squad_container'
-import './squad_index.css'
+import './squads.css'
 
 class Squad extends React.Component {
   constructor(props) {
@@ -33,26 +33,28 @@ class Squad extends React.Component {
     } else {
       return (
         <div className="squad-index-main">
-          <div>
+          <div id='search-bar'>
             <SearchSquadContainer/>
           </div>
-          <h2>All Squads</h2>
-          {this.props.squads.map(squad => (
-            
-            <SquadBoxContainer 
-              squad={squad} 
-              currentUserId={this.props.currentUserId} 
-              updateSquad={this.props.updateSquad} 
-              // game={squad.game}
-              key={squad._id} 
-              // name={squad.name} 
-              // generalBio={squad.generalBio}
-              // skillLevel={squad.skillLevel} 
-              // squadSize={squad.squadSize}
-              // members={squad.members}
-              // leader={squad.leader}
-              />
-          ))}
+          <h2 id='squad-forum-title'>Squad Forum</h2>
+          <div id='squad-boxes'>
+            {this.props.squads.map(squad => (
+              <SquadBoxContainer 
+                squad={squad} 
+                currentUserId={this.props.currentUserId} 
+                updateSquad={this.props.updateSquad} 
+                // game={squad.game}
+                key={squad._id} 
+                // name={squad.name} 
+                // generalBio={squad.generalBio}
+                // skillLevel={squad.skillLevel} 
+                // squadSize={squad.squadSize}
+                // members={squad.members}
+                // leader={squad.leader}
+                />
+            ))}
+
+          </div>
         </div>
       );
     }

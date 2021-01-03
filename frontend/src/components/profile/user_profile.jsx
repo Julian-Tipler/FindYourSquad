@@ -1,71 +1,110 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import './user_profile.css';
+import SquadBoxContainer from '../squads/squad_box_container'
+import GameStatsFormContainer from './game_stats_form_container'
 
 class UserProfile extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            game: "Apex Legends"
-        }
+        // if (this.props.games[0] !== undefined){
+        // this.state = {
+        //     gameState: this.props.games[0]
+        // }}
 
 
     }
 
-    render() {
-        let kd, level, main, bio;
-        if (this.state.game === "Apex Legends"){
-            kd = 1.5;
-            level = 500;
-            main = "Horizon";
-            bio = "I'm a casual apex player who can fit any playstyle";
+    componentDidMount(){
+        this.props.fetchUser(this.props.profileUserId)
+        this.props.fetchGames()
+        .then(games => 
+         this.setState({gameState:games.games.data[0]._id})   )
+        
+    }
 
-        } else {
-            // kd = 
-            // level = 
-            // main = 
-            // bio = 
+    render() {
+        // {
+        //     // this.setState({gameState: this.props.games[0]._id})
+        //     return <> </>
+        // }
+        // console.log(this.state)
+
+        if (!this.props.profileUser.squads || !this.state){
+            return <> </>
         }
-         
+        const { profileUser, profileUserId} = this.props
 
         return(
             <div>
                 <header className='user-profile-header'>
-                    <nav className='user-profile-nav'>
-                        {/* <img className='logo' src=""/> */}
-                        {/* <ul className='up-nav-list'>
-                            <li>
-                                <Link id="nav-home" className="btn" to="/">Home</Link>
-                            </li>
-                            <li>
-                                <Link id="nav-profile" className="btn" to="/profile">Profile</Link>
-                            </li>
-                            <li>
-                                <p>Notifications</p>
-                            </li>
-                            <li>
-                                <Link id="nav-squad" className="btn" to="/squads">Squad</Link>
-                            </li>
-                        </ul> */}
-                    </nav>
+                        <h2>{profileUser.username}</h2>
+                       <div className="user-header-div">
+                           <span>Bio:{`${profileUser.bio}`}</span>
+                           <span>Platform:{`${profileUser.platform}`}</span>
+                           
+                           <span>Community Rating:{`${profileUser.communityRating}`}</span>
+                       </div>
                 </header>
-                <br/>
-                <button id="COD-button">Call of Duty</button>
-                <button id="Apex-button">Apex Legends</button>
-                <div>{this.state.game}</div>
-                <li>{bio}</li>
-                <li>{kd}</li>
-                <li>{level}</li>
-                <li>{main}</li>
-                    
                 
+                {this.props.games.map((game) => {
+                  return (
+                    <button onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
+                  );
+                })}
+                <div className="user-profile-body">
+                    <div className="user-profile-main">
+                        <div className="user-stat-section">
+                          {profileUser.userStats.map(stat => {
+                            if (stat.game === this.state.gameState){
+                                return (
+                                    <div key={`${profileUser.username}${stat._id}`}className="user-stat-box">
+                                    <h2>{stat.gameName}</h2>
+                                    <h3>{stat.updatedAt}</h3>
+                                    {Object.keys(stat.stats).map((key, idx) => {
+                                        return (
+                                            
+                                            <h3 key={`${idx}${stat.game}`} className="stat-item">{key}: {stat.stats[key]}</h3> 
+                                            
+                                        )
+                                    })}
+                                    </div> )
+                            }
+                          })}
+                        </div>
+
+                    {this.props.games.map((game, idx) => {
+                        // if (game.id )
+                        if (game._id !== this.state.gameState){
+                            return <> </>
+                        }
+                        return (
+                        <div className="user-stat-form-section">
+                            <GameStatsFormContainer key={`${game._id}${idx}`} type="create" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                        </div>
+                        );
+                    })}   
+                            
+                    </div>
+                    <div className="profile-squad-boxes">
+                        <h3>{profileUser.username}'s Squads</h3>
+                        {profileUser.squads.map(squad => (
+                            <SquadBoxContainer 
+                            squad={squad} 
+                            currentUserId={this.props.currentUserId} 
+                            key={squad._id} 
+                            comingFromProfile={true}
+                            />
+                        ))}
+                        </div>
+                    
+                </div>
 
             </div>
         )
-
     }
-
 }
 
-
 export default UserProfile;
+
+
