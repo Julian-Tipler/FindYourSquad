@@ -79,6 +79,7 @@ class SquadShow extends React.Component {
                   </div>
                   <div className="requests"></div>
                 </div>
+                <img src={`${this.props.currentSquad.game.images[1]}`} alt=""/>
                 <div className="item-mid">
                   <div className="item-top">
                     <MessagesComponent

@@ -69,7 +69,7 @@ class SquadBox extends React.Component {
       chooseDisplay = 
             <div className="squad-box-body">
         <div className="squad-box-picture">
-          Game image 
+          <img className="squad-box-image" src={`${this.props.squad.game.images[0]}`} alt=""/>
         </div>
         <div className="squad-box-left-div">
           <h3 className="squad-box-h3">
