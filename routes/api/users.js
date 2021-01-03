@@ -25,6 +25,7 @@ router.get('/:userId', (req, res) => {
     User.findById(req.params.userId)
         .populate("userStats")
         .populate({path: "squads", populate: { path: 'members' }, populate: { path: "game"}})
+        // .sort({ date: -1})
         .then(user => res.json(user))
         .catch(err =>
             res.status(404).json({ nouserfound: 'No user found' }  
