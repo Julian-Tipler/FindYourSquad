@@ -29,7 +29,15 @@ class Squad extends React.Component {
 
   render() {
     if (this.props.squads.length === 0) {
-      return (<div className="squad-index-main">There are no Squads</div>)
+      return (
+        <div className="squad-index-main">
+          <h2 id='squad-forum-title'>Squad Forum</h2>
+          <div id='search-bar'>
+            <SearchSquadContainer/>
+          </div>
+          There are no Squads
+        </div>
+      )
     } else {
       return (
         <div className="squad-index-main">
