@@ -18,6 +18,7 @@ class RequestMessage extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.updateSquad(this.state);
+        this.props.closeModal();
     }
 
     render(){
