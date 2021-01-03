@@ -24,8 +24,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 router.get('/:userId', (req, res) => {
     User.findById(req.params.userId)
         .populate("userStats")
-        .populate({path: "squads", populate: { path: 'members' }, populate: { path: "game"}})
-        // .sort({ date: -1})
+        .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
         .then(user => res.json(user))
         .catch(err =>
             res.status(404).json({ nouserfound: 'No user found' }  
@@ -42,6 +41,8 @@ router.put('/:userId', (req, res) => {
     bio: req.body.bio
   } 
   User.findByIdAndUpdate(req.params.userId, update, { new: true })
+    .populate("userStats")
+    .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
     .then((user) => res.json(user))
     .catch(err =>
         res.status(404).json({ dataTypeError: 'Wrong data type or no user found' }  ))
@@ -173,7 +174,7 @@ router.post("/:id/stats", passport.authenticate('jwt', { session: false }), (req
 
       User.findByIdAndUpdate(req.params.id, update, { new: true })
         .populate("userStats")
-        .populate({path: "squads", populate: { path: 'members' }})
+        .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
         .then((user) => res.json(user))
 
     });
@@ -185,7 +186,7 @@ router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req,
     
     Stat.findByIdAndUpdate(req.body.statId, {stats : req.body.stats}, {new: true})
       .populate("userStats")
-      .populate({path: "squads", populate: { path: 'members' }})
+      .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
       .then(stat => res.json(stat))
 
 })

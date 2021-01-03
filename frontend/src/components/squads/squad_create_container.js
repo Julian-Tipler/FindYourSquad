@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
   return {
     currentUser: state.session.user,
     newSquad: state.squads.new,
-    games: state.games.all
+    games: state.games.all,
+    errors: state.errors.session
   };
 };
 

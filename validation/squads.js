@@ -26,11 +26,11 @@ module.exports = function validateSquadInput(data, squadSize) {
   }
 
   if (Validator.isEmpty(data.skillLevel)) {
-    errors.name = 'Skill level field is required';
+    errors.skillLevel = 'Skill level field is required';
   }
 
   if (Validator.isEmpty(data.squadSize)) {
-    errors.name = 'Squad size field is required';
+    errors.squadSize = 'Squad size field is required';
   }
 
   return {

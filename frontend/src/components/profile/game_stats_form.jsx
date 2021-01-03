@@ -18,9 +18,7 @@ class GameStatsForm extends React.Component {
   // componentWillReceiveProps(nextProps) {
   //     this.setState({newSquad: nextProps.newSquad.text});
   // }
-//   componentDidMount() {
-//     this.props.fetchGames()
-//   }
+ 
 
   handleSubmit(e) {
     e.preventDefault();

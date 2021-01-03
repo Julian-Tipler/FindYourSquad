@@ -6,9 +6,12 @@ export const RECEIVE_SQUADS = "RECEIVE_SQUADS";
 export const RECEIVE_USER_SQUADS = "RECEIVE_USER_SQUADS";
 export const RECEIVE_NEW_SQUAD = "RECEIVE_NEW_SQUAD";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
+export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS"
 
-
-
+export const receiveErrors = errors => ({
+    type: RECEIVE_SESSION_ERRORS,
+    errors
+});
 export const receiveSquad = squad => ({
   type: RECEIVE_SQUAD,
   squad
@@ -33,21 +36,26 @@ export const receiveNewSquad = squad => ({
 
 export const fetchSquad = id => dispatch => (
   APISquad.getSquad(id)
-    .then(squad => dispatch(receiveSquad(squad)))
-    .catch(err => console.log(err))
-);
+    .then(squad => dispatch(receiveSquad(squad)),
+        err => (
+        dispatch(receiveErrors(err.response.data))
+    )))
+
 
 export const fetchSquads = () => dispatch => (
   APISquad.getSquads()
-    .then(squads => dispatch(receiveSquads(squads)))
-    .catch(err => console.log(err))
-);
+    .then(squads => dispatch(receiveSquads(squads)),
+        err => (
+        dispatch(receiveErrors(err.response.data))
+    )))
+
 
 export const fetchFilteredSquads = (searchParams) => dispatch => (
   APISquad.getFilteredSquads(searchParams)
-    .then(squads => dispatch(receiveSquads(squads)))
-    .catch(err => console.log(err))
-)
+    .then(squads => dispatch(receiveSquads(squads)),
+        err => (
+        dispatch(receiveErrors(err.response.data))
+    )))
 
 // export const fetchUserSquads = id => dispatch => (
 //   APISquad.getUserSquads(id)
@@ -57,9 +65,11 @@ export const fetchFilteredSquads = (searchParams) => dispatch => (
 
 export const createSquad = data => dispatch => (
   APISquad.formSquad(data)
-    .then(squad => dispatch(receiveNewSquad(squad)))
-    .catch(err => console.log(err))
-);
+    .then(squad => dispatch(receiveNewSquad(squad)),
+    err => (
+        dispatch(receiveErrors(err.response.data))
+    )))
+
 
 export const updateSquad = data => dispatch => (
   APISquad.editSquad(data)
