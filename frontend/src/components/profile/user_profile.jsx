@@ -28,7 +28,7 @@ class UserProfile extends React.Component{
         //     // this.setState({gameState: this.props.games[0]._id})
         //     return <> </>
         // }
-        console.log(this.state)
+        // console.log(this.state)
 
         if (!this.props.profileUser.squads || !this.state){
             return <> </>
@@ -58,13 +58,13 @@ class UserProfile extends React.Component{
                           {profileUser.userStats.map(stat => {
                             if (stat.game === this.state.gameState){
                                 return (
-                                    <div className="user-stat-box">
+                                    <div key={`${profileUser.username}${stat._id}`}className="user-stat-box">
                                     <h2>{stat.gameName}</h2>
                                     <h3>{stat.updatedAt}</h3>
-                                    {Object.keys(stat.stats).map(key => {
+                                    {Object.keys(stat.stats).map((key, idx) => {
                                         return (
                                             
-                                            <h3 className="stat-item">{key}: {stat.stats[key]}</h3> 
+                                            <h3 key={`${idx}${stat.game}`} className="stat-item">{key}: {stat.stats[key]}</h3> 
                                             
                                         )
                                     })}
@@ -73,14 +73,14 @@ class UserProfile extends React.Component{
                           })}
                         </div>
 
-                    {this.props.games.map((game) => {
+                    {this.props.games.map((game, idx) => {
                         // if (game.id )
                         if (game._id !== this.state.gameState){
                             return <> </>
                         }
                         return (
                         <div className="user-stat-form-section">
-                            <GameStatsFormContainer type="create" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                            <GameStatsFormContainer key={`${game._id}${idx}`} type="create" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
                         </div>
                         );
                     })}   

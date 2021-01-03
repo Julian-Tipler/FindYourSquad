@@ -53,11 +53,11 @@ class GameStatsForm extends React.Component {
     //   if (Object.values(this.props.games).length === 0) {
     //     return <> </>
     //   }
-    console.log(this.props.game._id)
+    // console.log(this.props.game._id)
       
     return (
 
-      <div className="user-stat-form">
+      <div className="user-stat-form" key={`${this.props.game.name}form`}>
           <h2>Fill out your {this.props.game.name} stats</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
