@@ -18,7 +18,7 @@
  .modal-box {
      height: 210px;
      width: 800px;
-     background-color: aqua;
+     background-color: rgb(174, 37, 37);
  }
 
  #modal-text{
@@ -30,4 +30,13 @@
  #modal-title{
      margin-left: 75px;
      padding-top: 10px;
+ }
+
+ #modal-text:active,
+ #modal-text:focus{
+   outline: none;
+ }
+
+ #modal-text{
+   
  }

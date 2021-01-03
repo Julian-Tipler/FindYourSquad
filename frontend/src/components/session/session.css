@@ -1,16 +1,20 @@
 body {
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #0d0c22;
-    background: #fff;
+    color: white;
+    background-color: rgb(24,25,26);
     padding: 0;
     margin: 0;
-   
+    height: 100%
 }
 
 /* div {
     display: block;
 } */
 
+html{
+    height: 100%;
+    background-color: rgb(24,25,26)
+}
 
 .session-container {
     height: 100%;
@@ -58,7 +62,7 @@ body {
 }
 
 .main-auth-right {
-    display: -ms-flexbox;
+    /* display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
     align-items: center;
@@ -67,12 +71,117 @@ body {
     -ms-flex-positive: 1;
     flex-grow: 1;
     margin: 0;
-    padding: 0;
+    padding: 0; */
+    
+    
 }
 
 
 .session-form-div {
+    padding-left: 20px;
+    padding-top: 200px;
     width: 100%;
     max-width: 416px;
+}
+
+.signup-form-container{
+    padding-left: 20px;
+    padding-top: 200px;
+}
+
+#signup-title{
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+
+#signup-desc{
+    color: whitesmoke;
+    padding-bottom: 20px;
+}
+
+#login-title{
     margin: auto;
+    padding-bottom: 10px;
+    font-size: 24px;
+}
+
+#login-desc{
+    padding-bottom: 20px;
+}
+
+
+#un{
+    width: 400px;
+    height: 40px;  
+    background-color: #f5f8fa;
+    border-radius: 5px;
+    margin-top: 8px;
+    text-indent: 8px;
+    margin-bottom: 8px;
+    border: none;
+}
+
+#un:hover{
+    background-color: white;
+}
+
+#un:active,
+#un:focus{
+    outline: none;
+}
+
+#pass{
+    width:400px;
+    height: 40px;
+    background-color: #f5f8fa;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-indent: 8px;
+    border: none;
+}
+
+#pass:hover{
+    background-color: white;
+}
+
+#pass:active,
+#pass:focus{
+    outline: none;
+}
+
+#login-button{
+    background-color: rgb(174, 37, 37);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin-top: 40px;
+    font-weight: bold;
+    outline: none;
+}
+
+#login-button:hover{
+    cursor: pointer;
+}
+
+#submit-btn{
+    background-color: rgb(174, 37, 37);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin-top: 40px;
+    font-weight: bold;
+    outline: none;
+}
+
+#submit-btn:hover{
+    cursor: pointer;
 }

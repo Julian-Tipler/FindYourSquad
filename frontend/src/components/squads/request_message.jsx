@@ -28,7 +28,7 @@ class RequestMessage extends React.Component {
                 <div>{this.props.squad.name}</div>
                 <div className='modal-box'>
                     <p id='modal-title'>Send a message!</p>
-                    <input type='text' id='modal-text' />
+                    <input type='text' id='modal-text' autocomplete='off'/>
                 </div>
                 <input type="submit" value="Send Request!"/>
             </form>
