@@ -12,6 +12,7 @@ class SearchSquad extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.resetForm = this.resetForm.bind(this)
   }
 
   componentDidMount() {
@@ -38,6 +39,15 @@ class SearchSquad extends React.Component {
     // console.log(searchParams);
     this.props.fetchFilteredSquads(searchParams);
   }
+
+  // resetForm(e) {
+  //   e.preventDefault()
+  //   this.setState({
+  //     game: "",
+  //     squadSize: "",
+  //     skillLevel: "",
+  //   })
+  // }
 
   update(field) {
     return (e) =>
@@ -81,6 +91,7 @@ class SearchSquad extends React.Component {
             <input id='search-submit' type="submit" value="Submit" />
           </div>
         </form>
+        {/* <button onClick={this.resetForm}>Reset</button> */}
         <br />
       </div>
     );
