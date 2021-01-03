@@ -18,6 +18,9 @@ module.exports = {
 // squadmaker123@gmail.com
 // Squadmaker
 
+// AWSAccessKeyId=
+// AWSSecretKey=fWRlxtXEgVf79rQE4hOCbBF2yI6gJYfm0wguRX/5
+
 
 // Qb1llNwU6CraDy76  
 

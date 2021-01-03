@@ -25,6 +25,12 @@ const UserSchema = new Schema({
     type: String, 
     required: false 
   },
+  profileImages: [
+    {
+      type: String,
+      required: false
+    },
+  ],
   userStats: [
     {
       type: Schema.Types.ObjectId,
