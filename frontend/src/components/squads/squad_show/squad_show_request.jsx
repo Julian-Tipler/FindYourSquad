@@ -5,7 +5,7 @@ class SquadShowRequest extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className='request-box'>
         <div>{this.props.request.username}</div>
         <div>
           <Link to={`/profile/${this.props.request._id}`}>Gamer Profile</Link>

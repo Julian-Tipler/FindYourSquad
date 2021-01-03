@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
   //   Squad.find()
   //     .populate()
   // } else {
+    console.log(req.query)
     Squad.find(req.query) // game: Call of Duty
       .populate({ path: 'members', populate: { path: 'userStats', match: {game: req.query.game }}})
       .populate('game')

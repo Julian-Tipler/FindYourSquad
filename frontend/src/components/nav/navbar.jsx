@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './navbar.css';
 // import './navbar.css'
 
 class NavBar extends React.Component {
@@ -17,27 +18,32 @@ class NavBar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-            <div>
-                <Link to={'/squads'}>All Squads</Link>
-                <Link to={`/profile/${this.props.currentUser.id}`}>Profile</Link>
-                <Link to={'/new_squad'}>Create a Squad</Link>
-                <button onClick={this.logoutUser}>Logout</button>
+            <div id='nav-bar-loggedin'>
+              <ul>
+                <Link className='nav-bar-login-link' to={'/squads'}>All Squads</Link>
+                <Link className='nav-bar-login-link' to={`/profile/${this.props.currentUser.id}`}>Profile</Link>
+                <Link className='nav-bar-login-link' to={'/new_squad'}>Create a Squad</Link>
+                <button id='nav-bar-logout' onClick={this.logoutUser}>Logout</button>
+              </ul>
             </div>
         );
       } else {
         return (
-            <div>
-                <Link to={'/signup'}>Signup</Link>
-                <Link to={'/login'}>Login</Link>
+          <div id='nav-link'> 
+              <ul>
+                <Link id='nav-signup-link' to={'/signup'}>Signup</Link>
+                <Link id='nav-login-link' to={'/login'}>Login</Link>
+              </ul>
             </div>
+
         );
       }
   }
 
   render() {
       return (
-        <div>
-            <h1>FindYourSquad.com</h1>
+        <div className='navbar'>
+            <div id='navbar-title'>FindYourSquad.com</div>
             { this.getLinks() }
         </div>
       );

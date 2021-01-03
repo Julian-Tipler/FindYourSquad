@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import './squad_overview.css'
 
 
 class SquadShowMember extends React.Component {
@@ -19,7 +20,7 @@ class SquadShowMember extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='member-box'>
         <div>{this.props.member.username}</div>
         <div>
           <Link to={`/profile/${this.props.member._id}`}>Gamer Profile</Link>
