@@ -18,6 +18,7 @@ class RequestMessage extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.updateSquad(this.state);
+        this.props.closeModal();
     }
 
     render(){
@@ -28,7 +29,7 @@ class RequestMessage extends React.Component {
                 <div>{this.props.squad.name}</div>
                 <div className='modal-box'>
                     <p id='modal-title'>Send a message!</p>
-                    <input type='text' id='modal-text' autocomplete='off'/>
+                    <input type='text' id='modal-text' autoComplete='off'/>
                 </div>
                 <input type="submit" value="Send Request!"/>
             </form>
