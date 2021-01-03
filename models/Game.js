@@ -11,9 +11,12 @@ const GameSchema = new Schema({
     type: Number,
     required: true,
   },
-  // images: {
-
-  // },
+  images: [
+    {
+      type: String,
+      required: false,
+    },
+  ],
   stats: {
     type: Array,
     default: [],

@@ -16,15 +16,19 @@
  }
 
  .modal-box {
-     height: 210px;
+     height: 350px;
      width: 800px;
      background-color: rgb(174, 37, 37);
  }
 
  #modal-text{
-     height: 70%;
-     width: 80%;
-     margin-left: 75px;
+    height: 70%;
+    width: 80%;
+    margin-left: 75px;
+    background-color: rgb(36,37,38);
+    color: white;
+    text-indent: 8px;
+    border: none;
  }
 
  #modal-title{
@@ -37,6 +41,21 @@
    outline: none;
  }
 
- #modal-text{
-   
- }
+#modal-btn{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 9px;
+    margin-left: 75px;
+    font-weight: bold;
+    outline: none;
+}
+
+#modal-btn:hover{
+    cursor: pointer;
+}
