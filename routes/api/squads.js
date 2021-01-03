@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
   // } else {
     console.log(req.query)
     Squad.find(req.query) // game: Call of Duty
+      .find({squadFull:false})
       .populate({ path: 'members', populate: { path: 'userStats'}}) //, match: {game: req.query.game }
       .populate('game')
       .sort({ date: -1})

@@ -1,3 +1,5 @@
+// require('dotenv').config()
+
 const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -7,6 +9,7 @@ const squads = require("./routes/api/squads");
 const cors = require("cors");
 const games = require("./routes/api/games");
 const stats = require("./routes/api/stats");
+// const profile = require( './routes/api/profile' );
 // define our app using express
 const express = require("express");
 const http = require("http");
@@ -81,6 +84,7 @@ require("./config/passport")(passport);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// app.use( '/api/profile', profile );
 app.use("/api/users", users);
 app.use("/api/squads", squads);
 app.use("/api/games", games);
