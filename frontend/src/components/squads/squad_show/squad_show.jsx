@@ -34,63 +34,67 @@ class SquadShow extends React.Component {
             return <> </>
         } else{
             return (
-              <div className="container">
-                <div className="item-left">
-                  <div className="members">
-                      <h2>Members:</h2>
-                    <div>
-                      {(this.props.currentSquad.requests) ? 
-                      this.props.currentSquad.members.map((member, idx) => {
-                        return (
-                          <li key={`member-${idx}`}>
-                            <SquadShowMember
-                              member={member}
-                              squadId={this.props.squadId}
-                              updateSquad={this.props.updateSquad}
-                              currentUser={this.props.currentUser}
-                              currentSquad={this.props.currentSquad}
-                            />
-                          </li>
-                        );
-                      })
-                      :
-                    <div>No Requests</div>}
-                    </div>
-                    <h2>Requests:</h2>
-                    <div>
-                      {(this.props.currentSquad.requests) ? 
-                        this.props.currentSquad.requests.map((request, idx) => {
-                            return (
-                              <li key={`request-${idx}`}>
-                                <SquadShowRequest
-                                  request={request}
-                                  squadId={this.props.squadId}
-                                  updateSquad={this.props.updateSquad}
-                                  currentUser={this.props.currentUser}
-                                  currentSquad={this.props.currentSquad}
+                <div style={{backgroundImage:`url(${this.props.currentSquad.game.images[1]})`}}>
+                    <div className="container" >
+                        <div className="item-left">
+                            <div className="members">
+                                <h2>Members:</h2>
+                                <div>
+                                {(this.props.currentSquad.requests) ? 
+                                this.props.currentSquad.members.map((member, idx) => {
+                                    return (
+                                    <div key={`member-${idx}`} className='member'>
+                                        <SquadShowMember
+                                        member={member}
+                                        squadId={this.props.squadId}
+                                        updateSquad={this.props.updateSquad}
+                                        currentUser={this.props.currentUser}
+                                        currentSquad={this.props.currentSquad}
+                                        />
+                                    </div>
+                                    );
+                                })
+                                :
+                                <div>No Requests</div>}
+                                </div>
+                                <h2>Requests:</h2>
+                                <div>
+                                {(this.props.currentSquad.requests) ? 
+                                    this.props.currentSquad.requests.map((request, idx) => {
+                                        return ( 
+                                        <div key={`request-${idx}`} className='request'>
+                                            <SquadShowRequest
+                                            request={request}
+                                            squadId={this.props.squadId}
+                                            updateSquad={this.props.updateSquad}
+                                            currentUser={this.props.currentUser}
+                                            currentSquad={this.props.currentSquad}
+                                            />
+                                        </div>
+                                        );
+                                    })
+                                :
+                                <div>No Requests</div>}
+                                </div>
+                                {/* <span>{this.props.otherForm}</span> */}
+                            </div>
+                        <div className="requests"></div>
+                        </div>
+                        
+                        <div className="item-right">
+                            <h2>{`${this.props.currentSquad.name}'s Group Channel`}</h2>
+                            <div className="messages-container">
+                                <MessagesComponent
+                                messages={this.props.currentSquad.messages}
+                                currentUser={this.props.currentUser.username}
                                 />
-                              </li>
-                            );
-                        })
-                      :
-                      <div>No Requests</div>}
+                            </div>
+                            <div className="input-container">
+                                <InputComponent />
+                            </div>
+                        </div>
                     </div>
-                    {/* <span>{this.props.otherForm}</span> */}
-                  </div>
-                  <div className="requests"></div>
-                </div>
-                <img src={`${this.props.currentSquad.game.images[1]}`} alt=""/>
-                <div className="item-mid">
-                  <div className="item-top">
-                    <MessagesComponent
-                      messages={this.props.currentSquad.messages}
-                    />
-                  </div>
-                  <div className="item-bottom">
-                    <InputComponent />
-                  </div>
-                </div>
-                <div className="item-right"></div>
+                    <div className='footer'></div>
               </div>
             );
         }      
