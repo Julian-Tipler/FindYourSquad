@@ -16,15 +16,39 @@ html{
     background-color: rgb(24,25,26)
 }
 
-.session-container {
+/* .session-container {
     height: 100%;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row;
     overflow: hidden;
+} */
+
+
+.split-screen{
+    display: 'flex';
+    flex-direction: 'column';
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
 }
 
+.login-pic{
+    height:800px;
+}
+
+.main-auth-left{
+    width: 550px;
+    display: inline-block;
+    margin: 0px;
+}
+
+.main-auth-left img{
+    max-width: 100%;
+    max-height: 100%;
+    margin-right: 0px;
+}
 
 
 .auth-sidebar-section {
@@ -76,27 +100,44 @@ html{
     
 }
 
+.main-auth-right{
+    height: 100%;
+    margin: 0px;
+    display: inline-block;
+    align-self: center;
+    position: relative;
+    bottom: 260px;
+    padding-left: 50px;
+}
+
 
 .session-form-div {
     padding-left: 20px;
-    padding-top: 200px;
-    width: 100%;
+    padding-top: 100px;
     max-width: 416px;
+    margin-right: 0px;
 }
 
 .signup-form-container{
-    padding-left: 20px;
-    padding-top: 200px;
+    /* padding-left: 100px;
+    padding-top: 200px; */
+    width: 55%;
+    float: left;
+    height: 100vh;
+    
 }
 
 #signup-title{
     font-size: 24px;
     padding-bottom: 10px;
+    margin-left: 130px;
+    margin-top: 100px;
 }
 
 #signup-desc{
     color: whitesmoke;
     padding-bottom: 20px;
+    margin-left: 130px;
 }
 
 #login-title{
@@ -180,8 +221,70 @@ html{
     margin-top: 40px;
     font-weight: bold;
     outline: none;
+    margin-left: 130px;
 }
 
 #submit-btn:hover{
     cursor: pointer;
+}
+
+.signup-desc{
+    background-color: #303030;
+    float: right;
+    width: 40%;
+    height: 100vh;
+    margin: 0px;
+}
+
+.split-su{
+    display: 'flex';
+    flex-direction: 'column';
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signup-form{
+
+}
+
+#un-su{
+    width: 400px;
+    height: 40px;  
+    background-color: #f5f8fa;
+    border-radius: 5px;
+    margin-top: 8px;
+    text-indent: 8px;
+    margin-bottom: 8px;
+    margin-left: 130px;
+    border: none;
+}
+
+#un-su:hover{
+    background-color: white;
+}
+
+#un-su:active,
+#un-su:focus{
+    outline: none;
+}
+
+#pass-su{
+    width:400px;
+    height: 40px;
+    background-color: #f5f8fa;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-indent: 8px;
+    border: none;
+    margin-left: 130px;
+}
+
+#pass-su:hover{
+    background-color: white;
+}
+
+#pass-su:active,
+#pass-su:focus{
+    outline: none;
 }
