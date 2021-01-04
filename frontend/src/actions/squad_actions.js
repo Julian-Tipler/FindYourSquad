@@ -65,7 +65,7 @@ export const fetchFilteredSquads = (searchParams) => dispatch => (
 
 export const createSquad = data => dispatch => (
   APISquad.formSquad(data)
-    .then(squad => dispatch(receiveNewSquad(squad)),
+    .then(squad => dispatch(fetchSquads()),
     err => (
         dispatch(receiveErrors(err.response.data))
     )))

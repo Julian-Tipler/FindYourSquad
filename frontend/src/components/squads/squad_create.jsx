@@ -38,7 +38,7 @@ class SquadCreate extends React.Component {
       squadSize: this.state.squadSize,
     };
 
-    this.props.createSquad(squad).then(squad => this.props.fetchSquads());
+    this.props.createSquad(squad)
     this.setState({ name: "" });
     this.setState({ generalBio: "" });
     this.setState({ skillLevel: "" });
