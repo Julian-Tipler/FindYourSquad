@@ -26,15 +26,15 @@ const io = socket(server, {
 });
 
 //heroku stuff
-// const path = require('path');
+const path = require('path');
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('frontend/build'));
-//   app.get('/', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-//   })
-// }
-// if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
+// if (process.env.NODE_ENV === 'development') {
 //   app.use(express.static('frontend/build'));
 //   app.get('/', (req, res) => {
 //     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
