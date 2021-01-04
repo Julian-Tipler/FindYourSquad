@@ -94,6 +94,11 @@
     border: 1px solid rgb(143, 36, 36);
 }
 
+.request-button:active,
+.request-button:focus{
+    outline: none;
+}
+
 .squad-box-members-div {
     width: 89%;
     display: flex;
