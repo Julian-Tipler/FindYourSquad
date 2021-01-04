@@ -94,7 +94,10 @@ class UserProfile extends React.Component{
                         })}
 
                     </div>
-                        <ImageUpload profileUserId={profileUserId}/> 
+                    {this.props.currentUserId === profileUserId ? <ImageUpload profileUserId={profileUserId}/> : <> </>}
+    
+                        
+                
                     </div>
                     <div className="profile-squad-boxes">
                         <h3>{profileUser.username}'s Squads</h3>
