@@ -3,6 +3,8 @@ module.exports = {
   secretOrKey: process.env.SECRET_OR_KEY,
   accessKeyId: process.env.ACCESS_KEY_ID,
   secretAccessKey: process.env.SECRET_ACCESS_KEY,
-  Bucket: process.env.BUCKET
+  bucket: process.env.BUCKET,
+  region: "us-west-1"
+
 
 }
