@@ -337,3 +337,7 @@ h3{
     font-weight: bold;
     outline: none;
 }
+
+#demo-button:hover{
+    cursor: pointer;
+}

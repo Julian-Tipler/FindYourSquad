@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import VG4 from './VG4.jpg'
+import './squad_create.css'
 // import SquadBox from './squad_box';
 
 class SquadCreate extends React.Component {
@@ -85,60 +87,71 @@ class SquadCreate extends React.Component {
       
     return (
 
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.update("name")}
-              placeholder="Name your squad..."
-            />
-            <br />
-            <input
-              type="textarea"
-              value={this.state.generalBio}
-              onChange={this.update("generalBio")}
-              placeholder="Squad Bio"
-            />
-            <select onChange={this.update("game")}>
-              <option value="">Game</option>
-              {/* <option value="Apex">Apex</option>
-              <option value="Call of Duty">Call of Duty</option> */}
-                {this.props.games.map((game) => {
-                  return (
-                    <option key={`${game._id}`} value={`${game._id}`}>{game.name}</option>
-                  );
+      <div className='create-page'>
+        <div className='left-side'>
+          <img className='create-pic' src={VG4} />
+        </div>
+        <div className='right-side'>
+          <h1 id='create-title'>Create Your Squad In Few Short Steps</h1>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <h2 id='steps'>1. Name your squad</h2>
+              <input
+                type="text"
+                id='info'
+                value={this.state.name}
+                onChange={this.update("name")}
+                placeholder="Name your squad..."
+              />
+              <br />
+              <h2 id='steps'>2. Give your squad a bio</h2>
+              <input
+                type="textarea"
+                id='info'
+                value={this.state.generalBio}
+                onChange={this.update("generalBio")}
+                placeholder="Squad Bio"
+              />
+              <h2 id='steps'>3. Select a game and desired preferences</h2>
+              <select className='create-bar' onChange={this.update("game")}>
+                <option value="">Game</option>
+                {/* <option value="Apex">Apex</option>
+                <option value="Call of Duty">Call of Duty</option> */}
+                  {this.props.games.map((game) => {
+                    return (
+                      <option key={`${game._id}`} value={`${game._id}`}>{game.name}</option>
+                    );
+                  })}
+              </select>
+              {/* <h2 id='steps'>4. Choose a squad size</h2> */}
+              <select className='create-bar' onChange={this.update("squadSize")}>
+                <option value="">Squad Size</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              {/* <select onChange={this.update("squadSize")}>
+                <option value="">Squad Size</option>
+                {squadSizeDropdown.map(num => {
+                  return(
+                    <option key={`${num}`} value={`${num}`}>{num}</option>
+                  )
                 })}
-            </select>
-            <select onChange={this.update("squadSize")}>
-              <option value="">Squad Size</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-            {/* <select onChange={this.update("squadSize")}>
-              <option value="">Squad Size</option>
-              {squadSizeDropdown.map(num => {
-                return(
-                  <option key={`${num}`} value={`${num}`}>{num}</option>
-                )
-              })}
-            </select> */} 
-
-            <select onChange={this.update("skillLevel")}>
-              <option value="">Skill Level</option>
-              <option value="Beginner">Beginner</option>
-              <option value="Skilled">Skilled</option>
-              <option value="Expert">Expert</option>
-              <option value="Master">Master</option>
-            </select> 
-            
-            <input type="submit" value="Submit" /> 
-          </div>
-       
-      {this.renderErrors()}
-       </form>
+              </select> */} 
+              {/* <h2 id='steps'>5. Pick a skill level</h2> */}
+              <select className='create-bar' onChange={this.update("skillLevel")}>
+                <option value="">Skill Level</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Skilled">Skilled</option>
+                <option value="Expert">Expert</option>
+                <option value="Master">Master</option>
+              </select> 
+              <br/>
+              <input type="submit" id='create-submit-btn' value="Submit" /> 
+            </div>        
+          {this.renderErrors()}
+        </form>
+        </div>
         {/* <SquadBox currentUserId={this.props.currentUserId} updateSquad={this.props.updateSquad} key={squad._id} name={squad.name} generalBio={squad.generalBio} /> */}
       </div>
     );

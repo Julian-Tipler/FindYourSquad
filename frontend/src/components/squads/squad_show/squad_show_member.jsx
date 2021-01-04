@@ -23,7 +23,7 @@ class SquadShowMember extends React.Component {
     if (this.props.currentUser.id===this.props.currentSquad.leader) {
       return (
         <div>
-          <button onClick={this.handleRemoveMember}>removeMember</button>
+          <button id='ss-rm' onClick={this.handleRemoveMember}>Remove</button>
         </div>
       )
     }
@@ -38,7 +38,7 @@ class SquadShowMember extends React.Component {
       <div className='member-box'>
         <div>{this.props.member.username}</div>
         <div>
-          <Link to={`/profile/${this.props.member._id}`}>Gamer Profile</Link>
+          <Link id='ss-gp' to={`/profile/${this.props.member._id}`}>Go to Profile</Link>
         </div>
         <div>
           {this.renderButton()}

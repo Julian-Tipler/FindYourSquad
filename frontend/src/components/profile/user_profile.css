@@ -18,6 +18,7 @@
 .user-profile-body {
     display: flex;
     flex-direction: row;
+    margin-top: 15px;
 }
 
 .user-profile-header {
@@ -28,6 +29,8 @@
 
 .user-profile-main {
     width: 75%;
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -39,7 +42,7 @@
 
 
 .user-stat-box {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     margin-bottom: 10px;
     border-radius: 5px;
     padding-left: 5px;
@@ -51,7 +54,7 @@
 
 .user-stat-form {
     margin-bottom: 10px;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     border-radius: 5px;
     padding-bottom: 10px;
     padding-left: 5px;
@@ -59,11 +62,12 @@
 
 
 .user-stat-section {
+    margin-left: 30px;
     width: 30%;
 }
 
 .user-stat-form-section {
-    width: 30%;
+    width: 520px;;
 }
 
 /* body {
@@ -73,4 +77,95 @@
 
 .user-image {
     height: 300px;
+}
+
+#pp-game-button {
+    background-color: rgb(174, 37, 37);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 120px;
+    margin-top: 20px;
+    font-weight: bold;
+    outline: none;
+    margin-left: 30px;
+}
+
+#pp-game-button:hover {
+    cursor: pointer;
+}
+
+
+#pp-game-button:active{
+    background-color: rgb(85, 19, 19);
+    outline: none
+}
+
+#stats-title{
+    font-size: 26px;
+    margin-left: 30px;
+}
+
+
+#user-stats{
+    width: 400px;
+    height: 40px;  
+    background-color: #f5f8fa;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-indent: 8px;
+    margin-bottom: 15px;
+    border: none;
+    margin-left: 30px;
+}
+
+#user-stats:hover{
+    background-color: white;
+}
+
+#user-stats:active,
+#user-stats:focus{
+    outline: none;
+}
+
+#stats-btn {
+    background-color: rgb(174, 37, 37);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 120px;
+    margin-top: 20px;
+    font-weight: bold;
+    outline: none;
+    margin-left: 30px;
+}
+
+#stats-btn:hover {
+    cursor: pointer;
+}
+
+
+#stats-btn:active{
+    background-color: rgb(85, 19, 19);
+    outline: none
+}
+
+/* #profile-title{
+    margin-left: 28px;
+    font-size: 26px;
+    margin-top: 10px;
+} */
+
+#profile-stat-name{
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+#profile-stat{
+    font-size: 23px;
+    margin-bottom: 15px;
 }
