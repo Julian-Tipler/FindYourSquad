@@ -23,7 +23,7 @@
 
 .members .member-box {
     padding: 5% 5%;
-    border-radius: 4px;
+    border-radius: 10px;
     background: rgb(47, 48, 51);
     justify-content: space-between;
 }
@@ -37,6 +37,7 @@
     padding: 5% 5%;
     border-radius: 10px;
     background: rgb(47, 48, 51);
+    justify-content: space-between;
 }
 
 

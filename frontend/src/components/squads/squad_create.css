@@ -1,0 +1,127 @@
+body {
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: rgb(24,25,26);
+    padding: 0;
+    margin: 0;
+    height: 100%
+}
+
+/* div {
+    display: block;
+} */
+
+html{
+    height: 100%;
+    background-color: rgb(24,25,26)
+}
+
+.create-page{
+    display: 'flex';
+    flex-direction: 'column';
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.create-pic{
+    height: 800px;
+}
+
+
+/* .left-side img{
+    height: 800px;
+    
+} */
+
+.left-side{
+    height: 100%;
+    margin: 0px;
+    display: inline-block;
+    align-self: center;
+    /* position: relative;
+    bottom: 280px; */
+    /* padding-left: 50px; */
+}
+
+
+.right-side{
+    display: inline-block;
+    margin-left: 75px;
+    margin-top: 100px;
+    height: 100%;
+    vertical-align: top;
+}
+
+#create-title{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#steps{
+    font-size: 24px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+#info{
+    width: 400px;
+    height: 40px;  
+    background-color: #f5f8fa;
+    border-radius: 5px;
+    margin-top: 8px;
+    text-indent: 8px;
+    margin-bottom: 8px;
+    border: none;
+}
+
+#info:hover{
+    background-color: white;
+}
+
+#info:active,
+#info:focus{
+    outline: none;
+}
+
+#create-submit-btn{
+    background-color: rgb(174, 37, 37);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin-top: 40px;
+    font-weight: bold;
+    outline: none;
+
+}
+
+#create-submit-btn:hover{
+    cursor: pointer;
+}
+
+#create-submit-btn:active,
+#create-submit-btn:focus{
+    background-color: rgb(85, 19, 19);
+    outline: none
+}
+
+.create-bar{
+    width: 175px;
+    height: 35px;
+    background: black;
+    color: rgb(174, 37, 37)
+}
+
+.create-bar:active,
+.create-bar:focus{
+    outline: none;
+}
+
+.create-bar:hover{
+    cursor: pointer;
+    background:rgb(174, 37, 37);
+    color: white;
+}

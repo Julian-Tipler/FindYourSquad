@@ -42,6 +42,8 @@ class Squad extends React.Component {
       return (
         <div className="squad-index-main">
           <h2 id='squad-forum-title'>Squad Forum</h2>
+          <h2 id='search-desc'>Can't Find What You're Looking For?
+          Use the search bar below</h2>
           <div id='search-bar'>
             <SearchSquadContainer/>
           </div>
