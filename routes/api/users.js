@@ -193,7 +193,7 @@ router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req,
  
 
 
-
+const awskeys = require("../../config/keys")
 const aws = require( 'aws-sdk' );
 const multerS3 = require( 'multer-s3' );
 const multer = require('multer');
@@ -201,9 +201,9 @@ const path = require( 'path' );
 const url = require('url');
 
 const s3 = new aws.S3({
- accessKeyId: 'AKIAJWR7DTWCFLJ4KIKQ',
- secretAccessKey: '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',
- Bucket: 'mern-squad-2'
+ accessKeyId: awskeys.accessKeyId,
+ secretAccessKey: awskeys.secretAccessKey,
+ bucket: awskeys.bucket
 });
 
 
