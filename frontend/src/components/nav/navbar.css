@@ -12,11 +12,12 @@
     z-index: 1;
 }
 
-#navbar-title{
-    color: whitesmoke;
-    text-decoration: none;
+#navbar-logo{
     padding-left: 20px;
     float: left;
+    height: 40px;
+    width: 200px;
+    object-fit: cover;
 }
 
 #nav-signup-link{
@@ -83,6 +84,11 @@
 #nav-bar-logout:hover{
     cursor: pointer;
     background-color: rgb(174, 37, 37);
+}
+
+#nav-bar-logout:active,
+#nav-bar-logout:focus{
+    outline: none;
 }
 
 #nav-link{

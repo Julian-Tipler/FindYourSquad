@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import "./session.css"
+import VG1 from './VG1.jpg'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -66,38 +67,41 @@ class LoginForm extends React.Component {
           </div>
 
         </section> */}
-
-        <div className="main-auth-right">
-          
-          <div className="session-form-div">
-            <h1 id='login-title'>Welcome to Find Your Squad</h1>
-            <p id='login-desc'>Log In Below</p>
-
+        <div className='split-screen'>
+          <div className='main-auth-left'>
+            <img className='login-pic' src={VG1} />
+          </div>
+          <div className="main-auth-right">
             
-            <form onSubmit={this.handleSubmit}>
-              <div>
-                  <input type="text"
-                    id='un'
-                    autoComplete='off'
-                    value={this.state.username}
-                    onChange={this.update('username')}
-                    placeholder="Username"
-                  />
-                <br/>
-                  <input type="password"
-                    id='pass'
-                    value={this.state.password}
-                    onChange={this.update('password')}
-                    placeholder="Password"
-                  />
-                <br/>
-                <input id='login-button' type="submit" value="Login" />
-                {this.renderErrors()}
-              </div>
-            </form>
-          </div>
-          </div>
-      
+            <div className="session-form-div">
+              <h1 id='login-title'>Welcome to Find Your Squad</h1>
+              <p id='login-desc'>Log In Below</p>
+
+              
+              <form onSubmit={this.handleSubmit}>
+                <div>
+                    <input type="text"
+                      id='un'
+                      autoComplete='off'
+                      value={this.state.username}
+                      onChange={this.update('username')}
+                      placeholder="Username"
+                    />
+                  <br/>
+                    <input type="password"
+                      id='pass'
+                      value={this.state.password}
+                      onChange={this.update('password')}
+                      placeholder="Password"
+                    />
+                  <br/>
+                  <input id='login-button' type="submit" value="Login" />
+                  {this.renderErrors()}
+                </div>
+              </form>
+            </div>
+            </div>
+        </div>
       </div>
     );
   }

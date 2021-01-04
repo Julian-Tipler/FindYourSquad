@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
+import { formatDateTime } from '../../../util/date_util';
+
 class MessagesContainer extends Component {
 
     render() {
@@ -11,10 +13,18 @@ class MessagesContainer extends Component {
                 <div>
                     {this.props.messages.map((message, idx) => {
                         return (
-                            <li key={"c" + idx}>
+                            <div key={"c" + idx} className={`${
+                                message.sender === this.props.currentUser ? "message-container darker" : "message-container"
+                            }`}>
+                                {/* <img src="" alt="Avatar" className={`${
+                                    message.sender === this.props.currentUser ? "right" : "left"
+                                }`}></img> */}
                                 <strong>{message.sender}</strong>
-                                <div>{message.content}</div>
-                            </li>
+                                <p>{message.content}</p>
+                                <span className={`${
+                                    message.sender === this.props.currentUser ? "time-right" : "time-left"
+                                }`}>{formatDateTime(message.timestamp)}</span>
+                            </div>
                         );
                     })}
                 </div>
