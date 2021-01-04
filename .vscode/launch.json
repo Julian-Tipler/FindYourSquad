@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "Squad:src/actions/squad_actions.updateSquad (nodejs10.x)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "frontend",
+                "lambdaHandler": "src/actions/squad_actions.updateSquad"
+            },
+            "lambda": {
+                "runtime": "nodejs10.x",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        }
+    ]
+}

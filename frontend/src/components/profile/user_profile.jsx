@@ -61,7 +61,7 @@ class UserProfile extends React.Component{
                                 return (
                                     <div key={`${profileUser.username}${stat._id}`}className="user-stat-box">
                                     <h2>{stat.gameName}</h2>
-                                    <h3>{stat.updatedAt}</h3>
+                                    <h3>{(stat.updatedAt).slice(0,10)}</h3>
                                     {Object.keys(stat.stats).map((key, idx) => {
                                         return (
                                             
