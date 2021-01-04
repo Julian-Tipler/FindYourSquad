@@ -4,7 +4,7 @@ module.exports = {
     secretOrKey: 'secret',
     accessKeyId: 'AKIAJWR7DTWCFLJ4KIKQ',
     secretAccessKey: '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',
-    Bucket: 'mern-squad-2'
+    bucket: 'mern-squad-2'
 }
 
 
