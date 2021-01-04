@@ -13,9 +13,12 @@ class SquadCreate extends React.Component {
       skillLevel: "",
       game: "",
       squadSize: "",
+      // errors: {}
+
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -35,14 +38,14 @@ class SquadCreate extends React.Component {
       squadSize: this.state.squadSize,
     };
 
-    this.props.createSquad(squad);
+    this.props.createSquad(squad)
     this.setState({ name: "" });
     this.setState({ generalBio: "" });
     this.setState({ skillLevel: "" });
     this.setState({ game: "" });
     this.setState({ squadSize: "" });
-    this.props.fetchSquads()
-    this.props.history.push('/squads');  /// goes to squad page, but without new squad 
+    
+    // this.props.history.push('/squads');  /// goes to squad page, but without new squad 
   }
 
   update(field) {
@@ -51,6 +54,19 @@ class SquadCreate extends React.Component {
         [field]: e.currentTarget.value,
       });
   }
+
+    renderErrors() {
+      if (this.props.errors.length !== 0){
+    return(
+      <ul>
+        {Object.keys(this.props.errors).map((error, i) => (
+          <li key={`error-${i}`}>
+            {this.props.errors[error]}
+          </li>
+        ))}
+      </ul>
+    );
+  }}
 
 
 
@@ -116,11 +132,13 @@ class SquadCreate extends React.Component {
               <option value="Skilled">Skilled</option>
               <option value="Expert">Expert</option>
               <option value="Master">Master</option>
-            </select>
-            <input type="submit" value="Submit" />
+            </select> 
+            
+            <input type="submit" value="Submit" /> 
           </div>
-        </form>
-        <br />
+       
+      {this.renderErrors()}
+       </form>
         {/* <SquadBox currentUserId={this.props.currentUserId} updateSquad={this.props.updateSquad} key={squad._id} name={squad.name} generalBio={squad.generalBio} /> */}
       </div>
     );
