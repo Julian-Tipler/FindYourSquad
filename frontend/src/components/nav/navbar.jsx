@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
-// import './navbar.css'
+import Logo from './Logo.png'
+import Logo4 from './Logo4.png'
+
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
+    this.getLogoLink = this.getLogoLink.bind(this);
   }
 
   logoutUser(e) {
@@ -40,10 +43,27 @@ class NavBar extends React.Component {
       }
   }
 
+  getLogoLink(){
+    if (this.props.loggedIn){
+      return(
+        <Link to={'/squads'}>
+          <img id='navbar-logo' src={Logo4}/>
+        </Link>
+      );
+    } else {
+      return(
+        <Link to={'/'}>
+          <img id='navbar-logo' src={Logo4}/>
+        </Link>
+      );
+    }
+
+  }
+
   render() {
       return (
         <div className='navbar'>
-            <div id='navbar-title'>FindYourSquad.com</div>
+            { this.getLogoLink() }
             <div>{ this.getLinks() }</div> 
         </div>
       );
