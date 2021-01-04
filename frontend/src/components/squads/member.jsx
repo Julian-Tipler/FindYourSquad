@@ -6,7 +6,7 @@ class Member extends React.Component {
     render() {
 
         const correctGameStats = this.props.member.userStats.find(stat => stat.game === this.props.groupGameId)
-        console.log(correctGameStats)
+        // console.log(correctGameStats)
 
         let displayStats
         if (correctGameStats === undefined){
@@ -19,7 +19,7 @@ class Member extends React.Component {
           displayStats =
            Object.keys(correctGameStats.stats).map((key, idx) => {
              return (
-                <div id="gamer-box">{key}: {correctGameStats.stats[key]}</div> //key={`${idx}${stat.game}`} 
+                <div id="gamer-box">{key.length < 3 ? key.toUpperCase().split("").join("/") : key.slice(0,1).toUpperCase() + key.slice(1)}: {correctGameStats.stats[key]}</div> //key={`${idx}${stat.game}`} 
               )
             })
         }
