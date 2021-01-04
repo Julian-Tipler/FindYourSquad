@@ -201,8 +201,8 @@ const path = require( 'path' );
 const url = require('url');
 
 const s3 = new aws.S3({
- accessKeyId: 'AKIAJHPBP6GYROVNMV2Q',
- secretAccessKey: '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',
+ accessKeyId: 'AKIAJWR7DTWCFLJ4KIKQ',
+ secretAccessKey: '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',
  Bucket: 'mern-squad-2'
 });
 
