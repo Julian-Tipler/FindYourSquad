@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 // import SquadBox from './squad_box';
+import './user_profile.css';
 
 class GameStatsForm extends React.Component {
   constructor(props) {
@@ -56,11 +57,12 @@ class GameStatsForm extends React.Component {
     return (
 
       <div className="user-stat-form" key={`${this.props.game.name}form`}>
-          <h2>Fill out your {this.props.game.name} stats</h2>
+          <h2 id='stats-title'>Fill out/update your {this.props.game.name} stats</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
                 <input
                 type="text"
+                id='user-stats'
                 value={this.state.kd}
                 onChange={this.update("kd")}
                 placeholder="K/D"
@@ -68,19 +70,21 @@ class GameStatsForm extends React.Component {
                 <br />
                 <input
                 type="text"
+                id='user-stats'
                 value={this.state.kills}
                 onChange={this.update("kills")}
                 placeholder="Kills"
                 />
                 <input
                 type="text"
+                id='user-stats'
                 value={this.state.wins}
                 onChange={this.update("wins")}
                 placeholder="Wins"
                 />
     
 
-                <input type="submit" value="Submit" />
+                <input id='stats-btn' type="submit" value="Submit" />
             </div>
         </form>
       </div>

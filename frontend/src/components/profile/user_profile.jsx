@@ -38,21 +38,23 @@ class UserProfile extends React.Component{
 
         return(
             <div>
-                <header className='user-profile-header'>
-                        <h2>{profileUser.username}</h2>
+                {/* <header className='user-profile-header'>
+                        <h2>{profileUser.username}'s Profile Page</h2>
                        <div className="user-header-div">
                            <span>Bio:{`${profileUser.bio}`}</span>
-                           <span>Platform:{`${profileUser.platform}`}</span>
+                           <span>Platform:{`${profileUser.platform}`}</span> */}
                            
-                           <span>Community Rating:{`${profileUser.communityRating}`}</span>
-                       </div>
-                </header>
-                
-                {this.props.games.map((game) => {
-                  return (
-                    <button onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
-                  );
-                })}
+                           {/* <span>Community Rating:{`${profileUser.communityRating}`}</span> */}
+                       {/* </div> */}
+                {/* </header> */}
+                <div id='pp-game-btn-container'>
+                    {/* <h1 id='profile-title'>Click a game to view your stats</h1> */}
+                    {this.props.games.map((game) => {
+                    return (
+                        <button id='pp-game-button' onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
+                    );
+                    })}
+                </div>
                 <div className="user-profile-body">
                     <div className="user-profile-main">
                         <div className="user-stat-section">
@@ -60,12 +62,17 @@ class UserProfile extends React.Component{
                             if (stat.game === this.state.gameState){
                                 return (
                                     <div key={`${profileUser.username}${stat._id}`}className="user-stat-box">
+
                                     <h2>{stat.gameName}</h2>
                                     <h3>{(stat.updatedAt).slice(0,10)}</h3>
+
+                                    <h2 id='profile-stat-name'>{stat.gameName} Stats</h2>
+
+
                                     {Object.keys(stat.stats).map((key, idx) => {
                                         return (
                                             
-                                            <h3 key={`${idx}${stat.game}`} className="stat-item">{key}: {stat.stats[key]}</h3> 
+                                            <h3 id='profile-stat' key={`${idx}${stat.game}`} className="stat-item">{key}: {stat.stats[key]}</h3> 
                                             
                                         )
                                     })}
@@ -86,7 +93,7 @@ class UserProfile extends React.Component{
                         </div>
                         );}
                     })}   
-                    <div className="user-images-section">
+                    {/* <div className="user-images-section">
                         {profileUser.profileImages.map(image => {
                             return (
                                 <img className="user-image" key={`${image}`} src={`${image}`} alt=""/>
@@ -94,10 +101,14 @@ class UserProfile extends React.Component{
                         })}
 
                     </div>
+
                     {this.props.currentUserId === profileUserId ? <ImageUpload profileUserId={profileUserId}/> : <> </>}
     
                         
                 
+
+                        <ImageUpload profileUserId={profileUserId}/>  */}
+
                     </div>
                     <div className="profile-squad-boxes">
                         <h3>{profileUser.username}'s Squads</h3>

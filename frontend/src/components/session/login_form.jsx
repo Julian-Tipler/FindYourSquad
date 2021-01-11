@@ -15,6 +15,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.demo = this.demo.bind(this);
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -43,6 +44,10 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user); 
+  }
+
+  demo(){
+    this.setState({ username: 'demoUser', password: 'password' })
   }
 
   renderErrors() {
@@ -96,11 +101,12 @@ class LoginForm extends React.Component {
                     />
                   <br/>
                   <input id='login-button' type="submit" value="Login" />
+                  <button id='demo-button' onClick={this.demo}>Try A Demo</button>
                   {this.renderErrors()}
                 </div>
               </form>
             </div>
-            </div>
+          </div>
         </div>
       </div>
     );
