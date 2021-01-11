@@ -90,6 +90,7 @@ class GameStatsForm extends React.Component {
           </form>
         </div>
     );}
+    
     else if (this.state.editFormOpen) {
 
       return (
