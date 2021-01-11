@@ -79,12 +79,21 @@ class UserProfile extends React.Component{
                         if (game._id !== this.state.gameState){
                             return <> </>
                         }
-                        if (this.props.currentUserId === profileUserId){
-                        return (
-                        <div className="user-stat-form-section">
-                            <GameStatsFormContainer key={`${game._id}${idx}`} type="create" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
-                        </div>
-                        );}
+                        if (this.props.currentUserId === profileUserId){ 
+                            if (profileUser.userStats.find(stat => stat.game === this.state.gameState)){
+                                return (
+                                    <div className="user-stat-form-section">
+                                        <GameStatsFormContainer key={`${game._id}${idx}`} type="edit" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                                    </div>
+                        )} else {
+                            return (
+                                <div className="user-stat-form-section">
+                                        <GameStatsFormContainer key={`${game._id}${idx}`} type="create" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                                    </div>
+                            )
+                        }
+                        
+                        ;}
                     })}   
                     <div className="user-images-section">
                         {profileUser.profileImages.map(image => {

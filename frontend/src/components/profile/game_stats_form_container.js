@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
     // profileUser: state.users.profileUser,
     // games: state.games.all
     game: ownProps.game,
-    profileUserId: ownProps.profileUserId
+    profileUserId: ownProps.profileUserId,
+    type: ownProps.type
   };
 };
 

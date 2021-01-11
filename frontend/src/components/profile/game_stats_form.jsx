@@ -10,7 +10,8 @@ class GameStatsForm extends React.Component {
     this.state = {
       kd: "",
       kills: "",
-      wins: ""
+      wins: "",
+      editFormOpen: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,42 +53,95 @@ class GameStatsForm extends React.Component {
     //   if (Object.values(this.props.games).length === 0) {
     //     return <> </>
     //   }
+    if (this.props.type === "create"){
+
+      return (
+
+        <div className="user-stat-form" key={`${this.props.game.name}form`}>
+            <h2 id='stats-title'>Fill out/update your {this.props.game.name} stats</h2>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+                  <input
+                  type="text"
+                  id='user-stats'
+                  value={this.state.kd}
+                  onChange={this.update("kd")}
+                  placeholder="K/D"
+                  />
+                  <br />
+                  <input
+                  type="text"
+                  id='user-stats'
+                  value={this.state.kills}
+                  onChange={this.update("kills")}
+                  placeholder="Kills"
+                  />
+                  <input
+                  type="text"
+                  id='user-stats'
+                  value={this.state.wins}
+                  onChange={this.update("wins")}
+                  placeholder="Wins"
+                  />
       
-    return (
 
-      <div className="user-stat-form" key={`${this.props.game.name}form`}>
-          <h2 id='stats-title'>Fill out/update your {this.props.game.name} stats</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-                <input
-                type="text"
-                id='user-stats'
-                value={this.state.kd}
-                onChange={this.update("kd")}
-                placeholder="K/D"
-                />
-                <br />
-                <input
-                type="text"
-                id='user-stats'
-                value={this.state.kills}
-                onChange={this.update("kills")}
-                placeholder="Kills"
-                />
-                <input
-                type="text"
-                id='user-stats'
-                value={this.state.wins}
-                onChange={this.update("wins")}
-                placeholder="Wins"
-                />
+                  <input id='stats-btn' type="submit" value="Submit" />
+              </div>
+          </form>
+        </div>
+    );}
+    else if (this.state.editFormOpen) {
+
+      return (
+
+
+        <div className="user-stat-form" key={`${this.props.game.name}form`}>
+            <h2 id='stats-title'>Edit your {this.props.game.name} stats</h2>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+                  <input
+                  type="text"
+                  id='user-stats'
+                  value={this.state.kd}
+                  onChange={this.update("kd")}
+                  placeholder="K/D"
+                  />
+                  <br />
+                  <input
+                  type="text"
+                  id='user-stats'
+                  value={this.state.kills}
+                  onChange={this.update("kills")}
+                  placeholder="Kills"
+                  />
+                  <input
+                  type="text"
+                  id='user-stats'
+                  value={this.state.wins}
+                  onChange={this.update("wins")}
+                  placeholder="Wins"
+                  />
+      
+
+                  <input id='stats-btn' type="submit" value="Submit" />
+              </div>
+          </form>
+        </div>)}
+        else {
+
+          return (
+            <button onClick={ ()=> this.setState({editFormOpen: true})}>Edit Stats
+            
+
+
+
+
+
+
+
+            </button>
+          )}
     
-
-                <input id='stats-btn' type="submit" value="Submit" />
-            </div>
-        </form>
-      </div>
-    );
   }
 }
 
