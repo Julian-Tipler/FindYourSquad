@@ -16,8 +16,9 @@ class SquadShow extends React.Component {
             socket: MySocket.getSocket()
         };
 
-        this.state.socket.on("messages", messages => {
-            this.props.fetchSquad(this.props.match.params.squadId);
+        this.state.socket.on("messages", (messages) => {
+            console.log(messages);
+            this.props.fetchSquadMessages(this.props.currentSquad._id)
         });
     }
 
@@ -87,6 +88,7 @@ class SquadShow extends React.Component {
                                 <MessagesComponent
                                 messages={this.props.currentSquad.messages}
                                 currentUser={this.props.currentUser.username}
+                                fetchSquadMessages={this.props.fetchSquadMessages}
                                 />
                             </div>
                             <div className="input-container">
