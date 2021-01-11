@@ -27,7 +27,7 @@ class SquadShow extends React.Component {
     }
 
     componentWillUnmount() {
-        // this.state.socket.off("get_data", this.state.messages);
+        this.state.socket.off("get_data", this.state.messages);
     }
     
     render() {
