@@ -18,7 +18,7 @@ class SquadShow extends React.Component {
 
         this.state.socket.on("messages", (messages) => {
             console.log(messages);
-            this.props.fetchSquadMessages(this.props.currentSquad._id)
+            this.props.fetchSquadMessages(this.props.match.params.squadId)
         });
     }
 
