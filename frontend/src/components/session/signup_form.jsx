@@ -92,27 +92,27 @@ class SignupForm extends React.Component {
           </form>
         </div>
         <div className='signup-desc'>
-            <h3>Join Squads to Elevate Your Gaming Experience</h3>
             <div id='text-1'>
-              Find Your Squad helps you find a group to team up with! Join a 
-              squad that best reflects your skill and intensity for a variety 
-              of games. 
+              <h3 className='text-title'>Join Squads To Elevate Your Gaming Experience</h3>
+                Find Your Squad helps you find a group to team up with! Join a 
+                squad that best reflects your skill and intensity for a variety 
+                of games. 
             </div>
-            <h3>Can't Find a Squad You Like? Create Your Own</h3>
             <div id= 'text-2'>
-              Form a squad attuned to your preferences to optimize your experience
-              in and out of the game
+              <h3 className='text-title'>Can't Find A Squad You Like? Create Your Own</h3>
+                Form a squad attuned to your preferences to optimize your experience
+                in and out of the game
             </div>
-            <h3>Show Off Your Stats And Create a Profile</h3>
-            <h3>To Let Others Know Who You Are</h3>
             <div id='text-3'>
-              Help others learn a little bit about you and see other profiles to
-              find like-minded teammates that you can have fun with
+              <h3>Show Off Your Stats And Create A Profile</h3>
+              <h3 className='text-title'>To Let Others Know Who You Are</h3>
+                Help others learn a little bit about you and see other profiles to
+                find like-minded teammates that you can have fun with
             </div>
-            <h3>Hang Out And Communicate With Your Squad</h3>
-            <div id='text-4'>
-              Message each other in your own squad group chat and coordinate when
-              everyone is free. 
+              <div id='text-4'>
+              <h3 className='text-title'>Hang Out And Communicate With Your Squad</h3>
+                Message each other in your own squad group chat and coordinate when
+                everyone is free. 
             </div>
         </div>
       </div>

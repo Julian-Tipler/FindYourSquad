@@ -121,6 +121,7 @@ router.put("/:id", (req, res) => {
           $addToSet: { members: req.body.requestId },
           $pull: { requests: req.body.requestId },
         };
+
         let squad = Squad.findById(id)
         .then(squad=> {
           if (squad.members.length >= squad.squadSize) {
@@ -132,13 +133,17 @@ router.put("/:id", (req, res) => {
           }
         
         console.log(squad)
+        
+
         if (!squad.squadFull) {
           console.log('ping')
-          Squad.findByIdAndUpdate(id, update, { new: true })
+          Squad.findByIdAndUpdate(req.params.id, update, { new: true })            
             .populate({ path: 'members', populate: { path: 'userStats' }})
             .populate({ path: "requests", populate: {path: 'userStats'}})
             .populate("game")
             .then((squad) => {
+              console.log("after then")
+              
               if (squad.members.length >= squad.squadSize) {
                 squad.squadFull=true
                 squad.save()
@@ -151,6 +156,7 @@ router.put("/:id", (req, res) => {
                 )
             })
             .catch((err) =>
+            
               res.status(404).json({ nosquadfound: "Could not process request." })
             );
         }

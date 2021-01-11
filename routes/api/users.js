@@ -211,7 +211,7 @@ const s3 = new aws.S3({
 const profileImgUpload = multer({
  storage: multerS3({
   s3: s3,
-  bucket: 'mern-squad-2',
+  bucket: 'squadmaker',
   acl: 'public-read',
   key: function (req, file, cb) {
    cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )

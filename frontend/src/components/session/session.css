@@ -31,7 +31,7 @@ html{
     flex-direction: 'column';
     margin-left: auto;
     margin-right: auto;
-    max-height: 100%;
+    max-height: 100vh;
 }
 
 .login-pic{
@@ -106,7 +106,7 @@ html{
     display: inline-block;
     align-self: center;
     position: relative;
-    bottom: 260px;
+    bottom: 280px;
     padding-left: 50px;
 }
 
@@ -131,7 +131,7 @@ html{
     font-size: 24px;
     padding-bottom: 10px;
     margin-left: 130px;
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 #signup-desc{
@@ -233,7 +233,9 @@ html{
     float: right;
     width: 40%;
     height: 100vh;
-    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .split-su{
@@ -287,4 +289,55 @@ html{
 #pass-su:active,
 #pass-su:focus{
     outline: none;
+}
+
+#text-1{
+    margin-top: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#text-2{ 
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
+
+#text-3{
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
+
+#text-4{
+    margin-bottom: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.text-title{
+    padding-bottom: 15px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+#demo-button{
+    background-color: rgb(174, 37, 37);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 27px;
+    padding-right: 27px;
+    margin-top: 40px;
+    margin-left: 152px;
+    font-weight: bold;
+    outline: none;
+}
+
+#demo-button:hover{
+    cursor: pointer;
 }

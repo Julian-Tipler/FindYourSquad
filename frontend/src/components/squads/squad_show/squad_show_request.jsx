@@ -1,6 +1,6 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
+import './squad_overview.css'
 
 class SquadShowRequest extends React.Component {
   constructor(props) {
@@ -33,9 +33,9 @@ class SquadShowRequest extends React.Component {
   renderButtons() {
     if (this.props.currentUser.id===this.props.currentSquad.leader) {
       return (
-        <div>
-          <button onClick={this.handleAcceptMember}>Accept Member</button>
-          <button onClick={this.handleDeclineRequest}>Decline Request</button>
+        <div id='sr-btns'>
+          <button id='sr-am' onClick={this.handleAcceptMember}>Accept</button>
+          <button id='sr-dr' onClick={this.handleDeclineRequest}>Decline</button>
         </div>
       )
     }
@@ -49,7 +49,7 @@ class SquadShowRequest extends React.Component {
       <div className='request-box'>
         <div>{this.props.request.username}</div>
         <div>
-          <Link to={`/profile/${this.props.request._id}`}>Gamer Profile</Link>
+          <Link id='sr-gp' to={`/profile/${this.props.request._id}`}>Go to Profile</Link>
         </div>
         <div>
           {this.renderButtons()}
