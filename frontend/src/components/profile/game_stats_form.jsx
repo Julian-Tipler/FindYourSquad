@@ -52,7 +52,6 @@ class GameStatsForm extends React.Component {
     //   if (Object.values(this.props.games).length === 0) {
     //     return <> </>
     //   }
-    // console.log(this.props.game._id)
       
     return (
 

@@ -5,7 +5,6 @@ import { fetchGames } from '../../actions/game_actions'
 import GameStatsForm from './game_stats_form';
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(ownProps)
   return {
     // currentUserId: state.session.user.id,
     // profileUserId: ownProps.match.params.userId,

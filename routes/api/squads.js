@@ -132,17 +132,14 @@ router.put("/:id", (req, res) => {
             return res.status(404).json({ nosquadfound: "This squad is full." })
           }
         
-        console.log(squad)
         
 
         if (!squad.squadFull) {
-          console.log('ping')
           Squad.findByIdAndUpdate(req.params.id, update, { new: true })            
             .populate({ path: 'members', populate: { path: 'userStats' }})
             .populate({ path: "requests", populate: {path: 'userStats'}})
             .populate("game")
             .then((squad) => {
-              console.log("after then")
               
               if (squad.members.length >= squad.squadSize) {
                 squad.squadFull=true

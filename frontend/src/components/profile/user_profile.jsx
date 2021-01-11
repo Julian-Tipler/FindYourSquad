@@ -29,7 +29,6 @@ class UserProfile extends React.Component{
         //     // this.setState({gameState: this.props.games[0]._id})
         //     return <> </>
         // }
-        // console.log(this.state)
 
         if (!this.props.profileUser.squads || !this.state){
             return <> </>
