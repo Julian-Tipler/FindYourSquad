@@ -4,7 +4,7 @@ export default class MySocket {
     socket;
     static getSocket = () => {
         if (MySocket.socket === undefined) {
-            MySocket.socket = io("http://localhost:5100" ,{
+            MySocket.socket = io({
                 withCredentials: true,
                 extraHeaders: {
                     "my-custom-header": "abcd"
@@ -12,7 +12,7 @@ export default class MySocket {
             });
         }
         if (!MySocket.socket.connected) {
-            MySocket.socket.connect("http://localhost:5100", {
+            MySocket.socket.connect({
                 withCredentials: true,
                 extraHeaders: {
                     "my-custom-header": "abcd"
@@ -25,3 +25,20 @@ export default class MySocket {
         return MySocket.socket;
     };
 }
+
+        // if (MySocket.socket === undefined) {
+        //     MySocket.socket = io("http://localhost:5100" ,{
+        //         withCredentials: true,
+        //         extraHeaders: {
+        //             "my-custom-header": "abcd"
+        //         }
+        //     });
+        // }
+        // if (!MySocket.socket.connected) {
+        //     MySocket.socket.connect("http://localhost:5100", {
+        //         withCredentials: true,
+        //         extraHeaders: {
+        //             "my-custom-header": "abcd"
+        //         }
+        //     });
+        // }
