@@ -2,9 +2,9 @@
 module.exports = {
     mongoURI: 'mongodb+srv://dev:WniUQU5ZAKBJ2t7k@squadmaker.0gnoj.mongodb.net/test?retryWrites=true&w=majority',
     secretOrKey: 'secret',
-    accessKeyId: 'AKIAJWR7DTWCFLJ4KIKQ',
-    secretAccessKey: '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',
-    Bucket: 'mern-squad-2',
+    accessKeyId: 'AKIAIYDGUNKE4IAFWJ4Q',
+    secretAccessKey: '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',
+    Bucket: 'squadmaker',
     region:'us-west-1'
 }
 
