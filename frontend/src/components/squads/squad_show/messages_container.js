@@ -13,7 +13,7 @@ class MessagesContainer extends Component {
                     {this.props.messages.map((message, idx) => {
                         return (
                             <div key={"c" + idx} className={`${
-                                message.sender === this.props.currentUser ? "message-container darker" : "message-container"
+                                message.sender === this.props.currentUser ? "message-container-right" : "message-container-left"
                             }`}>
                                 {/* <img src="" alt="Avatar" className={`${
                                     message.sender === this.props.currentUser ? "right" : "left"
@@ -21,7 +21,7 @@ class MessagesContainer extends Component {
                                 <strong>{message.sender}</strong>
                                 <p>{message.content}</p>
                                 <span className={`${
-                                    message.sender === this.props.currentUser ? "time-right" : "time-left"
+                                    message.sender === this.props.currentUser ? "time-left" : "time-right"
                                 }`}>{formatDateTime(message.timestamp)}</span>
                             </div>
                         );

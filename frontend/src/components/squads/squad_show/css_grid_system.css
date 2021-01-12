@@ -77,16 +77,18 @@
 }
 
 /* Chat containers */
-.messages-container .message-container{
+.message-container-left {
     background-color: rgb(24,25,26);
     margin: 20px 10px;
 }
 
 /* Darker chat container */
-.messages-container .darker {
-  border-color: #ccc;
-  background-color: rgb(24,25,26);
+.message-container-right {
+    margin: 40px 10px;
+    text-align: right;
+    background-color: rgb(24,25,26);
 }
+
 
 /* Clear floats */
 .messages-container .message-container::after {
@@ -112,14 +114,14 @@
 }
 
 /* Style time text */
-.messages-container .message-container .time-right {
+.messages-container .message-container-left .time-right {
   float: right;
   color: #aaa;
   font-size: 9pt;
 }
 
 /* Style time text */
-.messages-container .message-container .time-left {
+.messages-container .message-container-right .time-left {
   float: left;
   color: #999;
   font-size: 9pt;
