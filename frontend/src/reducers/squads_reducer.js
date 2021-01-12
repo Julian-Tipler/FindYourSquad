@@ -25,7 +25,6 @@ import {
             return newState;
         case RECEIVE_SQUAD_MESSAGES:
             newState.currentSquad.messages = action.messages.data;
-            newState.all = newState.currentSquad;
             return newState;
         default:
             return state;
