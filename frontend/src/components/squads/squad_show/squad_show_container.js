@@ -3,6 +3,7 @@ import { fetchSquad, updateSquad, fetchSquadMessages } from '../../../actions/sq
 import SquadShow from './squad_show';
 import { openModal, closeModal } from '../../../actions/modal_actions';
 
+
 const mapStateToProps = (state, ownProps) => {
     return {
         currentSquad: state.squads.currentSquad,

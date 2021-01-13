@@ -20,3 +20,10 @@ export const addUserStats = data => dispatch => (
     .then(user => dispatch(receiveUser(user)))
     .catch(err => console.log(err))
 );
+
+
+export const editUserStats = data => dispatch => (
+  APIUser.changeUserStats(data)
+    .then(user => dispatch(receiveUser(user)))
+    .catch(err => console.log(err))
+);
