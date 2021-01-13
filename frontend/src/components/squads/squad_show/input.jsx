@@ -11,6 +11,7 @@ class InputContainer extends Component {
       content: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUserKeyPress = this.handleUserKeyPress.bind(this);
   }
 
   update(field) {
@@ -30,6 +31,13 @@ class InputContainer extends Component {
     });
   }
 
+  handleUserKeyPress (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      // e.preventDefault();
+      this.handleSubmit(e); // this won't be triggered
+    }
+  };
+
   render() {
     if (Object.keys(this.props.currentSquad).length === 0) {
       return <> </>;
@@ -40,8 +48,8 @@ class InputContainer extends Component {
             value={this.state.content}
             onChange={this.update("content")}
             placeholder={`Message #${this.props.currentSquad.name}`}
-          ></textarea>
-
+            onKeyPress={this.handleUserKeyPress}
+          />
           <button type="submit">Send</button>
         </form>
       );
