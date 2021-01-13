@@ -69,6 +69,20 @@
     overflow-y: scroll;
 }
 
+.hidden-chat-feature {
+    padding-right: 10%;
+    padding-left: 10%;
+    margin-top:0;
+    margin-bottom:0;
+    margin-left:auto;
+    margin-right:0;
+    height: 65vh;
+    overflow-y: scroll;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 500px;
+}
+
 .item-right h2 {
     padding-top: 20px;
     text-align: center;
