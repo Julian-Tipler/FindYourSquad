@@ -20,6 +20,7 @@ class SquadShow extends React.Component {
             console.log(messages);
             this.props.fetchSquadMessages(this.props.currentSquad._id)
         });
+        this.renderChat = this.renderChat.bind(this)
     }
 
     componentDidMount() {
@@ -28,6 +29,33 @@ class SquadShow extends React.Component {
 
     componentWillUnmount() {
         this.state.socket.off("get_data", this.state.messages);
+    }
+
+    renderChat() {
+        let currentMembers = [];
+        this.props.currentSquad.members.forEach(member => currentMembers.push(member._id))
+        if (currentMembers.includes(this.props.currentUser.id)) {
+            return (
+                <div>
+                    <div className="messages-container">
+                        <MessagesComponent
+                        messages={this.props.currentSquad.messages}
+                        currentUser={this.props.currentUser.username}
+                        fetchSquadMessages={this.props.fetchSquadMessages}
+                        />
+                    </div>
+                    <div className="input-container">
+                        <InputComponent />
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className="hidden-chat-feature">
+                    -Chat feature is hidden unless you are a group member- 
+                </div>
+            )
+        }
     }
     
     render() {
@@ -84,16 +112,7 @@ class SquadShow extends React.Component {
                         
                         <div className="item-right">
                             <h2>{`${this.props.currentSquad.name}'s Group Channel`}</h2>
-                            <div className="messages-container">
-                                <MessagesComponent
-                                messages={this.props.currentSquad.messages}
-                                currentUser={this.props.currentUser.username}
-                                fetchSquadMessages={this.props.fetchSquadMessages}
-                                />
-                            </div>
-                            <div className="input-container">
-                                <InputComponent />
-                            </div>
+                            {this.renderChat()}
                         </div>
                     </div>
                     <div className='footer'></div>
