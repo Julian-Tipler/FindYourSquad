@@ -30,7 +30,7 @@ class UserProfile extends React.Component{
         //     return <> </>
         // }
 
-        if (!this.props.profileUser.squads || !this.state){
+        if (!this.props.profileUser || !this.props.profileUser.squads || !this.state){
             return <> </>
         }
         const { profileUser, profileUserId} = this.props
@@ -83,7 +83,7 @@ class UserProfile extends React.Component{
                             if (profileUser.userStats.find(stat => stat.game === this.state.gameState)){
                                 return (
                                     <div className="user-stat-form-section">
-                                        <GameStatsFormContainer key={`${game._id}${idx}`} type="edit" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                                        <GameStatsFormContainer statId={(profileUser.userStats.find(stat => stat.game === this.state.gameState))._id} key={`${game._id}${idx}`} type="edit" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
                                     </div>
                         )} else {
                             return (

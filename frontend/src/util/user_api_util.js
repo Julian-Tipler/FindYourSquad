@@ -8,7 +8,7 @@ export const editUser = (data) => {
   return axios.put(`/api/users/${data.id}`, data);
 };
 
-export const editUserStats = (data) => {
+export const changeUserStats = (data) => {
   return axios.put(`/api/users/${data.id}/stats`, data);
 };
 

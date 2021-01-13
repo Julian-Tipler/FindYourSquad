@@ -15,6 +15,7 @@ class GameStatsForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEditSubmit = this.handleEditSubmit.bind(this)
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -24,11 +25,15 @@ class GameStatsForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
+    var copied = Object.assign({}, this.state);
+    delete copied.editFormOpen;
+
     let data = {
       id: this.props.profileUser._id,
       gameId: this.props.game._id,
       gameName: this.props.game.name,
-      stats: this.state
+      stats: copied
     };
 
     this.props.addUserStats(data);
@@ -40,12 +45,40 @@ class GameStatsForm extends React.Component {
     // this.props.history.push('/squads');  /// goes to squad page, but without new squad 
   }
 
+    handleEditSubmit(e) {
+      // console.log("editing")
+      // console.log(this.props.statId)
+    e.preventDefault();
+
+      var copied = Object.assign({}, this.state);
+    delete copied.editFormOpen;
+
+
+    let data = {
+      id: this.props.profileUser._id,
+      // gameId: this.props.game._id,
+      // gameName: this.props.game.name,
+      statId: this.props.statId,
+      stats: copied
+    };
+
+    this.props.editUserStats(data);
+    this.setState({ kd: "" });
+    this.setState({ kills: "" });
+    this.setState({ wins: "" });
+    // this.setState({ game: "" });
+    // this.setState({ squadSize: "" });
+    // this.props.history.push('/squads');  /// goes to squad page, but without new squad 
+  }
+
+  
+
   update(field) {
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
       });
-  }
+  }   
 
 
 
@@ -90,7 +123,7 @@ class GameStatsForm extends React.Component {
           </form>
         </div>
     );}
-    
+
     else if (this.state.editFormOpen) {
 
       return (
@@ -98,7 +131,7 @@ class GameStatsForm extends React.Component {
 
         <div className="user-stat-form" key={`${this.props.game.name}form`}>
             <h2 id='stats-title'>Edit your {this.props.game.name} stats</h2>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleEditSubmit}>
             <div>
                   <input
                   type="text"
@@ -132,13 +165,6 @@ class GameStatsForm extends React.Component {
 
           return (
             <button onClick={ ()=> this.setState({editFormOpen: true})}>Edit Stats
-            
-
-
-
-
-
-
 
             </button>
           )}

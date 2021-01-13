@@ -177,13 +177,15 @@ router.post("/:id/stats", passport.authenticate('jwt', { session: false }), (req
 })
 
 
-router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req, res) => {
-
+router.put("/:id/stats", (req, res) => {
+  console.log("changing")
     
     Stat.findByIdAndUpdate(req.body.statId, {stats : req.body.stats}, {new: true})
-      .populate("userStats")
-      .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
-      .then(stat => res.json(stat))
+      .then(stat => 
+        User.findById(req.params.id)
+          .populate("userStats")
+          .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
+          .then(user => res.json(user)))
 
 })
  
