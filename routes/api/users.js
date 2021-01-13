@@ -59,8 +59,6 @@ router.put('/:userId', (req, res) => {
 
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
-  // debugger
-  // console.log(req.body.username)
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -123,8 +121,6 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
-  // console.log(req.body)
-  // debugger
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -181,13 +177,15 @@ router.post("/:id/stats", passport.authenticate('jwt', { session: false }), (req
 })
 
 
-router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req, res) => {
-
+router.put("/:id/stats", (req, res) => {
+  console.log("changing")
     
     Stat.findByIdAndUpdate(req.body.statId, {stats : req.body.stats}, {new: true})
-      .populate("userStats")
-      .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
-      .then(stat => res.json(stat))
+      .then(stat => 
+        User.findById(req.params.id)
+          .populate("userStats")
+          .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
+          .then(user => res.json(user)))
 
 })
  
@@ -211,7 +209,7 @@ const s3 = new aws.S3({
 const profileImgUpload = multer({
  storage: multerS3({
   s3: s3,
-  bucket: 'mern-squad-2',
+  bucket: 'squadmaker',
   acl: 'public-read',
   key: function (req, file, cb) {
    cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )

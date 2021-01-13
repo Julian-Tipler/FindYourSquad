@@ -3,11 +3,8 @@ import '../modal/modal.css'
 
 class RequestMessage extends React.Component {
     constructor(props){
-
         super(props)
-        // console.log(this.props.squadId.name)
         this.handleSubmit = this.handleSubmit.bind(this)
-        // console.log(this.props)
         this.state = {
             id: this.props.squad._id,
             newMemberId: this.props.currentUserId,

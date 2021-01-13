@@ -6,7 +6,6 @@ class Member extends React.Component {
     render() {
 
         const correctGameStats = this.props.member.userStats.find(stat => stat.game === this.props.groupGameId)
-        // console.log(correctGameStats)
 
         let displayStats
         if (correctGameStats === undefined){
@@ -23,7 +22,7 @@ class Member extends React.Component {
               )
             })
         }
-        // console.log(displayStats)
+
 
         return (
           <>

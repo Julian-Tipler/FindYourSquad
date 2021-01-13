@@ -40,15 +40,19 @@ export const getFilteredSquads = (searchParams) => {
 // };
 
 export const formSquad = data => {
-  return axios.post('/api/squads/', data)
+    return axios.post('/api/squads/', data)
+}
+
+export const getSquadMessages = id => {
+    return axios.get(`/api/squads/${id}/messages`);
 }
 
 export const postMessage = data => {
-  return axios.put(`/api/squads/${data.squadId}/messages`, data)
+    return axios.put(`/api/squads/${data.squadId}/messages`, data)
 };
 
 export const editSquad = (data) => {
-  return axios.put(`/api/squads/${data.id}`, data);
+    return axios.put(`/api/squads/${data.id}`, data);
 };
 
 // id: group id

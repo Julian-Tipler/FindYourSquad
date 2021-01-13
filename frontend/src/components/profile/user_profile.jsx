@@ -29,9 +29,8 @@ class UserProfile extends React.Component{
         //     // this.setState({gameState: this.props.games[0]._id})
         //     return <> </>
         // }
-        // console.log(this.state)
 
-        if (!this.props.profileUser.squads || !this.state){
+        if (!this.props.profileUser || !this.props.profileUser.squads || !this.state){
             return <> </>
         }
         const { profileUser, profileUserId} = this.props
@@ -62,18 +61,12 @@ class UserProfile extends React.Component{
                             if (stat.game === this.state.gameState){
                                 return (
                                     <div key={`${profileUser.username}${stat._id}`}className="user-stat-box">
-
                                     <h2>{stat.gameName}</h2>
                                     <h3>{(stat.updatedAt).slice(0,10)}</h3>
-
                                     <h2 id='profile-stat-name'>{stat.gameName} Stats</h2>
-
-
                                     {Object.keys(stat.stats).map((key, idx) => {
                                         return (
-                                            
                                             <h3 id='profile-stat' key={`${idx}${stat.game}`} className="stat-item">{key}: {stat.stats[key]}</h3> 
-                                            
                                         )
                                     })}
                                     </div> )
@@ -86,14 +79,23 @@ class UserProfile extends React.Component{
                         if (game._id !== this.state.gameState){
                             return <> </>
                         }
-                        if (this.props.currentUserId === profileUserId){
-                        return (
-                        <div className="user-stat-form-section">
-                            <GameStatsFormContainer key={`${game._id}${idx}`} type="create" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
-                        </div>
-                        );}
+                        if (this.props.currentUserId === profileUserId){ 
+                            if (profileUser.userStats.find(stat => stat.game === this.state.gameState)){
+                                return (
+                                    <div className="user-stat-form-section">
+                                        <GameStatsFormContainer statId={(profileUser.userStats.find(stat => stat.game === this.state.gameState))._id} key={`${game._id}${idx}`} type="edit" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                                    </div>
+                        )} else {
+                            return (
+                                <div className="user-stat-form-section">
+                                        <GameStatsFormContainer key={`${game._id}${idx}`} type="create" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
+                                    </div>
+                            )
+                        }
+                        
+                        ;}
                     })}   
-                    {/* <div className="user-images-section">
+                    <div className="user-images-section">
                         {profileUser.profileImages.map(image => {
                             return (
                                 <img className="user-image" key={`${image}`} src={`${image}`} alt=""/>
@@ -101,13 +103,8 @@ class UserProfile extends React.Component{
                         })}
 
                     </div>
-
-                    {this.props.currentUserId === profileUserId ? <ImageUpload profileUserId={profileUserId}/> : <> </>}
-    
-                        
-                
-
-                        <ImageUpload profileUserId={profileUserId}/>  */}
+                    
+                    {this.props.currentUserId === profileUserId ? <ImageUpload fetchUser={this.props.fetchUser} profileUserId={profileUserId}/> : <> </>}
 
                     </div>
                     <div className="profile-squad-boxes">

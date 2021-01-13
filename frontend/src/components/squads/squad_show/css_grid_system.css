@@ -59,6 +59,17 @@
 }
 
 .messages-container {
+    padding-right: 6.5%;
+    padding-left: 10%;
+    margin-top:0;
+    margin-bottom:0;
+    margin-left:auto;
+    margin-right:0;
+    height: 65vh;
+    overflow-y: scroll;
+}
+
+.hidden-chat-feature {
     padding-right: 10%;
     padding-left: 10%;
     margin-top:0;
@@ -67,6 +78,9 @@
     margin-right:0;
     height: 65vh;
     overflow-y: scroll;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 500px;
 }
 
 .item-right h2 {
@@ -77,16 +91,24 @@
 }
 
 /* Chat containers */
-.messages-container .message-container{
-    background-color: rgb(24,25,26);
-    margin: 20px 10px;
+.message-container-left {
+    background-color: #202020;
+    margin: 20px 0;
+    border: 3px solid rgb(174, 37, 37);
+    padding: 20px 20px 25px 20px;
+    border-radius: 5pt;
 }
 
 /* Darker chat container */
-.messages-container .darker {
-  border-color: #ccc;
-  background-color: rgb(24,25,26);
+.message-container-right {
+    margin: 20px 0;
+    text-align: right;
+    background-color:#202020;
+    border: 3px solid white;
+    padding: 20px 20px 25px 20px;
+    border-radius: 5pt;
 }
+
 
 /* Clear floats */
 .messages-container .message-container::after {
@@ -112,14 +134,14 @@
 }
 
 /* Style time text */
-.messages-container .message-container .time-right {
+.messages-container .message-container-left .time-right {
   float: right;
   color: #aaa;
   font-size: 9pt;
 }
 
 /* Style time text */
-.messages-container .message-container .time-left {
+.messages-container .message-container-right .time-left {
   float: left;
   color: #999;
   font-size: 9pt;

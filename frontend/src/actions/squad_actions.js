@@ -8,6 +8,8 @@ export const RECEIVE_NEW_SQUAD = "RECEIVE_NEW_SQUAD";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS"
 
+export const RECEIVE_SQUAD_MESSAGES = "RECEIVE_SQUAD_MESSAGES";
+
 export const receiveErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS,
     errors
@@ -20,6 +22,11 @@ export const receiveSquad = squad => ({
 export const receiveSquads = squads => ({
   type: RECEIVE_SQUADS,
   squads
+});
+
+export const receiveSquadMessages = messages => ({
+    type: RECEIVE_SQUAD_MESSAGES,
+    messages
 });
 
 export const receiveUserSquads = squads => ({
@@ -76,6 +83,19 @@ export const updateSquad = data => dispatch => (
     .then((squad) => dispatch(receiveSquad(squad)))
     .catch(err => console.log(err))
 );
+
+
+
+export const fetchSquadMessages = id => dispatch => {
+    return (
+        APISquad.getSquadMessages(id)
+            .then((messages) => {
+                console.log(messages);
+                dispatch(receiveSquadMessages(messages));
+            })
+            .catch(err => console.log(err))
+    )
+};
 
 export const postMessage = (data) => dispatch => {
     return (
