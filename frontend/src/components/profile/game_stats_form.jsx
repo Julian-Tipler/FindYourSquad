@@ -75,6 +75,7 @@ class GameStatsForm extends React.Component {
 
   update(field) {
     return (e) =>
+    !Number(e.currentTarget.value) ? null :
       this.setState({
         [field]: e.currentTarget.value,
       });
@@ -86,6 +87,12 @@ class GameStatsForm extends React.Component {
     //   if (Object.values(this.props.games).length === 0) {
     //     return <> </>
     //   }
+
+    
+
+
+
+
     if (this.props.type === "create"){
 
       return (
@@ -134,7 +141,6 @@ class GameStatsForm extends React.Component {
           <form onSubmit={this.handleEditSubmit}>
             <div>
                   <input
-                  type="text"
                   id='user-stats'
                   value={this.state.kd}
                   onChange={this.update("kd")}
