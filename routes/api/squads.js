@@ -191,6 +191,28 @@ router.put("/:id", (req, res) => {
     };
 });
   
+
+router.delete("/:id", (req, res) => {
+  // console.log('ping')
+  // Squad.findById(req.params.id)
+  // .then((squad) => {
+  //   console.log('ping2');
+    // squad.members.forEach(member => {
+    // let deleteSquad = { $pull: { squads: req.params.id } };
+    // User.findByIdAndUpdate(member, deleteSquad, { multi: true } )
+    
+    console.log('ping')
+    Squad.findByIdAndDelete(req.params.id)
+    .then(squad => {
+      if (!squad) { return res.status(404).send(); }
+      res.json(squad);
+    })
+    .catch(err => 
+      res.status(404).json({ nosquadfound: "Could not process request." })
+      );
+  });
+
+
 module.exports = router;
 
 
