@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
   // }
 })
 
-// show squad page
+// SHOW SQUAD
 router.get('/:id', (req, res) => {
   Squad.findById(req.params.id)
     .populate({ path: 'members', populate: { path: 'userStats' }})
@@ -36,7 +36,35 @@ router.get('/:id', (req, res) => {
       res.status(404).json({ nosquadfound: "No squad found with that ID" })
     );
   });
+
+// SHOW SQUAD MESSAGES
+router.get("/:id/messages", (req, res) => {
+  Squad.findById(req.params.id)
+    .then((squad) => res.json(squad.messages))
+    .catch((err) =>
+      res.status(404).json({ nosquadfound: "No squad found with that ID" })
+    );
+});
+
+router.put("/:id/messages", (req, res) => {
+let id = req.params.id;
+let update = { $push: { messages: {
+    squad: req.body.squad,
+    sender: req.body.sender,
+    content: req.body.content 
+}}};
+Squad
+    .findByIdAndUpdate(id, update, {new: true})
+    .populate({ path: 'members', populate: { path: 'userStats' }})
+    .populate({ path: "requests", populate: {path: 'userStats'}})
+    .populate("game")
+    .then(squad => res.json(squad))
+    .catch(err =>
+        res.status(404).json({ nosquadfound: 'Could not process request.' })
+    );
+})
   
+
 // create squad
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
     // const maxSquadSize = Game.findById(req.body.game)(game => game.squadSize)
@@ -69,7 +97,6 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 
 // POST squad message
 router.put("/:id/messages", (req, res) => {
-    debugger
     let id = req.params.id;
     let update = { $push: { messages: {
         squad: req.body.squad,
