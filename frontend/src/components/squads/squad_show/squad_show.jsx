@@ -79,6 +79,7 @@ class SquadShow extends React.Component {
                                         updateSquad={this.props.updateSquad}
                                         currentUser={this.props.currentUser}
                                         currentSquad={this.props.currentSquad}
+                                        deleteSquad={this.props.deleteSquad}
                                         />
                                     </div>
                                     );

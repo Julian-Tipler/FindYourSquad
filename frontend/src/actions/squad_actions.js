@@ -107,3 +107,11 @@ export const postMessage = (data) => dispatch => {
             .catch(err => console.log(err))
     )
 };
+
+export const deleteSquad = data => dispatch => {
+  return (
+    APISquad.deleteSquad(data)
+      .then((squad) => dispatch(receiveSquad(squad)))
+      .catch(err => console.log(err))
+  )
+}

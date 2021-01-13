@@ -68,3 +68,7 @@ export const editSquad = (data) => {
 //     newUser: this.props.currentUser
 //   }
 // }
+
+export const deleteSquad = (id) => {
+  return axios.delete(`/api/squads/${id}`)
+}
