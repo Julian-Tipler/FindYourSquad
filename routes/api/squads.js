@@ -204,8 +204,18 @@ router.delete("/:id", (req, res) => {
     console.log('ping')
     Squad.findByIdAndDelete(req.params.id)
     .then(squad => {
-      if (!squad) { return res.status(404).send(); }
-      res.json(squad);
+        // console.log(squad.members);
+        squad.members.forEach(memberId => {
+            // memberId = mongoose.Types.ObjectId(memberId);
+            // console.log(memberId);
+            let deleteSquad = { $pull: { squads: mongoose.Types.ObjectId(req.params.id) } }; 
+            // console.log(mongoose.Types.ObjectId(req.params.id));
+            User.findByIdAndUpdate(memberId, deleteSquad, { new: true } )
+                .then(user => {
+                    console.log(user.squads); 
+                });
+            ;
+        });
     })
     .catch(err => 
       res.status(404).json({ nosquadfound: "Could not process request." })
