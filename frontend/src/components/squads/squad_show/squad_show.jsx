@@ -68,6 +68,8 @@ class SquadShow extends React.Component {
                     <div className="container" >
                         <div className="item-left">
                             <div className="members">
+                                <div className="squad-name"><h1>{this.props.currentSquad.name}</h1></div>
+                                <p className="squad-bio">{this.props.currentSquad.generalBio ? this.props.currentSquad.generalBio : <> </>}</p>
                                 <h2>Members:</h2>
                                 <div>
                                 {(this.props.currentSquad.requests) ? 
@@ -113,7 +115,7 @@ class SquadShow extends React.Component {
                         </div>
                         
                         <div className="item-right">
-                            <h2>{`${this.props.currentSquad.name}'s Group Channel`}</h2>
+                            <h2>Group Channel</h2>
                             {this.renderChat()}
                         </div>
                     </div>
