@@ -36,10 +36,12 @@ class SquadCreate extends React.Component {
       squadSize: this.state.squadSize,
     };
 
-    this.props.createSquad(squad)
-    this.setState({ redirect: true })
-    
-    // this.props.history.push('/squads');  /// goes to squad page, but without new squad 
+    this.props.createSquad(squad).then( squad => {
+      console.log(squad)
+      if (!squad.errors){
+        this.setState({ redirect: true })
+      }
+    })
   }
 
   update(field) {
