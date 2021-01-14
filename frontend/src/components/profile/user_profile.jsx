@@ -24,6 +24,22 @@ class UserProfile extends React.Component{
         
     }
 
+    componentWillUnmount(){
+        this.props.removeUser()
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.profileUserId !== this.props.profileUserId) {
+            this.props.fetchUser(this.props.profileUserId)
+        }
+    }
+    // componentDidReceiveProps(){
+    //     this.props.fetchUser(this.props.profileUserId)
+    //     this.props.fetchGames()
+    //     .then(games => 
+    //      this.setState({gameState:games.games.data[0]._id})   )
+    // }
+
     render() {
         // {
         //     // this.setState({gameState: this.props.games[0]._id})

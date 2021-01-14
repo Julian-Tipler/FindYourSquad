@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 // import { fetchUserSquads } from '../../actions/squad_actions';
-import { fetchUser } from '../../actions/user_actions';
+import { fetchUser, removeUser } from '../../actions/user_actions';
 import { fetchGames } from '../../actions/game_actions'
 import UserProfile from './user_profile';
 
@@ -18,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchUser: userId => dispatch(fetchUser(userId)),
-    fetchGames: () => dispatch(fetchGames())
+    fetchGames: () => dispatch(fetchGames()),
+    removeUser: () => dispatch(removeUser())
   };
 };
 
