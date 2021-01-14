@@ -15,6 +15,7 @@ class ComponentName extends React.Component {
                            return (
                                <div className="carousel-div">
                                    <img className = "carousel-image" src={image} alt={image}/>
+                                   //add delete button here?
                                </div>
                            )
                        })
