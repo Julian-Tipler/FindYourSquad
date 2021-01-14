@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './user_profile.css';
 import SquadBoxContainer from '../squads/squad_box_container'
 import GameStatsFormContainer from './game_stats_form_container'
+import CarouselContainer from './carousel_container'
 import ImageUpload from './image_upload'
 
 class UserProfile extends React.Component{
@@ -111,14 +112,18 @@ class UserProfile extends React.Component{
                         
                         ;}
                     })}   
-                    <div className="user-images-section">
+
+                    {/* <div className="user-images-section">
                         {profileUser.profileImages.map(image => {
                             return (
                                 <img className="user-image" key={`${image}`} src={`${image}`} alt=""/>
                             )
                         })}
 
-                    </div>
+
+                    </div> */}
+
+                    <CarouselContainer/>
                     
                     {this.props.currentUserId === profileUserId ? <ImageUpload fetchUser={this.props.fetchUser} profileUserId={profileUserId}/> : <> </>}
 
