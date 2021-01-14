@@ -37,7 +37,6 @@ class SquadCreate extends React.Component {
     };
 
     this.props.createSquad(squad).then( squad => {
-      console.log(squad)
       if (!squad.errors){
         this.setState({ redirect: true })
       }
