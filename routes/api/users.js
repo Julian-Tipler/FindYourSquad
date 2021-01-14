@@ -267,6 +267,15 @@ profileImgUpload( req, res, ( error ) => {
  });
 });
 
+router.put( '/:id/img-delete', ( req, res ) => {
+
+  const imageLocation = req.body.location
+
+  let deleteImage = { $pull: { profileImages: imageLocation } }
+  
+  User.findByIdAndUpdate(req.params.id, deleteImage, { new: true })
+    .then(user => res.json(user))
+})
 
 module.exports = router;  
 
