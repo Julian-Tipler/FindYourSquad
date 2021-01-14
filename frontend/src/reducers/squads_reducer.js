@@ -3,7 +3,8 @@ import {
     RECEIVE_SQUADS, 
     RECEIVE_USER_SQUADS, 
     RECEIVE_NEW_SQUAD,
-    RECEIVE_SQUAD_MESSAGES
+    RECEIVE_SQUAD_MESSAGES,
+    REMOVE_SQUAD
 } from '../actions/squad_actions';
   
   const SquadsReducer = (state = { all: {}, currentSquad: {}, user: {}, new: undefined }, action) => {
@@ -25,6 +26,9 @@ import {
             return newState;
         case RECEIVE_SQUAD_MESSAGES:
             newState.currentSquad.messages = action.messages.data;
+            return newState;
+        case REMOVE_SQUAD:
+            newState.currentSquad = {};
             return newState;
         default:
             return state;

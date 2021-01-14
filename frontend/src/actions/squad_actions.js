@@ -6,7 +6,8 @@ export const RECEIVE_SQUADS = "RECEIVE_SQUADS";
 export const RECEIVE_USER_SQUADS = "RECEIVE_USER_SQUADS";
 export const RECEIVE_NEW_SQUAD = "RECEIVE_NEW_SQUAD";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
-export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS"
+export const REMOVE_SQUAD = "REMOVE_SQUAD";
+export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 
 export const RECEIVE_SQUAD_MESSAGES = "RECEIVE_SQUAD_MESSAGES";
 
@@ -37,6 +38,11 @@ export const receiveUserSquads = squads => ({
 export const receiveNewSquad = squad => ({
   type: RECEIVE_NEW_SQUAD,
   squad
+});
+
+// ACTION TO CLEAR SQUAD FROM STATE
+export const removeSquad = () => ({
+  type: REMOVE_SQUAD,
 });
 
 
@@ -115,3 +121,8 @@ export const deleteSquad = data => dispatch => {
       .catch(err => console.log(err))
   )
 }
+
+// ACTION CREATOR TO CLEAR SQUAD FROM STATE
+export const removeSquadFromState = () => dispatch => {
+    dispatch(removeSquad());
+};
