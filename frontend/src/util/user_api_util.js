@@ -16,3 +16,6 @@ export const createUserStats = (data) => {
   return axios.post(`/api/users/${data.id}/stats`, data);
 };
 
+export const deleteUserImage = (data) => {
+  return axios.put(`/api/users/${data.id}/img-delete`, data);
+}

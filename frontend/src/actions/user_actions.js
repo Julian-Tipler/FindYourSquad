@@ -22,7 +22,6 @@ export const fetchUser = id => dispatch => (
 );
 
 
-
 export const addUserStats = data => dispatch => (
   APIUser.createUserStats(data)
     .then(user => dispatch(receiveUser(user)))
@@ -35,3 +34,9 @@ export const editUserStats = data => dispatch => (
     .then(user => dispatch(receiveUser(user)))
     .catch(err => console.log(err))
 );
+
+export const deleteUserImage = data => dispatch => (
+  APIUser.deleteUserImage(data)
+  .then(user => dispatch(receiveUser(user)))
+  .catch(err => console.log(err))
+)

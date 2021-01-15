@@ -2,10 +2,23 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import './carousel.css';
 
-class ComponentName extends React.Component {
+class CarouselComponent extends React.Component {
     constructor(props){
         super(props);
+        this.deleteImage = this.deleteImage.bind(this)
     }
+
+    deleteImage(i, e){
+        e.preventDefault();
+        let data = {
+            id: this.props.profileUserId,
+            location: this.props.images[i]
+        }
+        this.props.deleteUserImage(data)
+        console.log('ping')
+    }
+
+
     render() {
         return(
             <div>
@@ -13,9 +26,9 @@ class ComponentName extends React.Component {
                        {
                        this.props.images.map((image,i) => {
                            return (
-                               <div className="carousel-div">
+                               <div key={i} className="carousel-div">
                                    <img className = "carousel-image" src={image} alt={image}/>
-                                   //add delete button here?
+                                   {this.props.currentUserId === this.props.profileUserId ? <button onClick={(e)=>this.deleteImage(i, e)}>delete</button> : <> </>}
                                </div>
                            )
                        })
@@ -27,7 +40,7 @@ class ComponentName extends React.Component {
     }
 }
 
-export default ComponentName
+export default CarouselComponent
 
 
 
@@ -37,3 +50,5 @@ export default ComponentName
 //                     ))
 //                 }
 //                 <img src=""></img>
+
+
