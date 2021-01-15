@@ -10,9 +10,9 @@ input[type=file]{
     color: white;
     border-radius: 5px;
     border: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 60px;
+    /* padding-top: 5px; */
+    /* padding-bottom: 5px; */
+    /* width: 30px; */
     font-weight: bold;
     outline: none;
 }
@@ -28,11 +28,38 @@ input:hover {
     border: none;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 60px;
+    width: 100px;
     font-weight: bold;
     outline: none;
 }
 
 .btn-info:hover {
+    cursor: pointer;
+}
+
+.card-header{
+    width: 300px;
+    margin-top: 10px;
+}
+
+
+#file-btn{
+    width: 100px;
+}
+
+::-webkit-file-upload-button{
+    background-color: rgb(174, 37, 37);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100px;
+    /* margin-top: 20px; */
+    font-weight: bold;
+    outline: none;
+}
+
+::-webkit-file-upload-button:hover{
     cursor: pointer;
 }

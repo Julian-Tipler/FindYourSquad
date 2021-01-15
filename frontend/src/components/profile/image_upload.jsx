@@ -90,8 +90,10 @@ singleFileChangedHandler = ( event ) => {
                         </div>
                     <div className="card-body">
                     <p className="card-text">Upload images to your profile</p>
+                    <br/>
                 <input id='file-btn' type="file" onChange={this.singleFileChangedHandler}/>
              <div className="mt-5">
+                 <br/>
             <button className="btn-info" onClick={this.singleFileUploadHandler}>{this.state.buttonText}</button>
          </div>
         </div>

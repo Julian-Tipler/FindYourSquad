@@ -4,6 +4,27 @@
     padding-top: 10px;
 } */
 
+.profile-squad-boxes {
+    width: 400px;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    bottom:0;
+    overflow: scroll;
+    margin-top: 57px;
+    margin-left: 10px;
+    overflow-x: hidden;
+}
+
+.profile-squad-boxes::-webkit-scrollbar{
+    background: rgb(24,25,26);
+}
+
+.profile-users-squads-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .up-nav-list {
     float: right;
     padding-right: 20px;
@@ -16,9 +37,11 @@
 }
 
 .user-profile-body {
-    display: flex;
-    flex-direction: row;
     margin-top: 15px;
+    margin-left: 400px;
+    max-width: 100%;
+    overflow-x: hidden;
+    
 }
 
 .user-profile-header {
@@ -169,7 +192,7 @@
     margin-bottom: 20px;
 }
 
-#profile-stat{
+#stat{
     font-size: 23px;
     margin-bottom: 15px;
 }
@@ -178,6 +201,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }   
 
 .image-upload{
