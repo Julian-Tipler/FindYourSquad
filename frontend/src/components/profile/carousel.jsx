@@ -21,15 +21,25 @@ class CarouselComponent extends React.Component {
 
     render() {
         return(
-            <div>
-               <Carousel animation={"slide"}>
+            <div className='image-container'>
+               <Carousel animation={"fade"} autoPlay={false} navButtonsAlwaysVisible={true}>
                        {
                        this.props.images.map((image,i) => {
                            return (
-                               <div key={i} className="carousel-div">
-                                   <img className = "carousel-image" src={image} alt={image}/>
-                                   {this.props.currentUserId === this.props.profileUserId ? <button onClick={(e)=>this.deleteImage(i, e)}>delete</button> : <> </>}
-                               </div>
+                               <div>
+                                <div key={i} className = "full-carousel-div">
+                                        <div className="carousel-div">
+                                            <img className = "carousel-image" id="left-image" src={this.props.images[(((i-1)%this.props.images.length)+this.props.images.length)%this.props.images.length]}/>
+                                        </div>
+                                        <div className="carousel-div">
+                                            <img className = "carousel-image" id="center-image" src={image} alt={image}/>
+                                        </div>
+                                        <div className="carousel-div">
+                                            <img className = "carousel-image" id="right-image"src={this.props.images[(i+1)%this.props.images.length]}/>
+                                        </div>
+                                </div>
+                                    {this.props.currentUserId === this.props.profileUserId ? <button id='delete-image-btn' onClick={(e)=>this.deleteImage(i, e)}>Delete</button> : <> </>}
+                               </div>    
                            )
                        })
                    }

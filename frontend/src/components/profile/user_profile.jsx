@@ -53,15 +53,30 @@ class UserProfile extends React.Component{
 
         return(
             <div>
-                {/* <header className='user-profile-header'>
-                        <h2>{profileUser.username}'s Profile Page</h2>
-                       <div className="user-header-div">
-                           <span>Bio:{`${profileUser.bio}`}</span>
-                           <span>Platform:{`${profileUser.platform}`}</span> */}
-                           
-                           {/* <span>Community Rating:{`${profileUser.communityRating}`}</span> */}
-                       {/* </div> */}
-                {/* </header> */}
+                <div className="profile-squad-boxes">
+                    <h3>{profileUser.username}'s Squads</h3>
+                    {profileUser.squads.map(squad => (
+                        <SquadBoxContainer 
+                        squad={squad} 
+                        currentUserId={this.props.currentUserId} 
+                        key={squad._id} 
+                        comingFromProfile={true}
+                        />
+                    ))}
+                </div>
+                <div className='user-profile-carousel'>
+                    <CarouselContainer
+                        currentUserId= {this.props.currentUserId}
+                        profileUserId= {this.props.profileUserId}
+                        />
+                </div>
+                <span className='img-upload'>
+                    {this.props.currentUserId === profileUserId ? <ImageUpload fetchUser={this.props.fetchUser} profileUserId={profileUserId}/> : <> </>}
+                </span>
+
+                <header className='user-profile-header'>
+                        <h2 id='user-name'>{profileUser.username}'s Profile </h2>
+                </header>
 
                 <div id='pp-game-btn-container'>
                     {/* <h1 id='profile-title'>Click a game to view your stats</h1> */}
@@ -71,6 +86,7 @@ class UserProfile extends React.Component{
                     );
                     })}
                 </div>
+                
                 <div className="user-profile-body">
                     <div className="user-profile-main">
                         <div className="user-stat-section">
@@ -113,39 +129,10 @@ class UserProfile extends React.Component{
                         ;}
                     })}   
 
-                    {/* <div className="user-images-section">
-                        {profileUser.profileImages.map(image => {
-                            return (
-                                <img className="user-image" key={`${image}`} src={`${image}`} alt=""/>
-                            )
-                        })}
-
-
-                    </div> */}
-
-                    <CarouselContainer
-                    currentUserId= {this.props.currentUserId}
-                    profileUserId= {this.props.profileUserId}
-                    />
-                    
-                    {this.props.currentUserId === profileUserId ? <ImageUpload fetchUser={this.props.fetchUser} profileUserId={profileUserId}/> : <> </>}
 
                     </div>
-                    {/* { this.props.squad ? */}
-                    <div className="profile-squad-boxes">
-                        <h3>{profileUser.username}'s Squads</h3>
-                        {profileUser.squads.map(squad => (
-                            <SquadBoxContainer 
-                            squad={squad} 
-                            currentUserId={this.props.currentUserId} 
-                            key={squad._id} 
-                            comingFromProfile={true}
-                            />
-                        ))}
-                    </div>
-                    {/* // :<></>} */}
+
                 </div>
-
             </div>
         )
     }

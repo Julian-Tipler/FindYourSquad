@@ -46,6 +46,7 @@
     border-color: whitesmoke;
     background: rgb(174, 37, 37)
 }
+
 #nav-login-link:hover{
     color: rgb(174, 37, 37);
 }
@@ -63,6 +64,10 @@
     padding-bottom: 0px;
     color: whitesmoke;
     text-decoration: none;
+    
+}
+#username{
+    color: rgb(91, 91, 231)
 }
 
 .nav-bar-login-link:hover{
