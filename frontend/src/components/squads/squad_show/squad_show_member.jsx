@@ -13,8 +13,7 @@ class SquadShowMember extends React.Component {
     };
     this.handleRemoveMember = this.handleRemoveMember.bind(this);
     this.renderButton = this.renderButton.bind(this)
-    this.handleDeleteSquad = this.handleDeleteSquad.bind(this);
-
+    this.handleDeleteSquad = this.handleDeleteSquad.bind(this);    
   }
 
   handleRemoveMember(e) {
@@ -44,6 +43,21 @@ class SquadShowMember extends React.Component {
     }
   }
 
+  renderStats() {
+    let userStats = this.props.member.userStats.filter(userStat => userStat.gameName === this.props.currentSquad.game.name);
+    if (userStats.length === 0) {
+        return <></>
+    } else {
+        return (
+            <div className="userStats">
+                <div className="user-box-kd">KD: {userStats[0].stats.kd}</div>
+                <div className="user-box-kills">Kills: {userStats[0].stats.kills}</div>
+                <div className="user-box-wins">Wins: {userStats[0].stats.wins}</div>
+            </div>
+        )
+    }
+  }
+
   render() {
 
     if (!this.props.member){
@@ -51,12 +65,12 @@ class SquadShowMember extends React.Component {
     }
     return (
       <div className='member-box'>
-        <div>{this.props.member.username}</div>
         <div>
-          <Link id='ss-gp' to={`/profile/${this.props.member._id}`}>Go to Profile</Link>
+            <Link id='ss-gp' to={`/profile/${this.props.member._id}`}>{this.props.member.username}</Link>
         </div>
+        {this.renderStats()}
         <div>
-          {this.renderButton()}
+            {this.renderButton()}
         </div>
       </div>
     );
