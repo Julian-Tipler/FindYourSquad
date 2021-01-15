@@ -22,7 +22,6 @@ class UserProfile extends React.Component{
         this.props.fetchGames()
         .then(games => 
          this.setState({gameState:games.games.data[0]._id})   )
-        
     }
 
     componentWillUnmount(){
@@ -63,6 +62,7 @@ class UserProfile extends React.Component{
                            {/* <span>Community Rating:{`${profileUser.communityRating}`}</span> */}
                        {/* </div> */}
                 {/* </header> */}
+
                 <div id='pp-game-btn-container'>
                     {/* <h1 id='profile-title'>Click a game to view your stats</h1> */}
                     {this.props.games.map((game) => {
