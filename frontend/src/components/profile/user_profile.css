@@ -65,6 +65,11 @@
     width: 100%;
 }
 
+.user-stat-section {
+    margin-left: 30px;
+    width: 30%;
+    margin-top: 30px;
+}
 
 .user-stat-box {
     margin-bottom: 10px;
@@ -88,10 +93,6 @@
 }
 
 
-.user-stat-section {
-    margin-left: 30px;
-    width: 30%;
-}
 
 .user-stat-form-section {
     width: 520px;;
