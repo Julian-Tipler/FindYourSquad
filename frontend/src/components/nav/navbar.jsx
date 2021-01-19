@@ -23,6 +23,7 @@ class NavBar extends React.Component {
         return (
             <div id='nav-bar-loggedin'>
               <ul>
+                <Link className='nav-bar-login-link' to={`/profile/${this.props.currentUser.id}`} id='username'>{this.props.currentUser.username}</Link>
                 <Link className='nav-bar-login-link' to={'/squads'}>All Squads</Link>
                 <Link className='nav-bar-login-link' to={`/profile/${this.props.currentUser.id}`}>Profile</Link>
                 <Link className='nav-bar-login-link' to={'/new_squad'}>Create a Squad</Link>

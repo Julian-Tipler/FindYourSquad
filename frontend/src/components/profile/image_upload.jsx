@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import $ from 'jquery';
+import './image_upload.css';
 
 class ImageUpload extends React.Component {
     constructor( props ) {
@@ -82,16 +83,18 @@ singleFileChangedHandler = ( event ) => {
     <div>
         <div className="container">
         <div id="oc-alert-container"></div>
-            <div className="card border-light mb-3 mt-5" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}>
+            <div className="card border-light mb-3 mt-5" >
                 <div className="card-header">
-                <h3 style={{ color: '#555', marginLeft: '12px' }}>Single Image Upload</h3>
-                    <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size: 250px x 250px ( Max 2MB )</p>
+                {/* <h3 style={{ color: '#555', marginLeft: '12px' }}>Single Image Upload</h3> */}
+                    <p className="text-muted">Upload Size: 250px x 250px ( Max 2MB )</p>
                         </div>
                     <div className="card-body">
                     <p className="card-text">Upload images to your profile</p>
-                <input type="file" onChange={this.singleFileChangedHandler}/>
+                    <br/>
+                <input id='file-btn' type="file" onChange={this.singleFileChangedHandler}/>
              <div className="mt-5">
-            <button className="btn btn-info" onClick={this.singleFileUploadHandler}>{this.state.buttonText}</button>
+                 <br/>
+            <button className="btn-info" onClick={this.singleFileUploadHandler}>{this.state.buttonText}</button>
          </div>
         </div>
         </div>
