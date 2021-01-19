@@ -3,8 +3,8 @@
     grid-template-columns: 
         [col1-start] 10% 
         [col1-end col2-start] 30% 
-        [col2-end col3-start] 50% 
-        [col3-end col4-start] 10% 
+        [col2-end col3-start] 45% 
+        [col3-end col4-start] 15% 
         [col4-end];
     height: 85vh;
 }
@@ -22,11 +22,34 @@
 }
 
 .members .member-box {
+    height: 100%;
     padding: 5% 5%;
     border-radius: 10px;
     background: rgb(47, 48, 51);
     justify-content: space-between;
+    display: grid;
+    grid-template-columns:         
+        [col1-start] 10% 
+        [col1-end col2-start] 55% 
+        [col2-end] 20%; 
 }
+
+.members .member-box .userStats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#ss-gp{
+    grid-column-start: col1-start;
+    grid-column-end: col1-end;
+    vertical-align: baseline;
+}
+
+#ss-rm{
+    grid-column-start: col2-end; 
+}
+
 
 .members h2 {
     padding-top: 5%;
@@ -46,10 +69,32 @@
 }
 
 .members .request-box {
+    height: 100%;
     padding: 5% 5%;
     border-radius: 10px;
     background: rgb(47, 48, 51);
     justify-content: space-between;
+    display: grid;
+    grid-template-columns:         
+        [col1-start] 10% 
+        [col1-end col2-start] 55% 
+        [col2-end] 20%;
+}
+
+.members .request-box .userStats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#ss-gp{
+    grid-column-start: col1-start;
+    grid-column-end: col1-end;
+}
+
+#sr-btns{
+    grid-column-start: col2-end;
+    vertical-align: baseline;
 }
 
 

@@ -41,16 +41,29 @@ class SquadShowRequest extends React.Component {
     }
   }
 
+  renderStats() {
+    let userStats = this.props.request.userStats.filter(userStat => userStat.gameName === this.props.currentSquad.game.name);
+    if (userStats.length === 0) {
+        return <></>
+    } else {
+        return (
+            <div className="userStats">
+                <div className="user-box-kd">KD: {userStats[0].stats.kd}</div>
+                <div className="user-box-kills">Kills: {userStats[0].stats.kills}</div>
+                <div className="user-box-wins">Wins: {userStats[0].stats.wins}</div>
+            </div>
+        )
+    }
+  }
+
   render() {
 
 
 
     return (
       <div className='request-box'>
-        <div>{this.props.request.username}</div>
-        <div>
-          <Link id='sr-gp' to={`/profile/${this.props.request._id}`}>Go to Profile</Link>
-        </div>
+        <div><Link id='sr-gp' to={`/profile/${this.props.request._id}`}>{this.props.request.username}</Link></div>
+        {this.renderStats()}
         <div>
           {this.renderButtons()}
         </div>
