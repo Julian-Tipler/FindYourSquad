@@ -115,6 +115,14 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    display: grid;
+    padding: 0 0 0 5%;
+    grid-template-columns:         
+        [col1-start] 20% 
+        [col1-end col2-start] 20% 
+        [col2-end col3-start] 20% 
+        [col3-end col4-start] 20% 
+        [col4-end] 20%;
 }
 
 .squad-box-picture {
@@ -174,4 +182,14 @@
     margin: auto;
     width: 80%;
     margin-top: 20px;
+}
+
+#gamer-link {
+    background: transparent;
+}
+
+footer {
+    height: 10vh;
+    background: black;
+    border-top: 5px solid rgb(174, 37, 37);
 }

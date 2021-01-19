@@ -33,11 +33,11 @@ class Member extends React.Component {
 
 
 
-              <div>
-                <Link id='gamer-link' to={`/profile/${this.props.member._id}`}>
-                  Gamer Profile
-                </Link>
-              </div>
+            
+            <Link id='gamer-link' to={`/profile/${this.props.member._id}`}>
+                Gamer Profile
+            </Link>
+            
             </>
         );
     }
