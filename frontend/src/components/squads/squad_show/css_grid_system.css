@@ -81,8 +81,8 @@
     justify-content: space-between;
     display: grid;
     grid-template-columns:         
-        [col1-start] 10% 
-        [col1-end col2-start] 55% 
+        [col1-start] 17.5% 
+        [col1-end col2-start] 50% 
         [col2-end] 20%;
 }
 
