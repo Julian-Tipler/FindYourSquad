@@ -68,9 +68,10 @@ class SquadShow extends React.Component {
                     <div className="container" >
                         <div className="item-left">
                             <div className="members">
-                                <div className="squad-name"><h1>{this.props.currentSquad.name}</h1></div>
+                                <h2>{this.props.currentSquad.name}</h2>
+                                <h3>Description:</h3>
                                 <p className="squad-bio">{this.props.currentSquad.generalBio ? this.props.currentSquad.generalBio : <> </>}</p>
-                                <h2>Members:</h2>
+                                <h3>Members:</h3>
                                 <div>
                                 {(this.props.currentSquad.requests) ? 
                                 this.props.currentSquad.members.map((member, idx) => {
@@ -90,7 +91,7 @@ class SquadShow extends React.Component {
                                 :
                                 <div>No Requests</div>}
                                 </div>
-                                <h2>Requests:</h2>
+                                <h3>Requests:</h3>
                                 <div>
                                 {(this.props.currentSquad.requests) ? 
                                     this.props.currentSquad.requests.map((request, idx) => {

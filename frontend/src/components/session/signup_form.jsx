@@ -101,13 +101,13 @@ class SignupForm extends React.Component {
             <div id= 'text-2'>
               <h3 className='text-title'>Can't Find A Squad You Like? Create Your Own</h3>
                 Form a squad attuned to your preferences to optimize your experience
-                in and out of the game
+                in and out of the game.
             </div>
             <div id='text-3'>
               <h3>Show Off Your Stats And Create A Profile</h3>
               <h3 className='text-title'>To Let Others Know Who You Are</h3>
                 Help others learn a little bit about you and see other profiles to
-                find like-minded teammates that you can have fun with
+                find like-minded teammates that you can have fun with.
             </div>
               <div id='text-4'>
               <h3 className='text-title'>Hang Out And Communicate With Your Squad</h3>
@@ -115,6 +115,14 @@ class SignupForm extends React.Component {
                 everyone is free. 
             </div>
         </div>
+        <footer>
+            <div className="github-links">
+                <a href="https://github.com/jylee19"><i class="fab fa-github fa-3x"></i><p>Justin Lee</p></a>
+                <a href="https://github.com/Julian-Tipler"><i class="fab fa-github fa-3x"></i><p>Julian Tipler</p></a>
+                <a href="https://github.com/wellsniko"><i class="fab fa-github fa-3x"></i><p>Niko Wells</p></a>
+                <a href="https://github.com/matteeyao"><i class="fab fa-github fa-3x"></i><p>Matt Yao</p></a>
+            </div>
+        </footer>
       </div>
     );
   }

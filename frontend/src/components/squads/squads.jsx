@@ -65,6 +65,7 @@ class Squad extends React.Component {
             ))}
 
           </div>
+          <footer className="squads-footer"></footer>
         </div>
       );
     }

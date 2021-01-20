@@ -63,8 +63,7 @@ class SearchSquad extends React.Component {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div className='custom-select'>
+        <form className='custom-select' onSubmit={this.handleSubmit}>
             <select className='search-bar' onChange={this.update("game")}>
               <option value="">Game</option>
                {this.props.games.map((game) => {
@@ -88,7 +87,6 @@ class SearchSquad extends React.Component {
             </select>
 
             <input id='search-submit' type="submit" value="Submit" />
-          </div>
         </form>
         {/* <button onClick={this.resetForm}>Reset</button> */}
         <br />

@@ -5,10 +5,18 @@
 }
 
 #search-bar{
+    justify-content: left;
+    align-items: center;
     margin: auto;
     width: 80%;
     margin-top: 5px;
 }
+
+.custom-select {
+    width: 100%;
+    margin-left: 0;
+}
+
 
 #squad-forum-title{
     margin: auto;
@@ -29,7 +37,6 @@
     color: white;
     font-size: 14px;
 }
-
 
 .squad-box-left-div {
     width: 253px;
@@ -115,6 +122,14 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    display: grid;
+    padding: 0 0 0 5%;
+    grid-template-columns:         
+        [col1-start] 20% 
+        [col1-end col2-start] 20% 
+        [col2-end col3-start] 20% 
+        [col3-end col4-start] 20% 
+        [col4-end] 20%;
 }
 
 .squad-box-picture {
@@ -174,4 +189,14 @@
     margin: auto;
     width: 80%;
     margin-top: 20px;
+}
+
+#gamer-link {
+    background: transparent;
+}
+
+.squads-footer {
+    height: 0vh;
+    background: black;
+    border-top: 5px solid rgb(174, 37, 37);
 }
