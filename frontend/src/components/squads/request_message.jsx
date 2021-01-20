@@ -21,7 +21,7 @@ class RequestMessage extends React.Component {
             newMemberId: this.state.newMemberId,
             type: this.state.type
         }
-        this.props.updateSquad(this.state);
+        this.props.updateSquad(message);
         this.setState({ redirect: true })
         
     }
