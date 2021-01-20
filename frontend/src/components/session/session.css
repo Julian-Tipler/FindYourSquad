@@ -4,7 +4,6 @@ body {
     background-color: rgb(24,25,26);
     padding: 0;
     margin: 0;
-    height: 100%
 }
 
 /* div {
@@ -31,17 +30,21 @@ html{
     flex-direction: 'column';
     margin-left: auto;
     margin-right: auto;
-    max-height: 100vh;
+    max-height: 80vh;
 }
 
 .login-pic{
-    height:800px;
+    height: 87.5vh;
+    width: 100%;
+    z-index: 20;
 }
 
 .main-auth-left{
     width: 550px;
     display: inline-block;
     margin: 0px;
+    position: relative;
+    z-index: 10;
 }
 
 .main-auth-left img{
@@ -106,38 +109,36 @@ html{
     display: inline-block;
     align-self: center;
     position: relative;
-    bottom: 280px;
+    bottom: 400px;
     padding-left: 50px;
 }
 
 
 .session-form-div {
-    padding-left: 20px;
-    padding-top: 100px;
+    padding-left: 0;
+    padding-top: 10%;
     max-width: 416px;
     margin-right: 0px;
 }
 
 .signup-form-container{
-    /* padding-left: 100px;
-    padding-top: 200px; */
-    width: 55%;
+    width: 60%;
     float: left;
-    height: 100vh;
-    
+    height: 82.5vh;
 }
 
 #signup-title{
     font-size: 24px;
     padding-bottom: 10px;
-    margin-left: 130px;
+    margin-left: 32%;
     margin-top: 150px;
 }
 
 #signup-desc{
     color: whitesmoke;
     padding-bottom: 20px;
-    margin-left: 130px;
+    margin-left: 32%;
+    align-items: space-between;
 }
 
 #login-title{
@@ -148,6 +149,10 @@ html{
 
 #login-desc{
     padding-bottom: 20px;
+}
+
+.login-form{
+    margin-left: 0;
 }
 
 
@@ -203,6 +208,9 @@ html{
     margin-top: 40px;
     font-weight: bold;
     outline: none;
+    position: absolute;
+    width: 43%;
+    float: left;
 }
 
 #login-button:hover{
@@ -232,7 +240,7 @@ html{
     background-color: #303030;
     float: right;
     width: 40%;
-    height: 100vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -245,8 +253,8 @@ html{
     margin-right: auto;
 }
 
-.signup-form{
-
+form {
+    margin-left: 20%;
 }
 
 #un-su{
@@ -292,27 +300,25 @@ html{
 }
 
 #text-1{
-    margin-top: 60px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-#text-2{ 
-    margin-left: 30px;
-    margin-right: 30px;
-
+#text-2{
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #text-3{
-    margin-left: 30px;
-    margin-right: 30px;
-
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #text-4{
-    margin-bottom: 60px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 15%;
 }
 
 .text-title{
@@ -333,11 +339,44 @@ h3{
     padding-left: 27px;
     padding-right: 27px;
     margin-top: 40px;
-    margin-left: 152px;
     font-weight: bold;
     outline: none;
+    position: inline;
+    width: 48%;
+    float: right;
 }
 
 #demo-button:hover{
     cursor: pointer;
+}
+
+footer {
+    bottom: 0px;
+    height: 10vh;
+    background: black;
+    border-top: 5px solid rgb(174, 37, 37);
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+footer .github-links {
+    min-width: 100%;
+    display: inline-grid;
+    grid-template-columns: repeat(4, 25%);
+    margin: 1%;
+}
+
+.github-links a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.github-links p {
+    padding: 17px 10px;
+    display: table-cell;
+    vertical-align: middle;
 }

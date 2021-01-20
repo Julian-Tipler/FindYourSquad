@@ -29,9 +29,11 @@ class MainPage extends React.Component {
         <div id='middle'>
           <h1 id='main-h1'>Squad Finding Made Easy</h1>
           <p id='main-text'>
-              Intuitive squad system to not only join and create squads but to also
-              message other squad members in the same group. Find the perfect 
-              squad for you and get right to gaming with a team
+              Intuitive competitive gaming platform to not only join and create 
+              squads but to also communicate with other squad members in the 
+              same group. Find the perfect gaming squad for you and get right 
+              into the battlefield to win competitions, have fun, and climb
+              the leaderboards.
           </p>
           <button id='main-demo' onClick={this.signup}>Sign up now!</button>
         </div>

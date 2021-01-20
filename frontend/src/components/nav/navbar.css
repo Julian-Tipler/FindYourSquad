@@ -10,6 +10,8 @@
     top: 0;
     box-shadow: 0 -1px 5px grey;
     z-index: 2;
+    position: relative;
+    z-index: 1000;
 }
 
 #navbar-logo{

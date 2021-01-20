@@ -24,7 +24,7 @@ html{
 }
 
 .create-pic{
-    height: 800px;
+    height: 92.5vh;
 }
 
 
@@ -50,6 +50,10 @@ html{
     margin-top: 100px;
     height: 100%;
     vertical-align: top;
+}
+
+.right-side form {
+    margin-left: 0;
 }
 
 #create-title{

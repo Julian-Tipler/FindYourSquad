@@ -5,10 +5,18 @@
 }
 
 #search-bar{
+    justify-content: left;
+    align-items: center;
     margin: auto;
     width: 80%;
     margin-top: 5px;
 }
+
+.custom-select {
+    width: 100%;
+    margin-left: 0;
+}
+
 
 #squad-forum-title{
     margin: auto;
@@ -29,7 +37,6 @@
     color: white;
     font-size: 14px;
 }
-
 
 .squad-box-left-div {
     width: 253px;
@@ -188,8 +195,8 @@
     background: transparent;
 }
 
-footer {
-    height: 10vh;
+.squads-footer {
+    height: 0vh;
     background: black;
     border-top: 5px solid rgb(174, 37, 37);
 }
