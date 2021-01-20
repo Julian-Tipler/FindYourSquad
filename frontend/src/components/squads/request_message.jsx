@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
 import '../modal/modal.css'
 
 class RequestMessage extends React.Component {
@@ -8,17 +9,30 @@ class RequestMessage extends React.Component {
         this.state = {
             id: this.props.squad._id,
             newMemberId: this.props.currentUserId,
-            type: "addRequest"
+            type: "addRequest",
+            redirect: false
         }
     }
 
     handleSubmit(e){
         e.preventDefault();
+        let message = {
+            id: this.state.id,
+            newMemberId: this.state.newMemberId,
+            type: this.state.type
+        }
         this.props.updateSquad(this.state);
-        this.props.closeModal();
+        this.setState({ redirect: true })
+        
     }
 
     render(){
+        if (this.state.redirect === true){
+        this.props.closeModal();
+        return (
+          <Redirect to={`/squads/${this.props.squad._id}`}/>
+        )
+      }
         
 
         return(
