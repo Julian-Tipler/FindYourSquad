@@ -84,13 +84,34 @@ export const createSquad = data => dispatch => (
     )))
 
 
-export const updateSquad = data => dispatch => (
-  APISquad.editSquad(data)
-    .then((squad) => dispatch(receiveSquad(squad)))
-    .catch(err => console.log(err))
-);
-
-
+export const updateSquad = data => dispatch => {
+  if (data.demoUser===true && data.type==='addRequest') {
+    console.log('ping')
+    return (
+      APISquad.editSquad(data)
+        .then((squad) => {
+          dispatch(receiveSquad(squad))
+          setTimeout(() => {
+            data.type = 'acceptMember'
+            data.requestId = data.newMemberId
+            APISquad.editSquad(data)
+              .then((squad) => {
+                alert('You have been accepted!')
+                return(dispatch(receiveSquad(squad)))
+              })
+          }, 4000);
+        })
+        .catch(err => console.log(err))
+    )
+  }
+  else {
+    return (
+      APISquad.editSquad(data)
+        .then((squad) => dispatch(receiveSquad(squad)))
+        .catch(err => console.log(err))
+    )
+  }
+}
 
 export const fetchSquadMessages = id => dispatch => {
     return (
