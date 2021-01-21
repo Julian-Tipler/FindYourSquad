@@ -24,7 +24,7 @@ class MainPage extends React.Component {
     return (
       <div id='main-page'>
         <div id='left'>
-          <img className='left-pic' src={VG3} />
+          <img className='left-pic' src={VG3} alt='left-pic' />
         </div>
         <div id='middle'>
           <h1 id='main-h1'>Squad Finding Made Easy</h1>

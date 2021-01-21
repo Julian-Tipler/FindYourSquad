@@ -18,7 +18,7 @@ class Member extends React.Component {
           displayStats =
            Object.keys(correctGameStats.stats).map((key, idx) => {
              return (
-                <div id="gamer-box">{key.length < 3 ? key.toUpperCase().split("").join("/") : key.slice(0,1).toUpperCase() + key.slice(1)}: {correctGameStats.stats[key]}</div> //key={`${idx}${stat.game}`} 
+                <div key={idx} id="gamer-box">{key.length < 3 ? key.toUpperCase().split("").join("/") : key.slice(0,1).toUpperCase() + key.slice(1)}: {correctGameStats.stats[key]}</div> //key={`${idx}${stat.game}`} 
               )
             })
         }

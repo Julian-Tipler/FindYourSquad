@@ -6,7 +6,6 @@ import '../app.css';
 
 import Modal from './modal/modal';
 import SquadsContainer from './squads/squads_container';
-import MainPage from './main/main_page';
 import MainPageContainer from './main/main_page_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';

@@ -1,21 +1,20 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import './user_profile.css';
+    import './user_profile.css';
 import SquadBoxContainer from '../squads/squad_box_container'
 import GameStatsFormContainer from './game_stats_form_container'
 import CarouselContainer from './carousel_container'
 import ImageUpload from './image_upload'
 
 class UserProfile extends React.Component{
-    constructor(props){
-        super(props);
-        // if (this.props.games[0] !== undefined){
-        // this.state = {
-        //     gameState: this.props.games[0]
-        // }}
+    // constructor(props){
+    //     super(props);
+    //     // if (this.props.games[0] !== undefined){
+    //     // this.state = {
+    //     //     gameState: this.props.games[0]
+    //     // }}
 
 
-    }
+    // }
 
     componentDidMount(){
         this.props.fetchUser(this.props.profileUserId)
@@ -105,6 +104,7 @@ class UserProfile extends React.Component{
                                             })}
                                         </div> )
                                 }
+                                return <></>
                             })}
                             </div>
 
@@ -114,12 +114,14 @@ class UserProfile extends React.Component{
                                 return <div key={idx}> </div>
                             }
                             if (this.props.currentUserId === profileUserId){ 
-                                if (profileUser.userStats.find(stat => stat.game === this.state.gameState)){
+                            if (profileUser.userStats.find(stat => stat.game === this.state.gameState)){
                                     return (
                                         <div key={idx} className="user-stat-form-section">
                                             <GameStatsFormContainer statId={(profileUser.userStats.find(stat => stat.game === this.state.gameState))._id} key={`${game._id}${idx}`} type="edit" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
                                         </div>
-                            )} else {
+                                    )}
+                                    
+                            else {
                                 return (
                                     <div key={idx}className="user-stat-form-section">
                                             <GameStatsFormContainer key={`${game._id}${idx}`} type="create" game={game} profileUserId={profileUserId} profileUser={profileUser} /> 
@@ -127,8 +129,10 @@ class UserProfile extends React.Component{
                                 )
                             }
                             
+                            
                             ;}
-                        })}   
+                        return <></>})
+                        }   
 
 
                         </div>
