@@ -82,9 +82,15 @@ class UserProfile extends React.Component{
                     <div id='pp-game-btn-container'>
                         {/* <h1 id='profile-title'>Click a game to view your stats</h1> */}
                         {this.props.games.map((game) => {
-                        return (
-                            <button id='pp-game-button' onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
-                        );
+                            if (game._id === this.state.gameState){
+                                return (
+                                    <button id='active-game-button' onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> 
+                                )
+                            } else {
+                                return (
+                                    <button id='pp-game-button' onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
+                                );
+                            }
                         })}
                     </div>
                     <div className="">

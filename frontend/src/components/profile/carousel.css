@@ -1,6 +1,6 @@
 .Carousel-root-1 {
     min-width: 100%;
-    min-height: 500px;
+    min-height: 475px;
 }
 
 .image-container {
@@ -45,7 +45,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     width: 60px;
-    margin-top: 20px;
+    margin-top: 35px;
     font-weight: bold;
     outline: none;
     margin-left: 46.5%;
