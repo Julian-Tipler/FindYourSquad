@@ -16,10 +16,15 @@ class RequestMessage extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
+        let demoUser = false;
+        if (this.props.currentUsername === 'demoUser') {
+            demoUser = true;
+        }
         let message = {
             id: this.state.id,
             newMemberId: this.state.newMemberId,
-            type: this.state.type
+            type: this.state.type,
+            demoUser: demoUser
         }
         this.props.updateSquad(message);
         this.setState({ redirect: true })
