@@ -36,14 +36,15 @@ class RequestMessage extends React.Component {
         
 
         return(
-            <form id='modal-form' onSubmit={this.handleSubmit}>
-                <div className='modal-box'>
-                    <h2 id='squad-name'>Squad to send request: {this.props.squad.name}</h2>
-                    <p id='modal-title'>Send a message!</p>
-                    <textarea id='modal-text' autoComplete='off'/>
-                    <input id='modal-btn' type="submit" value="Send Request!"/>
-                </div>
-            </form>
+            <div className='modal-form'>
+                <form onSubmit={this.handleSubmit}>
+                    <div className='modal-box'>
+                        <h2 id='squad-name'>{this.props.squad.name}'s Invite Request</h2>
+                        <textarea id='modal-text' placeholder={"Send a message to " + this.props.squad.name + "!"} autoComplete='off'/>
+                        <input id='modal-btn' type="submit" value="Send Request!"/>
+                    </div>
+                </form>
+            </div>
         )
     }
 
