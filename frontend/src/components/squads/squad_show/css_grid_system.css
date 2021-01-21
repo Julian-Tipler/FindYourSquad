@@ -6,7 +6,7 @@
         [col2-end col3-start] 45% 
         [col3-end col4-start] 15% 
         [col4-end];
-    min-height: 85vh;
+    min-height: 85vh;   
 }
     
 .item-left {
