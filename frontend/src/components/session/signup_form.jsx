@@ -117,10 +117,10 @@ class SignupForm extends React.Component {
         </div>
         <footer>
             <div className="github-links">
-                <a href="https://github.com/jylee19"><i class="fab fa-github fa-3x"></i><p>Justin Lee</p></a>
-                <a href="https://github.com/Julian-Tipler"><i class="fab fa-github fa-3x"></i><p>Julian Tipler</p></a>
-                <a href="https://github.com/wellsniko"><i class="fab fa-github fa-3x"></i><p>Niko Wells</p></a>
-                <a href="https://github.com/matteeyao"><i class="fab fa-github fa-3x"></i><p>Matt Yao</p></a>
+                <a href="https://github.com/jylee19"><i className="fab fa-github fa-3x"></i><p>Justin Lee</p></a>
+                <a href="https://github.com/Julian-Tipler"><i className="fab fa-github fa-3x"></i><p>Julian Tipler</p></a>
+                <a href="https://github.com/wellsniko"><i className="fab fa-github fa-3x"></i><p>Niko Wells</p></a>
+                <a href="https://github.com/matteeyao"><i className="fab fa-github fa-3x"></i><p>Matt Yao</p></a>
             </div>
         </footer>
       </div>

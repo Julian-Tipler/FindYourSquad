@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import VG4 from './VG4.jpg'
 import './squad_create.css'
 
@@ -79,7 +79,7 @@ class SquadCreate extends React.Component {
 
       <div className='create-page'>
         <div className='left-side'>
-          <img className='create-pic' src={VG4} />
+          <img className='create-pic' src={VG4} alt='create-pic' />
         </div>
         <div className='right-side'>
           <h1 id='create-title'>Create Your Squad In Few Short Steps</h1>
@@ -132,10 +132,10 @@ class SquadCreate extends React.Component {
         </div>
         <footer>
             <div className="github-links">
-                <a href="https://github.com/jylee19"><i class="fab fa-github fa-3x"></i><p>Justin Lee</p></a>
-                <a href="https://github.com/Julian-Tipler"><i class="fab fa-github fa-3x"></i><p>Julian Tipler</p></a>
-                <a href="https://github.com/wellsniko"><i class="fab fa-github fa-3x"></i><p>Niko Wells</p></a>
-                <a href="https://github.com/matteeyao"><i class="fab fa-github fa-3x"></i><p>Matt Yao</p></a>
+                <a href="https://github.com/jylee19"><i className="fab fa-github fa-3x"></i><p>Justin Lee</p></a>
+                <a href="https://github.com/Julian-Tipler"><i className="fab fa-github fa-3x"></i><p>Julian Tipler</p></a>
+                <a href="https://github.com/wellsniko"><i className="fab fa-github fa-3x"></i><p>Niko Wells</p></a>
+                <a href="https://github.com/matteeyao"><i className="fab fa-github fa-3x"></i><p>Matt Yao</p></a>
             </div>
         </footer>
       </div>

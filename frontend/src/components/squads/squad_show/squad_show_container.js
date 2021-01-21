@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchSquad, updateSquad, fetchSquadMessages, deleteSquad, removeSquadFromState } from '../../../actions/squad_actions';
 import SquadShow from './squad_show';
-import { openModal, closeModal } from '../../../actions/modal_actions';
+import { closeModal } from '../../../actions/modal_actions';
 
 
 const mapStateToProps = (state, ownProps) => {

@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 import Member from './member'
 
 class SquadBox extends React.Component {
-  constructor(props){
-    super(props);
-    
-  }
-  
+
   render() {
     // let requestToJoinSquad
     if (Object.values(this.props).length < 1){
@@ -20,7 +16,7 @@ class SquadBox extends React.Component {
       <div className="squad-box-profile">
         <div className="squad-box-body">
           <div className="squad-box-picture">
-            <img className="squad-box-image" src={`${this.props.squad.game.images[0]}`} alt=""/>
+            <img className="squad-box-image" src={`${this.props.squad.game.images[0]}`} alt="squad-box"/>
           </div>
           <div className="squad-box-left-div">
             <h3 className="squad-box-h3">
@@ -51,7 +47,7 @@ class SquadBox extends React.Component {
       chooseDisplay = 
         <div className="squad-box-body">
           <div className="squad-box-picture">
-            <img className="squad-box-image" src={`${this.props.squad.game.images[0]}`} alt=""/>
+            <img className="squad-box-image" src={`${this.props.squad.game.images[0]}`} alt="squad-box"/>
           </div>
           <div className="squad-box-left-div">
             <h3 className="squad-box-h3">
