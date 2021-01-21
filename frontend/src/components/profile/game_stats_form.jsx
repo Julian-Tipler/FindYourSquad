@@ -170,7 +170,7 @@ class GameStatsForm extends React.Component {
         else {
 
           return (
-            <button onClick={ ()=> this.setState({editFormOpen: true})}>Edit Stats
+            <button id='edit-stat-btn' onClick={ ()=> this.setState({editFormOpen: true})}>Edit Stats
 
             </button>
           )}
