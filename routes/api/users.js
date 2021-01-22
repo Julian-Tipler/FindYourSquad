@@ -83,28 +83,7 @@ router.post("/register", (req, res) => {
             .save()
             .then(user => {
 
-              //makes new empty stats for each game when new user is made, one option of a way of doing it
-              // Game.find().then(games => {
-              //   games.forEach(game=> {
-              //     const newStat = new Stat({
-              //       user: user.id,
-              //       game: game._id,
-              //       gameName: game.name,
-              //       stats: {}
-
-              //   });
-              //       newStat.save().then((stat) => res.json(stat));
-              //   })
-              // })
-               
-              ///
-
-
-              const payload = { id: user.id, username: user.username };
-              
-              
-              
-           
+              const payload = { id: user.id, username: user.username };         
 
               jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                 res.json({
