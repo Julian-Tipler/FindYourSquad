@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
         currentSquad: state.squads.currentSquad,
         currentUser: state.session.user,
         squadId: ownProps.match.params.squadId,
-        messages: state.squads.currentSquad.messages
+        messages: state.squads.currentSquad.messages,
     };
 };
 

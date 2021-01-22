@@ -16,10 +16,11 @@ class SquadShow extends React.Component {
             socket: MySocket.getSocket()
         };
 
-        this.state.socket.on("messages", (messages) => {
-            console.log(messages);
-            this.props.fetchSquadMessages(this.props.match.params.squadId)
+        this.state.socket.on("new-message-received", (message) => {
+            // console.log("MATT_TEST: ", this.props.match.params.squadId);
+            this.props.fetchSquadMessages(this.props.match.params.squadId);
         });
+
         this.renderChat = this.renderChat.bind(this)
     }
 
@@ -28,7 +29,9 @@ class SquadShow extends React.Component {
     }
 
     componentWillUnmount() {
-        this.state.socket.off("get_data", this.state.messages);
+        this.state.socket.off("new-message-received", this.setState({
+            socket: '',
+        }));
         this.props.removeSquadFromState();
     }
 
