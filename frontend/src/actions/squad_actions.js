@@ -84,25 +84,41 @@ export const createSquad = data => dispatch => (
     )))
 
 
-export const updateSquad = data => dispatch => (
-  APISquad.editSquad(data)
-    .then((squad) => dispatch(receiveSquad(squad)))
-    .catch(err => console.log(err))
-);
-
-// export const updateSquadBio = data => dispatch => (
-//   APISquad.editSquadBio(data)
-//     .then((squad) => dispatch(receiveSquad(squad)))
-//     .catch(err => console.log(err))
-// )
-
+export const updateSquad = data => dispatch => {
+  if (data.demoUser===true && data.type==='addRequest') {
+    // console.log('ping')
+    return (
+      APISquad.editSquad(data)
+        .then((squad) => {
+          dispatch(receiveSquad(squad))
+          setTimeout(() => {
+            data.type = 'acceptMember'
+            data.requestId = data.newMemberId
+            APISquad.editSquad(data)
+              .then((squad) => {
+                alert('You have been accepted!')
+                return(dispatch(receiveSquad(squad)))
+              })
+          }, 4000);
+        })
+        .catch(err => console.log(err))
+    )
+  }
+  else {
+    return (
+      APISquad.editSquad(data)
+        .then((squad) => dispatch(receiveSquad(squad)))
+        .catch(err => console.log(err))
+    )
+  }
+}
 
 
 export const fetchSquadMessages = id => dispatch => {
     return (
         APISquad.getSquadMessages(id)
             .then((messages) => {
-                console.log(messages);
+                // console.log("PING1");
                 dispatch(receiveSquadMessages(messages));
             })
             .catch(err => console.log(err))
@@ -113,7 +129,9 @@ export const postMessage = (data) => dispatch => {
     return (
         APISquad.postMessage(data)
             .then((squad) => {
-                dispatch(receiveSquad(squad));
+                // console.log("PING2")
+                // dispatch(receiveSquadMessages(squad.data));
+                // dispatch(receiveSquad(squad));
                 MySocket.getSocket().emit('new-message', squad);
             })
             .catch(err => console.log(err))

@@ -56,7 +56,8 @@ io.on("connection", (socket) => {
         squad.data.messages[squad.data.messages.length - 1].content +
         "' sent"
     );
-    io.sockets.emit("messages", squad.data.messages);
+    
+    io.sockets.emit("new-message-received", squad.data.messages[squad.data.messages.length - 1]);
   });
 
   socket.on("disconnect", () => {

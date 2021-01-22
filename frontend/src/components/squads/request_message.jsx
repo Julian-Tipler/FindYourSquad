@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import '../modal/modal.css'
 
 class RequestMessage extends React.Component {
@@ -16,10 +16,15 @@ class RequestMessage extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
+        let demoUser = false;
+        if (this.props.currentUsername === 'demoUser') {
+            demoUser = true;
+        }
         let message = {
             id: this.state.id,
             newMemberId: this.state.newMemberId,
-            type: this.state.type
+            type: this.state.type,
+            demoUser: demoUser
         }
         this.props.updateSquad(message);
         this.setState({ redirect: true })
@@ -36,14 +41,15 @@ class RequestMessage extends React.Component {
         
 
         return(
-            <form id='modal-form' onSubmit={this.handleSubmit}>
-                <div className='modal-box'>
-                    <h2 id='squad-name'>Squad to send request: {this.props.squad.name}</h2>
-                    <p id='modal-title'>Send a message!</p>
-                    <textarea id='modal-text' autoComplete='off'/>
-                    <input id='modal-btn' type="submit" value="Send Request!"/>
-                </div>
-            </form>
+            <div className='modal-form'>
+                <form onSubmit={this.handleSubmit}>
+                    <div className='modal-box'>
+                        <h2 id='squad-name'>{this.props.squad.name}'s Invite Request</h2>
+                        <textarea id='modal-text' placeholder={"Send a message to " + this.props.squad.name + "!"} autoComplete='off'/>
+                        <input id='modal-btn' type="submit" value="Send Request!"/>
+                    </div>
+                </form>
+            </div>
         )
     }
 

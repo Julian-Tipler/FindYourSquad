@@ -26,16 +26,16 @@ class CarouselComponent extends React.Component {
                        {
                        this.props.images.map((image,i) => {
                            return (
-                               <div>
-                                <div key={i} className = "full-carousel-div">
+                               <div key={i}>
+                                <div className = "full-carousel-div">
                                         <div className="carousel-div">
-                                            <img className = "carousel-image" id="left-image" src={this.props.images[(((i-1)%this.props.images.length)+this.props.images.length)%this.props.images.length]}/>
+                                            <img className = "carousel-image" id="left-image" alt='carousel' src={this.props.images[(((i-1)%this.props.images.length)+this.props.images.length)%this.props.images.length]}/>
                                         </div>
                                         <div className="carousel-div">
                                             <img className = "carousel-image" id="center-image" src={image} alt={image}/>
                                         </div>
                                         <div className="carousel-div">
-                                            <img className = "carousel-image" id="right-image"src={this.props.images[(i+1)%this.props.images.length]}/>
+                                            <img className = "carousel-image" id="right-image" alt='carousel' src={this.props.images[(i+1)%this.props.images.length]}/>
                                         </div>
                                 </div>
                                     {this.props.currentUserId === this.props.profileUserId ? <button id='delete-image-btn' onClick={(e)=>this.deleteImage(i, e)}>Delete</button> : <> </>}

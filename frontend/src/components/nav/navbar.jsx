@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
-import Logo from './Logo.png'
 import Logo4 from './Logo4.png'
 
 
@@ -48,13 +47,13 @@ class NavBar extends React.Component {
     if (this.props.loggedIn){
       return(
         <Link to={'/squads'}>
-          <img id='navbar-logo' src={Logo4}/>
+          <img id='navbar-logo' src={Logo4} alt='navbar-logo'/>
         </Link>
       );
     } else {
       return(
         <Link to={'/'}>
-          <img id='navbar-logo' src={Logo4}/>
+          <img id='navbar-logo' src={Logo4} alt='navbar-logo'/>
         </Link>
       );
     }

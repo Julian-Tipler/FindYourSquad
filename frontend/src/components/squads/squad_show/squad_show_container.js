@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import { fetchSquad, updateSquad, fetchSquadMessages, deleteSquad, removeSquadFromState, updateSquadBio } from '../../../actions/squad_actions';
 import SquadShow from './squad_show';
-import { openModal, closeModal } from '../../../actions/modal_actions';
+import { closeModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
         currentSquad: state.squads.currentSquad,
         currentUser: state.session.user,
         squadId: ownProps.match.params.squadId,
-        messages: state.squads.currentSquad.messages
+        messages: state.squads.currentSquad.messages,
     };
 };
 

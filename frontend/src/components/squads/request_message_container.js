@@ -5,6 +5,7 @@ import { closeModal } from '../../actions/modal_actions';
 
 const msp = (state) => ({
     currentUserId: state.session.user.id,
+    currentUsername: state.session.user.username,
     squad: state.ui.modal.squad
 })
 

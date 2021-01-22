@@ -75,7 +75,7 @@ class LoginForm extends React.Component {
                 </section> */}
                 <div className='split-screen'>
                 <div className='main-auth-left'>
-                    <img className='login-pic' src={VG1} />
+                    <img className='login-pic' src={VG1} alt='login-pic' />
                 </div>
                 <div className="main-auth-right">
                     
@@ -111,10 +111,10 @@ class LoginForm extends React.Component {
             </div>
             <footer>
                 <div className="github-links">
-                    <a href="https://github.com/jylee19"><i class="fab fa-github fa-3x"></i><p>Justin Lee</p></a>
-                    <a href="https://github.com/Julian-Tipler"><i class="fab fa-github fa-3x"></i><p>Julian Tipler</p></a>
-                    <a href="https://github.com/wellsniko"><i class="fab fa-github fa-3x"></i><p>Niko Wells</p></a>
-                    <a href="https://github.com/matteeyao"><i class="fab fa-github fa-3x"></i><p>Matt Yao</p></a>
+                    <a href="https://github.com/jylee19" target="_blank"><i className="fab fa-github fa-3x"></i><p>Justin Lee</p></a>
+                    <a href="https://github.com/Julian-Tipler" target="_blank"><i className="fab fa-github fa-3x"></i><p>Julian Tipler</p></a>
+                    <a href="https://github.com/wellsniko" target="_blank"><i className="fab fa-github fa-3x"></i><p>Niko Wells</p></a>
+                    <a href="https://github.com/matteeyao" target="_blank"><i className="fab fa-github fa-3x"></i><p>Matt Yao</p></a>
                 </div>
             </footer>
         </div>

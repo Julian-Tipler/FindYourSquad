@@ -107,16 +107,15 @@ html{
     height: 100%;
     margin: 0px;
     display: inline-block;
-    align-self: center;
     position: relative;
-    bottom: 400px;
-    padding-left: 50px;
+    bottom: 450px;
+    padding-left: 100px;
 }
 
 
 .session-form-div {
     padding-left: 0;
-    padding-top: 10%;
+    padding-top: 5%;
     max-width: 416px;
     margin-right: 0px;
 }
@@ -209,7 +208,7 @@ html{
     font-weight: bold;
     outline: none;
     position: absolute;
-    width: 43%;
+    width: 41%;
     float: left;
 }
 
@@ -342,7 +341,7 @@ h3{
     font-weight: bold;
     outline: none;
     position: inline;
-    width: 48%;
+    width: 47%;
     float: right;
 }
 

@@ -24,7 +24,8 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 router.get('/:userId', (req, res) => {
     User.findById(req.params.userId)
         .populate("userStats")
-        .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
+        .populate({path: "squads", populate: { path: "game"}})
+        .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: "members  "}})
         .then(user => res.json(user))
         .catch(err =>
             res.status(404).json({ nouserfound: 'No user found' }  
@@ -33,7 +34,7 @@ router.get('/:userId', (req, res) => {
 });
 
 
-// //Updates user
+// //Updates use
 
 router.put('/:userId', (req, res) => {
   let update = { 
@@ -42,7 +43,8 @@ router.put('/:userId', (req, res) => {
   } 
   User.findByIdAndUpdate(req.params.userId, update, { new: true })
     .populate("userStats")
-    .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: 'members' }, populate: { path: "game"}})
+    .populate({path: "squads", populate: { path: "game"}})
+    .populate({path: "squads", options: { sort: { 'date': -1 } }, populate: { path: "members  "}})
     .then((user) => res.json(user))
     .catch(err =>
         res.status(404).json({ dataTypeError: 'Wrong data type or no user found' }  ))
