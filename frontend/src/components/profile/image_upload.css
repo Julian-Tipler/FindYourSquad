@@ -5,11 +5,18 @@
 }
 
 .image-uploader-container {
+    display: flex;
+    border-radius: 15px;
     height: 150px;
     border: none;
     box-shadow: none;
-    margin-left: 10px;
-    
+    min-width: 95%;
+    max-width: 95%;
+    margin: auto;
+    padding: 20px 0 10px 0;
+    background: rgb(36,37,38);
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 input[type=file]{
@@ -35,7 +42,7 @@ input:hover {
     border: none;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 100px;
+    width: 70%;
     font-weight: bold;
     outline: none;
 }
@@ -53,9 +60,11 @@ input:hover {
 #file-btn{
     width: 100%;
     background: rgb(36,37,38);
+    margin-left: 15%;
 }
 
 ::-webkit-file-upload-button{
+    /* background-color: rgb(174, 37, 37); */
     background-color: rgb(174, 37, 37);
     color: white;
     border-radius: 5px;
