@@ -113,6 +113,7 @@ export const updateSquad = data => dispatch => {
   }
 }
 
+
 export const fetchSquadMessages = id => dispatch => {
     return (
         APISquad.getSquadMessages(id)

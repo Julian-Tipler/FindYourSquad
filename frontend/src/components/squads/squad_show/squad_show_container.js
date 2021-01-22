@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
-import { fetchSquad, updateSquad, fetchSquadMessages, deleteSquad, removeSquadFromState } from '../../../actions/squad_actions';
+import { fetchSquad, updateSquad, fetchSquadMessages, deleteSquad, removeSquadFromState, updateSquadBio } from '../../../actions/squad_actions';
 import SquadShow from './squad_show';
 import { closeModal } from '../../../actions/modal_actions';
-
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -13,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return {
         // otherForm: (
         //     <button className="request-button" onClick={() => dispatch (openModal( { word: 'request', squad: ownProps.match.params.squadId} ))}>
@@ -26,6 +25,12 @@ const mapDispatchToProps = dispatch => {
         closeModal: () => dispatch(closeModal()),
         fetchSquadMessages: id => dispatch(fetchSquadMessages(id)),
         removeSquadFromState: () => dispatch(removeSquadFromState()),
+        otherForm: (
+            <button className="edit-button" onClick={() => dispatch (openModal( { word: 'editBio'}))}>
+            Edit Bio
+            </button>
+        )
+        
     };
 };
 

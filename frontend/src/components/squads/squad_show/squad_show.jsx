@@ -35,6 +35,7 @@ class SquadShow extends React.Component {
         this.props.removeSquadFromState();
     }
 
+
     renderChat() {
         let currentMembers = [];
         this.props.currentSquad.members.forEach(member => currentMembers.push(member._id))
@@ -66,6 +67,10 @@ class SquadShow extends React.Component {
         if (Object.values(this.props.currentSquad).length === 0){
             return <> </>
         } else{
+            let edit_bio;
+            if(this.props.currentSquad.leader === this.props.currentUser.id){
+                edit_bio = this.props.otherForm;
+            }
             return (
                 <div style={{backgroundImage:`url(${this.props.currentSquad.game.images[1]})`}}>
                     <div className="container" >
@@ -73,6 +78,7 @@ class SquadShow extends React.Component {
                             <div className="members">
                                 <h2>{this.props.currentSquad.name}</h2>
                                 <h3>Description:</h3>
+                                <span>{edit_bio}</span>
                                 <p className="squad-bio">{this.props.currentSquad.generalBio ? this.props.currentSquad.generalBio : <> </>}</p>
                                 <h3>Members:</h3>
                                 <div>
