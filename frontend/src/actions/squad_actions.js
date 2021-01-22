@@ -90,6 +90,12 @@ export const updateSquad = data => dispatch => (
     .catch(err => console.log(err))
 );
 
+// export const updateSquadBio = data => dispatch => (
+//   APISquad.editSquadBio(data)
+//     .then((squad) => dispatch(receiveSquad(squad)))
+//     .catch(err => console.log(err))
+// )
+
 
 
 export const fetchSquadMessages = id => dispatch => {

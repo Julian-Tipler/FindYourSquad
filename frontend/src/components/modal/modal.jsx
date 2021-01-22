@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import './modal.css'
 import RequestMessageContainer from '../squads/request_message_container';
+import EditContainer from '../squads/squad_show/edit_container';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -12,6 +13,9 @@ function Modal({modal, closeModal}) {
   switch (modal.word) {
     case 'request':
       component = <RequestMessageContainer />;
+      break;
+    case 'editBio':
+      component = <EditContainer />;
       break;
     default:
       return null;

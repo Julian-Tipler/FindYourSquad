@@ -55,6 +55,10 @@ export const editSquad = (data) => {
     return axios.put(`/api/squads/${data.id}`, data);
 };
 
+// export const editSquadBio = (data) => {
+//   return axios.put(`/api/squads/${data.id}/edit`, data);
+// }
+
 // id: group id
 // type: remove or add
 // user_id: memberId
