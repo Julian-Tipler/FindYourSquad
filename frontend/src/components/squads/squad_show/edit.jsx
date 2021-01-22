@@ -23,7 +23,7 @@ class Edit extends React.Component {
         }
         this.props.updateSquad(change);
         this.props.closeModal();
-        window.location.reload(false);
+        // window.location.reload(false);
     }
 
     update(field){
