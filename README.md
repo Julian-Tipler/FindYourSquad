@@ -5,7 +5,7 @@
 <a href="https://findyoursquad.herokuapp.com/#/">FindYourSquad</a> is a social platform for gamers that matches teammates based on play style and skill. Through these connections, gamers can communiate with one another, arrange schedules, view each other's gaming profile, and deploy into their favorite games together.
 <br></br>
 ## Brief Overview
-FindYouSquad's matching algorithm takes your personal specifications and finds the perfect teammates for a variety of games, including Apex Legends and Call of duty. After putting in your search criteria, a user is presented with a list of squads. They can view the stats of players currently in the squad and decide if they are a good fit. The user requests to join the squad, is approved by the squad leader, and is let in. Once accepted into a squad, players can communicate through chat to trade gamertags and discuss strategy. When everyone is ready,they log on and play.
+FindYouSquad's matching algorithm takes your personal specifications and finds the perfect teammates for a variety of games, including Apex Legends and Call of duty. After putting in your search criteria, a user is presented with a list of squads. They can view the stats of players currently in the squad and decide if they are a good fit. The user requests to join the squad, is approved by the squad leader, and is let in. Once accepted into a squad, players can communicate through chat to exchange gamertags and discuss strategy. When everyone is ready to play,  log on and hop into battle.
 <br></br>
 ## Features
 
