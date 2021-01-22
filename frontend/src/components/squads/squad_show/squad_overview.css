@@ -38,6 +38,7 @@
     padding-right: 10px;
     font-weight: bold;
     outline: none;
+    min-width: 100px;
 }
 
 #ss-rm:hover{
@@ -52,6 +53,7 @@
 
 #sr-gp{
     text-decoration: none;
+    min-width: 100px;
 }
 
 #sr-gp:hover{
@@ -77,6 +79,7 @@
     margin-bottom: 8px;
     font-weight: bold;
     outline: none;
+    min-width: 100px;
 }
 
 #sr-am:hover{
@@ -100,6 +103,7 @@
     padding-right: 10px;
     font-weight: bold;
     outline: none;
+    min-width: 100px;
 }
 
 #sr-dr:hover{

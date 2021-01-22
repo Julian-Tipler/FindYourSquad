@@ -1,3 +1,6 @@
+<h1 align="center">FindYourSquad</h1>
+<p align="center"><img ="center" src="frontend/public/favicon.ico"  width="200" height="200" /></p>
+
 # FindYourSquad
 
 FindYourSquad is a gaming matchmaker that finds teammates based on ability level and play-style.

@@ -86,7 +86,7 @@ export const createSquad = data => dispatch => (
 
 export const updateSquad = data => dispatch => {
   if (data.demoUser===true && data.type==='addRequest') {
-    console.log('ping')
+    // console.log('ping')
     return (
       APISquad.editSquad(data)
         .then((squad) => {
@@ -117,7 +117,7 @@ export const fetchSquadMessages = id => dispatch => {
     return (
         APISquad.getSquadMessages(id)
             .then((messages) => {
-                console.log(messages);
+                // console.log("PING1");
                 dispatch(receiveSquadMessages(messages));
             })
             .catch(err => console.log(err))
@@ -128,7 +128,9 @@ export const postMessage = (data) => dispatch => {
     return (
         APISquad.postMessage(data)
             .then((squad) => {
-                dispatch(receiveSquad(squad));
+                // console.log("PING2")
+                // dispatch(receiveSquadMessages(squad.data));
+                // dispatch(receiveSquad(squad));
                 MySocket.getSocket().emit('new-message', squad);
             })
             .catch(err => console.log(err))
