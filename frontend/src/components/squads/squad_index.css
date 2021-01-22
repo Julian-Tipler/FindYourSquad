@@ -53,7 +53,6 @@
     margin-bottom: 9px;
 }
 
-
 .squad-box-members-div {
     width: 89%;
     display: flex;
@@ -80,8 +79,9 @@
     flex-direction: row;
     margin-bottom: 10px;
     border: 3px solid black;
-
 }
+
+
 
 /* div {
     display: flex;

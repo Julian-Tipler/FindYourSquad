@@ -13,15 +13,10 @@ class SquadBox extends React.Component {
     let members = this.props.squad.members.map(member => (
       member._id
     ))
-    console.log(this.props.squad)
-      // console.log(this.props.currentUser._id)
-      console.log(members)
     if (members.includes(this.props.currentUser.id)) {
-      console.log('yes-a-member')
-      return <div></div>
+      return <div className='already-a-member'>-Already a member-</div>
     }
     else {
-      console.log('not-a-member')
       return(<span>{this.props.otherForm}</span>)
     }
   }

@@ -95,6 +95,13 @@
     font-weight: 500;
 }
 
+.already-a-member {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: gray;
+    width: 180px;
+}
+
 .request-button:hover{
     cursor: pointer;
     background-color: rgb(143, 36, 36);
