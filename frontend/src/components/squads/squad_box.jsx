@@ -18,7 +18,7 @@ class SquadBox extends React.Component {
       console.log(members)
     if (members.includes(this.props.currentUser.id)) {
       console.log('yes-a-member')
-      return <div></div>
+      return <div className='you-are-a-member'>-you are a member-</div>
     }
     else {
       console.log('not-a-member')
