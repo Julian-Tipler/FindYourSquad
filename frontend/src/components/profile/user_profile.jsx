@@ -51,9 +51,9 @@ class UserProfile extends React.Component{
         const { profileUser, profileUserId} = this.props
 
         return(
-            <div>
+            <div className="user-profile-container">
                 <div className="profile-squad-boxes">
-                    <h3 className="profile-users-squads-title">{profileUser.username}'s Squads</h3>
+                    <h3 className="profile-users-squads-title">Associated Squads</h3>
                     {profileUser.squads.map(squad => (
                         <SquadBoxContainer 
                         squad={squad} 
@@ -65,6 +65,7 @@ class UserProfile extends React.Component{
                 </div>
 
                 <div className="user-profile-body">
+                    <h2>{profileUser.username}'s Profile Page</h2>
                     <div className='user-profile-carousel'>
                         <CarouselContainer
                             currentUserId= {this.props.currentUserId}
@@ -76,7 +77,7 @@ class UserProfile extends React.Component{
                     </span>
 
                     <header className='user-profile-header'>
-                            <h2 id='user-name'>{profileUser.username}'s Profile </h2>
+                            <h3 id='user-name'>Player Stats Breakdown</h3>
                     </header>
 
                     <div id='pp-game-btn-container'>

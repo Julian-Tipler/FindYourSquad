@@ -81,8 +81,7 @@ singleFileChangedHandler = ( event ) => {
         console.log(this.state.selectedFile)
 
     return(
-    <div>
-        <div className="image-uploader-container">
+    <div className="image-uploader-container">
         <div id="oc-alert-container"></div>
             <div className="card border-light mb-3 mt-5" >
                 <div className="card-header">
@@ -99,7 +98,6 @@ singleFileChangedHandler = ( event ) => {
          </div>
         </div>
         </div>
-    </div>
     </div>
   );
  }

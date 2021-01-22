@@ -25,6 +25,7 @@ FindYouSquad's matching algorithm takes your personal specifications and finds t
 <img src="frontend/src/assets/images/create-squad.png?raw=true" width="1000">
 
 * **Gaming Profile** - Players can upload snapshots from their best games which are stored with aws and displayed on their page.
+<img src="frontend/src/assets/images/profile-page.gif?raw=true" width="1000">
 <br></br>
 ## Technologies
 
