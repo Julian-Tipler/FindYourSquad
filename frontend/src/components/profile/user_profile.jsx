@@ -82,9 +82,15 @@ class UserProfile extends React.Component{
                     <div id='pp-game-btn-container'>
                         {/* <h1 id='profile-title'>Click a game to view your stats</h1> */}
                         {this.props.games.map((game) => {
-                        return (
-                            <button id='pp-game-button' onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
-                        );
+                            if (game._id === this.state.gameState){
+                                return (
+                                    <button id='active-game-button' onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> 
+                                )
+                            } else {
+                                return (
+                                    <button id='pp-game-button' onClick={()=> this.setState({gameState: game._id})} key={`${game._id}`} >{game.name}</button> //value={`${game._id}`}
+                                );
+                            }
                         })}
                     </div>
                     <div className="">
@@ -94,12 +100,11 @@ class UserProfile extends React.Component{
                                 if (stat.game === this.state.gameState){
                                     return (
                                         <div key={`${profileUser.username}${stat._id}`}className="user-stat-box">
-                                            <h2>{stat.gameName}</h2>
-                                            <h3>{(stat.updatedAt).slice(0,10)}</h3>
+                                            <h3 id="stat-date">{(stat.updatedAt).slice(0,10)}</h3>
                                             <h2 id='profile-stat-name'>{stat.gameName} Stats</h2>
                                             {Object.keys(stat.stats).map((key, idx) => {
                                                 return (
-                                                    <h3 id='profile-stat' key={`${idx}${stat.game}`} className="stat-item">{key}: {stat.stats[key]}</h3> 
+                                                    <h3 id='profile-stat' key={`${idx}${stat.game}`} className="stat-item">{key.length < 3 ? key.toUpperCase().split("").join("/") : key.slice(0,1).toUpperCase() + key.slice(1)}: {stat.stats[key]}</h3> 
                                                 )
                                             })}
                                         </div> )

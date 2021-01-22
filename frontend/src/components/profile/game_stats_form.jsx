@@ -39,6 +39,7 @@ class GameStatsForm extends React.Component {
     this.setState({ kd: "" });
     this.setState({ kills: "" });
     this.setState({ wins: "" });
+    
     // this.setState({ game: "" });
     // this.setState({ squadSize: "" });
     // this.props.history.push('/squads');  /// goes to squad page, but without new squad 
@@ -65,6 +66,7 @@ class GameStatsForm extends React.Component {
     this.setState({ kd: "" });
     this.setState({ kills: "" });
     this.setState({ wins: "" });
+    this.setState({editFormOpen: false})
     // this.setState({ game: "" });
     // this.setState({ squadSize: "" });
     // this.props.history.push('/squads');  /// goes to squad page, but without new squad 
@@ -169,7 +171,7 @@ class GameStatsForm extends React.Component {
         else {
 
           return (
-            <button onClick={ ()=> this.setState({editFormOpen: true})}>Edit Stats
+            <button id='edit-stat-btn' onClick={ ()=> this.setState({editFormOpen: true})}>Edit Stats
 
             </button>
           )}

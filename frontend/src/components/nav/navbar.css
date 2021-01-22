@@ -6,12 +6,13 @@
     align-items: center;
     background-color: black;
     border-bottom: 5px solid rgb(174, 37, 37);
-    position: sticky;
+    position: fixed;
     top: 0;
     box-shadow: 0 -1px 5px grey;
     z-index: 2;
-    position: relative;
-    z-index: 1000;
+    width: 100%;
+    /* position: relative;
+    z-index: 1000; */
 }
 
 #navbar-logo{
