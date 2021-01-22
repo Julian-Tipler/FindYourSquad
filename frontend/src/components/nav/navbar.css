@@ -6,7 +6,7 @@
     align-items: center;
     background-color: black;
     border-bottom: 5px solid rgb(174, 37, 37);
-    position: fixed;
+    position: absolute;
     top: 0;
     box-shadow: 0 -1px 5px grey;
     z-index: 2;
