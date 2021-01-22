@@ -1,25 +1,24 @@
-.Carousel-root-1 {
-    min-width: 100%;
-    min-height: 475px;
-}
-
 .image-container {
     border: 3px solid black;
     border-radius: 5px;
     background: rgb(36,37,38);
-    margin-top: 29px;
     width: 100%;
     height: 100%;
 }
+
+.Carousel-root-1 {
+    min-width: 100%;
+    min-height: 500px;
+}
+
 .full-carousel-div {
     display: flex;
     justify-content: center;
-    width: 800px;
-    padding: 20px;
+    width: 100%;
+    padding-top: 20px;
     border-radius: 5px;
     margin-top: 20px;
-
-
+    
 }
 
 .carousel-div {
@@ -28,14 +27,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+      
 }
 .carousel-image {
     max-height: 100%;
     max-width: 100%;
 }
-
 
 #delete-image-btn {
     background-color: rgb(174, 37, 37);
@@ -45,10 +42,10 @@
     padding-top: 5px;
     padding-bottom: 5px;
     width: 60px;
-    margin-top: 35px;
+    margin-top: 60px;
     font-weight: bold;
     outline: none;
-    margin-left: 46.5%;
+    margin-left: 47.5%;
     z-index: 1
 }
 
