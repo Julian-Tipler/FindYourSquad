@@ -45,13 +45,13 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <div className="error-danger">
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>
             {this.state.errors[error]}
           </li>
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -84,10 +84,13 @@ class SignupForm extends React.Component {
                   value={this.state.password2}
                   onChange={this.update('password2')}
                   placeholder="Confirm Password"
-                />
+                /> 
+                <div className="errors-signup">
+                {this.renderErrors()}
+                </div>
               <br/>
               <input id='submit-btn' type="submit" value="Submit" />
-              {this.renderErrors()}
+             
             </div>
           </form>
         </div>

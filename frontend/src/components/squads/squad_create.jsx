@@ -53,13 +53,13 @@ class SquadCreate extends React.Component {
   renderErrors() {
       if (this.props.errors.length !== 0){
     return(
-      <ul>
+      <div className="error-danger">
         {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
             {this.props.errors[error]}
           </li>
         ))}
-      </ul>
+      </div>
     );
   }}
 

@@ -130,3 +130,21 @@ html{
     background:rgb(174, 37, 37);
     color: white;
 }
+
+.error-danger {
+
+    /* background-color: rgb(147, 58, 56); */
+    /* border-color: rgb(87, 34, 41);
+    background-color: #f2dede;
+    border-color: #eed3d7; */
+    background: transparent;
+    color: #b94a48;
+    text-align: center;
+    margin: auto;
+    border-radius: 4px;
+    line-height: 1.5;
+}
+
+.error-danger li {
+    border-radius: 4px;
+}
