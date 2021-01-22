@@ -206,6 +206,18 @@ router.put("/:id", (req, res) => {
           );
         break;
 
+      case "editBio":
+          update = { $set: { generalBio: req.body.generalBio }}
+          Squad.findByIdAndUpdate(id, update, {new: true})
+            .populate({ path: 'members', populate: { path: 'userStats' }})
+            .populate({ path: "requests", populate: {path: 'userStats'}})
+            .populate("game")            
+            .then((squad) => {
+              squad.save();
+              res.json(squad)
+            })
+        break;
+
       default:
         Squad.findById(id)
           .populate({ path: 'members', populate: { path: 'userStats' }})
