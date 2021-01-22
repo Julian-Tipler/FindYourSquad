@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
 import '../../modal/modal.css'
 
 class Edit extends React.Component {

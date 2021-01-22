@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSquad, updateSquad, fetchSquadMessages, deleteSquad, removeSquadFromState, updateSquadBio } from '../../../actions/squad_actions';
+import { fetchSquad, updateSquad, fetchSquadMessages, deleteSquad, removeSquadFromState } from '../../../actions/squad_actions';
 import SquadShow from './squad_show';
 import { closeModal, openModal } from '../../../actions/modal_actions';
 
