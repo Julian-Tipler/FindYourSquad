@@ -10,21 +10,38 @@ FindYouSquad's matching algorithm takes your personal specifications and finds t
 ## Features
 
 * **Search Feature** - Users are able to specify game, squad size, and ability level in the search bar. The squad forum with refresh and the player can browse squads specific to their search and request to join.
+<img src="frontend/src/assets/images/squad-search.gif?raw=true" width="1000">
 
 * **Invite Request** - Any user of our platform can request to join any squad as long as the squad is not filled.
 <img src="frontend/src/assets/images/invite-request.gif?raw=true" width="1000">
 
 * **Accepting Members** - The squad leader can click on pending requests to view the user's gaming profile. If they think the player is a good fit, they can accept that player.
+<img src="frontend/src/assets/images/accepting-members.gif?raw=true" width="1000">
+
+* **Squad Chat** - Squadmates can chat w/ each other through our chat system to discuss game plans, strategy, or anything else.
+<img src="frontend/src/assets/images/team-chat.gif?raw=true" width="1000">
 
 * **Create Squad** - Players can create a squad with a custom game type, squad size, and difficulty level. The squad creator is automatically set as the squad's leader.
+<img src="frontend/src/assets/images/create-squad.png?raw=true" width="1000">
 
 * **Gaming Profile** - Players can upload snapshots from their best games which are stored with aws and displayed on their page.
 <br></br>
 ## Technologies
 
-* aws - AWS S3 is essential to providing our player base with a social platform experience, where users can upload and view images, as well as highlight videos, of their gameplay. To implement AWS S3 in our MERN stack, multer and aws-sdk technologies were used. Multer, a middleware for Express and Node.js, offers ease in handling multipart/form-data, a datatype that videos and images are encoded in when uploaded to our server by users. Amazon’s aws-sdk  package is an essential library to get our user’s files displayed on our website.
-
-* socket.io - Several features in our app employs the use of Socket.io, which enables real-time, bidirectional and event-based communication. For instance, once a player enters a message into his squad channel, an event will be emitted that the backend server and all subscribers will listen for, enacting a callback function to perform an action on the backend or render the new message on each client’s frontend instantaneously.
+* MongoDB
+    * MongoDB is a document-based NoSQL database that is highly flexible and scalable. The project will be primarily using MongoDB for our backend and will benefit from utilizing document data structures since we will be able to utilize different datatypes
+* Mongoose
+    * Mongoose is an ODM library for MongoDB and Node.js that provides an API to model the data in our database. We use Mongoose because it allows us to define a schema to work with as well as give us methods to help define validations
+* Express
+    * Express is a web application framework for Node that allows us to write handles to respond to different HTTP verb requests at different URL paths, combine with view rendering engines to generate responses, set common web application settings, and allow for the use of middleware during any part of the request handling pipeline
+* React Redux
+    * We will be using React Redux to render out our frontend as well as use Axios to help connect our frontend React Redux to our backend MongoDB
+* Node.js
+    * Node.js is a JavaScript runtime environment that allows us to utilize JavaScript's asynchronicity characteristic to let us process multiple requests at the same time
+* AWS S3
+    * AWS S3 is essential to providing our player base with a social platform experience, where users can upload and view images, as well as highlight videos, of their gameplay. To implement AWS S3 in our MERN stack, multer and aws-sdk technologies were used. Multer, a middleware for Express and Node.js, offers ease in handling multipart/form-data, a datatype that videos and images are encoded in when uploaded to our server by users. Amazon’s aws-sdk  package is an essential library to get our user’s files displayed on our website.
+* Socket.io 
+    * Several features in our app employ the use of Socket.io, which enables real-time, bidirectional and event-based communication. For instance, once a player enters a message into his squad channel, an event will be emitted that the backend server and all subscribers will listen for, enacting a callback function to perform an action on the backend or render the new message on each client’s frontend instantaneously.
 <br></br>
 ## Socket Setup [MERN]
 
