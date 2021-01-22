@@ -9,7 +9,8 @@ const msp = (state, ownProps) => {
   return {
     squadId: ownProps.squad._id,
     comingFromProfile: ownProps.comingFromProfile,
-    squad: ownProps.squad
+    squad: ownProps.squad,
+    currentUser: state.session.user
   }
 } 
 
