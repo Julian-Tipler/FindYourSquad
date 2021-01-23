@@ -2,7 +2,7 @@
     text-decoration: none;
     background-color: rgb(92,93,93);
     background: rgb(92,93,93);
-    color: rgb(218, 64, 64);
+    color: rgb(192, 22, 22);
     font-weight: bold;
     text-decoration: underline;
 }
@@ -19,5 +19,5 @@
     background-color: transparent;
     font-weight: bold;
     font-size: 20px;
-    color: rgb(218, 64, 64);
+    color: rgb(192, 22, 22);
 }
