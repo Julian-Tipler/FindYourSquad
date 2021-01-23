@@ -2,8 +2,22 @@
     text-decoration: none;
     background-color: rgb(92,93,93);
     background: rgb(92,93,93);
+    color: rgb(218, 64, 64);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#gamer-link:hover {
+      color: rgb(236, 126, 126);
 }
 
 #gamer-box{
     background-color: transparent;
+}
+
+#gamer-box-name {
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(218, 64, 64);
 }

@@ -152,8 +152,13 @@
 }
 
 #squad-link:hover{
-    color: rgb(174, 37, 37);
+    color: rgb(236, 126, 126);
 }
+
+#squad-link {
+    color: rgb(192, 22, 22);
+}
+
 
 .squad-box-image {
     height: 130px;
@@ -200,6 +205,13 @@
 
 #gamer-link {
     background: transparent;
+    color: rgb(218, 64, 64);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#gamer-link:hover {
+    color: rgb(236, 126, 126);
 }
 
 .squads-footer {

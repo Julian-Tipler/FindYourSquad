@@ -18,6 +18,8 @@ class GameStatsForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (this.state.kd === "" || this.state.kills === "" || this.state.wins === "" ) return null
+
 
     var copied = Object.assign({}, this.state);
     delete copied.editFormOpen;
@@ -38,6 +40,8 @@ class GameStatsForm extends React.Component {
 
     handleEditSubmit(e) {
     e.preventDefault();
+    if (this.state.kd === "" || this.state.kills === "" || this.state.wins === "" ) return null
+
 
       var copied = Object.assign({}, this.state);
     delete copied.editFormOpen;
