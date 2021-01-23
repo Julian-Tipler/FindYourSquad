@@ -114,7 +114,7 @@ class GameStatsForm extends React.Component {
 
         <div className="user-stat-form" key={`${this.props.game.name}form`}>
             <h2 id='stats-title'>Edit your {this.props.game.name} stats</h2>
-          <form onSubmit={this.handleEditSubmit}>
+          <form className="stats-form-form" onSubmit={this.handleEditSubmit}>
             <div>
                   <input
                   id='user-stats'
