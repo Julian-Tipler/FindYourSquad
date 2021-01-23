@@ -60,7 +60,7 @@ class GameStatsForm extends React.Component {
 
   update(field) {
     return (e) =>
-    !Number(e.currentTarget.value) ? null :
+    !Number(e.currentTarget.value) && (e.currentTarget.value !== "" ) && (e.currentTarget.value !== ".") ? null :
       this.setState({
         [field]: e.currentTarget.value,
       });
