@@ -33,11 +33,11 @@ class Edit extends React.Component {
 
 
         return(
-            <form id='modal-form' onSubmit={this.handleSubmit}>
+            <form className='modal-form' onSubmit={this.handleSubmit}>
                 <div className='modal-box'>
-                    <p id='modal-bio'>Edit Bio</p>
+                    <p id='squad-name'>Edit Bio</p>
                     <textarea id='modal-text' onChange={this.update('generalBio')} autoComplete='off'/>
-                    <input id='modal-btn' type="submit" value="Send Request!"/>
+                    <input id='modal-btn' type="submit" value="Update Bio"/>
                 </div>
             </form>
         )

@@ -76,8 +76,8 @@ class SquadShow extends React.Component {
                             <div className="members">
                                 <h2>{this.props.currentSquad.name}</h2>
                                 <h3>Description:</h3>
-                                <span>{edit_bio}</span>
                                 <p className="squad-bio">{this.props.currentSquad.generalBio ? this.props.currentSquad.generalBio : <> </>}</p>
+                                <span>{edit_bio}</span>
                                 <h3>Members:</h3>
                                 <div>
                                 {(this.props.currentSquad.requests) ? 
