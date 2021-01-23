@@ -52,37 +52,39 @@ class SignupForm extends React.Component {
     return (
       <div className='split-su'>
         <div className="signup-form-container">
-          <h1 id='signup-title'>Never drop in by yourself again</h1>
-          <p id='signup-desc'>Find Your Squad helps you meet the perfect teammates</p>
-          <form onSubmit={this.handleSubmit}>
-            <div className="signup-form">
+          <div className="signup-form-div">
+            <h1 id='signup-title'>Never drop in by yourself again</h1>
+            <p id='signup-desc'>Find Your Squad helps you meet the perfect teammates</p>
+            <form onSubmit={this.handleSubmit}>
+              <div className="signup-form">
 
-                <input type="text"
-                  id='un-su'
-                  autoComplete='off'
-                  value={this.state.username}
-                  onChange={this.update('username')}
-                  placeholder="Username"
-                />
-              <br/>
-                <input type="password"
-                  id='pass-su'
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  placeholder="Password"
-                />
-              <br/>
-                <input type="password"
-                  id='pass-su'
-                  value={this.state.password2}
-                  onChange={this.update('password2')}
-                  placeholder="Confirm Password"
-                />
-              {this.renderErrors()}
-              <input id='submit-btn' type="submit" value="Submit" />
-              
-            </div>
-          </form>
+                  <input type="text"
+                    id='un-su'
+                    autoComplete='off'
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                    placeholder="Username"
+                  />
+                <br/>
+                  <input type="password"
+                    id='pass-su'
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    placeholder="Password"
+                  />
+                <br/>
+                  <input type="password"
+                    id='pass-su-2'
+                    value={this.state.password2}
+                    onChange={this.update('password2')}
+                    placeholder="Confirm Password"
+                  />
+                {this.renderErrors()}
+                <input id='submit-btn' type="submit" value="Submit" />
+                
+              </div>
+            </form>
+          </div>
         </div>
         <div className='signup-desc'>
             <div id='text-1'>

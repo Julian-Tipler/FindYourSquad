@@ -56,8 +56,6 @@ const SquadSchema = new Schema({
     default: Date.now,
   },
   game: {
-    // type: String,
-    // required: false
     type: Schema.Types.ObjectId,
     ref: "Game",
     required: true
@@ -67,7 +65,6 @@ const SquadSchema = new Schema({
     required: true
   },
   squadSize: {
-    //change to Number
     type: Number,
     required: true
   },
@@ -76,16 +73,8 @@ const SquadSchema = new Schema({
     required: true,
     default: false
   },
-  
-  // game: {
-  //   type: String,
-  //   required: true,
-  //make a reference to games collection
-  // },
   messages: [MessageSchema],
 });
 
 module.exports = Squad = mongoose.model('Squad', SquadSchema);
 
-
-// members: [User]

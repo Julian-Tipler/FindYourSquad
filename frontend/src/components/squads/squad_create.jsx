@@ -126,8 +126,8 @@ class SquadCreate extends React.Component {
               </select> 
               <br/>
               <input type="submit" id='create-submit-btn' value="Submit" /> 
+                <span id='error-messages-create'>{this.renderErrors()}</span>
             </div>        
-          {this.renderErrors()}
         </form>
         </div>
         <footer>

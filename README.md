@@ -169,7 +169,6 @@ class SquadShow extends React.Component {
         };
 
         this.state.socket.on("new-message-received", (message) => {
-            // console.log("MATT_TEST: ", this.props.match.params.squadId);
             this.props.fetchSquadMessages(this.props.match.params.squadId);
         });
 

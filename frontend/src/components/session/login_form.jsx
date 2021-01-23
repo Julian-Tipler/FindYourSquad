@@ -68,34 +68,36 @@ class LoginForm extends React.Component {
                     <img className='login-pic' src={VG1} alt='login-pic' />
                 </div>
                 <div className="main-auth-right">
-                    
-                    <div className="session-form-div">
-                        <h1 id='login-title'>Welcome to Find Your Squad</h1>
-                        <p id='login-desc'>Log In Below</p>
+                  <div className="login-form-div">
+                      
+                      <div className="session-form-div">
+                          <h1 id='login-title'>Welcome to Find Your Squad</h1>
+                          <p id='login-desc'>Log In Below</p>
 
-                        <form className="login-form" onSubmit={this.handleSubmit}>
-                            <div>
-                                <input type="text"
-                                id='un'
-                                autoComplete='off'
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                placeholder="Username"
-                                />
-                            <br/>
-                                <input type="password"
-                                id='pass'
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                placeholder="Password"
-                                />
-                            {this.renderErrors()}
-                            <input id='login-button' type="submit" value="Login" />
-                            <button id='demo-button' onClick={this.demo}>Try A Demo</button>
-                           
-                            </div>
-                        </form>
-                    </div>
+                          <form className="login-form" onSubmit={this.handleSubmit}>
+                              <div>
+                                  <input type="text"
+                                  id='un'
+                                  autoComplete='off'
+                                  value={this.state.username}
+                                  onChange={this.update('username')}
+                                  placeholder="Username"
+                                  />
+                              <br/>
+                                  <input type="password"
+                                  id='pass'
+                                  value={this.state.password}
+                                  onChange={this.update('password')}
+                                  placeholder="Password"
+                                  />
+                              {this.renderErrors()}
+                              <input id='login-button' type="submit" value="Login" />
+                              <button id='demo-button' onClick={this.demo}>Try A Demo</button>
+                            
+                              </div>
+                          </form>
+                      </div>
+                  </div>
                 </div>
                 </div>
             </div>

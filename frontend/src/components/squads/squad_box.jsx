@@ -21,7 +21,6 @@ class SquadBox extends React.Component {
     }
   }
   render() {
-    // let requestToJoinSquad
     if (Object.values(this.props).length < 1){
       return <> </>
     }
