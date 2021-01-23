@@ -33,8 +33,7 @@ class InputContainer extends Component {
 
   handleUserKeyPress (e) {
     if (e.key === "Enter" && !e.shiftKey) {
-      // e.preventDefault();
-      this.handleSubmit(e); // this won't be triggered
+      this.handleSubmit(e);
     }
   };
 

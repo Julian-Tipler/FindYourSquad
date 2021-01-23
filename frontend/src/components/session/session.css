@@ -6,23 +6,11 @@ body {
     margin: 0;
 }
 
-/* div {
-    display: block;
-} */
 
 html{
     height: 100%;
     background-color: rgb(24,25,26)
 }
-
-/* .session-container {
-    height: 100%;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    overflow: hidden;
-} */
 
 
 .split-screen{
@@ -88,20 +76,6 @@ html{
     display: block;
 }
 
-.main-auth-right {
-    /* display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    margin: 0;
-    padding: 0; */
-    
-    
-}
 
 .main-auth-right{
     height: 100%;
@@ -204,7 +178,7 @@ html{
     padding-bottom: 15px;
     padding-left: 45px;
     padding-right: 45px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     font-weight: bold;
     outline: none;
     position: absolute;
@@ -225,7 +199,7 @@ html{
     padding-bottom: 15px;
     padding-left: 45px;
     padding-right: 45px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     font-weight: bold;
     outline: none;
     margin-left: 130px;
@@ -337,7 +311,7 @@ h3{
     padding-bottom: 15px;
     padding-left: 27px;
     padding-right: 27px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     font-weight: bold;
     outline: none;
     position: inline;
@@ -378,4 +352,36 @@ footer .github-links {
     padding: 17px 10px;
     display: table-cell;
     vertical-align: middle;
+}
+
+.login-errors {
+    /* background-color: #F2DEDE; */
+    border-color: #EED3D7;
+    color: #B94A48;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    border-radius: 4px;
+    line-height: 1.2;
+    height: 45px;
+}
+
+.login-errors li {
+    border-radius: 4px;
+}
+
+.signup-errors {
+    /* background-color: #F2DEDE; */
+    border-color: #EED3D7;
+    color: #B94A48;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    border-radius: 4px;
+    line-height: 1.2;
+    height: 65px;
+}
+
+.signup-errors li {
+    border-radius: 4px;
 }

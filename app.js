@@ -1,5 +1,3 @@
-// require('dotenv').config()
-
 const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -9,7 +7,6 @@ const squads = require("./routes/api/squads");
 const cors = require("cors");
 const games = require("./routes/api/games");
 const stats = require("./routes/api/stats");
-// const profile = require( './routes/api/profile' );
 // define our app using express
 const express = require("express");
 const http = require("http");
@@ -25,7 +22,7 @@ const io = socket(server, {
   },
 });
 
-//heroku stuff
+//heroku path
 const path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
@@ -34,16 +31,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
   })
 }
-// if (process.env.NODE_ENV === 'development') {
-//   app.use(express.static('frontend/build'));
-//   app.get('/', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-//   })
-// }
 
-// const server = http.Server(app);
-// const io = socket(server);
-// app.set('socketio', io);
 
 // socket.io connection
 io.on("connection", (socket) => {
@@ -66,11 +54,6 @@ io.on("connection", (socket) => {
 });
 
 // allow-cors
-// app.use(function(req ,res, next){
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
 app.use(cors());
 
 mongoose
@@ -99,66 +82,3 @@ server.listen(port, () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-//------------------------------------------------------------------------------
-
-// const express = require("express");
-// const app = express();
-// const db = require('./config/keys').mongoURI;
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
-// const passport = require('passport');
-// const users = require("./routes/api/users");
-// const squads = require("./routes/api/squads");
-// const games = require("./routes/api/games");
-// const stats = require("./routes/api/stats");
-
-// //heroku stuff
-
-// // const path = require('path');
-
-// // if (process.env.NODE_ENV === 'production') {
-// //   app.use(express.static('frontend/build'));
-// //   app.get('/', (req, res) => {
-// //     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-// //   })
-// // }
-// // if (process.env.NODE_ENV === 'production') {
-// //   app.use(express.static('frontend/build'));
-// //   app.get('/', (req, res) => {
-// //     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-// //   })
-// // }
-
-// mongoose
-//   .connect(db, { useNewUrlParser: true })
-//   .then(() => console.log("Connected to MongoDB successfully"))
-//   .catch(err => console.log(err));
-
-
-// // app.get("/", (req, res) => res.send("Hello World"));
-// app.use(passport.initialize());
-// require('./config/passport')(passport);
-
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-
-// app.use("/api/users", users);
-// app.use("/api/squads", squads);
-// app.use("/api/games", games);
-// app.use("/api/stats", stats);
-
-// const port = process.env.PORT || 5100;
-// app.listen(port, () => console.log(`Server is running on port ${port}`));
-
-//------------------------------------------------------------------------------

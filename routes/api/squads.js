@@ -7,22 +7,18 @@ const Squad = require('../../models/Squad');
 const Game = require('../../models/Game');
 const validateSquadInput = require('../../validation/squads');
 
-//index squad
+// INDEX SQUAD
 router.get('/', (req, res) => {
-  // if (!req.query.game){
-  //   Squad.find()
-  //     .populate()
-  // } else {
-    Squad.find(req.query) // game: Call of Duty
+    Squad.find(req.query)
       .find({squadFull:false})
-      .populate({ path: 'members', populate: { path: 'userStats'}}) //, match: {game: req.query.game }
+      .populate({ path: 'members', populate: { path: 'userStats'}})
       .populate('game')
       .sort({ date: -1})
       .then((squads) => res.json(squads))
       .catch((err) =>
           res.status(404).json({ nosquadsfound: "No squads found" })
       );
-  // }
+
 })
 
 // SHOW SQUAD
@@ -64,10 +60,8 @@ Squad
     );
 })
   
-
-// create squad
+// CREATE SQUAD
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    // const maxSquadSize = Game.findById(req.body.game)(game => game.squadSize)
     
     const { errors, isValid } = validateSquadInput(req.body);
     if (!isValid) {
@@ -90,7 +84,6 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 
       User.findByIdAndUpdate(req.user.id, update, { new: true })
         .then((user) => res.json(squad))
-     //res.json(squad));
     })
 
   });
@@ -114,7 +107,7 @@ router.put("/:id/messages", (req, res) => {
         );
 })
 
-// update squad  
+// UPDATE SQUAD
 router.put("/:id", (req, res) => {
      let id = req.params.id;
      let update, remove;
@@ -232,23 +225,11 @@ router.put("/:id", (req, res) => {
   
 
 router.delete("/:id", (req, res) => {
-  // console.log('ping')
-  // Squad.findById(req.params.id)
-  // .then((squad) => {
-  //   console.log('ping2');
-    // squad.members.forEach(member => {
-    // let deleteSquad = { $pull: { squads: req.params.id } };
-    // User.findByIdAndUpdate(member, deleteSquad, { multi: true } )
     
-    console.log('ping')
     Squad.findByIdAndDelete(req.params.id)
     .then(squad => {
-        // console.log(squad.members);
-        squad.members.forEach(memberId => {
-            // memberId = mongoose.Types.ObjectId(memberId);
-            // console.log(memberId);
+        squad.members.forEach(memberId => {;
             let deleteSquad = { $pull: { squads: mongoose.Types.ObjectId(req.params.id) } }; 
-            // console.log(mongoose.Types.ObjectId(req.params.id));
             User.findByIdAndUpdate(memberId, deleteSquad, { new: true } )
                 .then(user => {
                     console.log(user.squads); 
@@ -271,41 +252,3 @@ module.exports = router;
 
 
 
-
-
-
-
-
-
-
-// Update Squad
-//------------------------------------------------------------------------------
-// router.put("/:id", (req, res) => {
-//   if (req.body.type === 'addRequest'){
-//     let id = req.params.id;  //body
-//     let update = { $push: { requests: req.body.newMemberId }}
-//     Squad.findByIdAndUpdate(id, update, {new: true})
-//     .then(squad => res.json(squad));
-//   }
-  
-//   if (req.body.type === 'declineRequest') {
-//     let id = req.params.id;
-//     let remove = { $pull: { requests: req.body.newMemberId }}
-//     Squad.findByIdAndUpdate(id, remove, {new: true}).then(squad => res.json(squad));
-//   }
-  
-//   if (req.body.type === 'acceptMember') {
-//     let id = req.params.id;    
-//     // let remove = { $pull: { requests: req.body.newMemberId }}
-//     // Squad.findByIdAndUpdate(id, remove, {new: true})
-//     let update = { $push: { members: req.body.newMemberId }, $pull: { requests: req.body.newMemberId }};
-//     Squad.findByIdAndUpdate(id, update, { new: true } ).then(squad => res.json(squad));
-//   }
-  
-//   if (req.body.type === 'removeMember') {
-//     let id = req.params.id;
-//     let remove = { $pull: { members: req.body.newMemberId }}
-//     Squad.findByIdAndUpdate(id, remove, {new: true}).then(squad => res.json(squad));
-//     }
-// });
-//------------------------------------------------------------------------------

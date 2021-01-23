@@ -13,8 +13,6 @@ export const removeUser = () => ({
   type: REMOVE_USER
 })
 
-
-
 export const fetchUser = id => dispatch => (
   APIUser.getUser(id)
     .then(user => dispatch(receiveUser(user)))

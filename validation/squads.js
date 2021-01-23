@@ -11,8 +11,6 @@ module.exports = function validateSquadInput(data, squadSize) {
     errors.name = 'Squad name must be less than 60 characters';
   }
 
-  // if (Validator.isLessThan())
-
   if (Validator.isEmpty(data.name)) {
     errors.name = 'Squad name field is required';
   }

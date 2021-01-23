@@ -16,10 +16,6 @@ class SignupForm extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    // if (nextProps.signedIn === true) {
-    //   this.props.history.push('/login');
-    // }
-
     this.setState({errors: nextProps.errors})
   }
 
@@ -35,9 +31,6 @@ class SignupForm extends React.Component {
       username: this.state.username,
       password: this.state.password,
       password2: this.state.password2
-      //       platform: "",
-      // communityRating: 0.0,
-      // bio: ""
     };
 
     this.props.signup(user, this.props.history); 
@@ -45,13 +38,13 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <div className="signup-errors">
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>
             {this.state.errors[error]}
           </li>
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -85,9 +78,9 @@ class SignupForm extends React.Component {
                   onChange={this.update('password2')}
                   placeholder="Confirm Password"
                 />
-              <br/>
-              <input id='submit-btn' type="submit" value="Submit" />
               {this.renderErrors()}
+              <input id='submit-btn' type="submit" value="Submit" />
+              
             </div>
           </form>
         </div>

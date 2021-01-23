@@ -2,10 +2,7 @@ import { connect } from 'react-redux';
 import SquadBox from './squad_box';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
-
-
 const msp = (state, ownProps) => {
-
   return {
     squadId: ownProps.squad._id,
     comingFromProfile: ownProps.comingFromProfile,
@@ -13,7 +10,6 @@ const msp = (state, ownProps) => {
     currentUser: state.session.user
   }
 } 
-
 
 const mdp = (dispatch, ownProps) => {
   return{

@@ -1,8 +1,4 @@
-/* .header-nav-logo {
-    float: left;
-    padding-left: 20px;
-    padding-top: 10px;
-} */
+
 
 .user-profile-container {
     display: grid;
@@ -103,13 +99,8 @@
     width: 400px;
 }
 
-/* .stat-item {
-    
-} */
-
 .user-stat-form {
     margin-bottom: 10px;
-    /* border: 2px solid blue; */
     border-radius: 5px;
     padding-bottom: 10px;
     padding-left: 5px;
@@ -121,11 +112,6 @@
     width: 520px;
     margin-left: 15%;
 }
-
-/* body {
-    background: black;
-    color: white;
-} */
 
 .user-image {
     height: 300px;
@@ -206,11 +192,6 @@
     outline: none
 }
 
-/* #profile-title{
-    margin-left: 28px;
-    font-size: 26px;
-    margin-top: 10px;
-} */
 #stat-date {
     font-weight: 100;
     font-size: 14px;

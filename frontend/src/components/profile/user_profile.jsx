@@ -6,15 +6,6 @@ import CarouselContainer from './carousel_container'
 import ImageUpload from './image_upload'
 
 class UserProfile extends React.Component{
-    // constructor(props){
-    //     super(props);
-    //     // if (this.props.games[0] !== undefined){
-    //     // this.state = {
-    //     //     gameState: this.props.games[0]
-    //     // }}
-
-
-    // }
 
     componentDidMount(){
         this.props.fetchUser(this.props.profileUserId)
@@ -32,18 +23,8 @@ class UserProfile extends React.Component{
             this.props.fetchUser(this.props.profileUserId)
         }
     }
-    // componentDidReceiveProps(){
-    //     this.props.fetchUser(this.props.profileUserId)
-    //     this.props.fetchGames()
-    //     .then(games => 
-    //      this.setState({gameState:games.games.data[0]._id})   )
-    // }
 
     render() {
-        // {
-        //     // this.setState({gameState: this.props.games[0]._id})
-        //     return <> </>
-        // }
 
         if (!this.props.profileUser || !this.props.profileUser.squads || !this.state){
             return <> </>
@@ -81,7 +62,6 @@ class UserProfile extends React.Component{
                     </header>
 
                     <div id='pp-game-btn-container'>
-                        {/* <h1 id='profile-title'>Click a game to view your stats</h1> */}
                         {this.props.games.map((game) => {
                             if (game._id === this.state.gameState){
                                 return (
@@ -97,25 +77,24 @@ class UserProfile extends React.Component{
                     <div className="">
                         <div className="user-profile-main">
                             <div className="user-stat-section">
-                            {profileUser.userStats.map(stat => {
-                                if (stat.game === this.state.gameState){
-                                    return (
-                                        <div key={`${profileUser.username}${stat._id}`}className="user-stat-box">
-                                            <h3 id="stat-date">{(stat.updatedAt).slice(0,10)}</h3>
-                                            <h2 id='profile-stat-name'>{stat.gameName} Stats</h2>
-                                            {Object.keys(stat.stats).map((key, idx) => {
-                                                return (
-                                                    <h3 id='profile-stat' key={`${idx}${stat.game}`} className="stat-item">{key.length < 3 ? key.toUpperCase().split("").join("/") : key.slice(0,1).toUpperCase() + key.slice(1)}: {stat.stats[key]}</h3> 
-                                                )
-                                            })}
-                                        </div> )
-                                }
-                                return <></>
-                            })}
+                                {profileUser.userStats.map((stat, idx) => {
+                                    if (stat.game === this.state.gameState){
+                                        return (
+                                            <div key={`${profileUser.username}${idx}${stat._id}`}className="user-stat-box">
+                                                <h3 id="stat-date">{(stat.updatedAt).slice(0,10)}</h3>
+                                                <h2 id='profile-stat-name'>{stat.gameName} Stats</h2>
+                                                {Object.keys(stat.stats).map((key, idx) => {
+                                                    return (
+                                                        <h3 id='profile-stat' key={`${idx}${stat.game}${key}`} className="stat-item">{key.length < 3 ? key.toUpperCase().split("").join("/") : key.slice(0,1).toUpperCase() + key.slice(1)}: {stat.stats[key]}</h3> 
+                                                    )
+                                                })}
+                                            </div> )
+                                    }
+                                    return <div key={idx}></div>
+                                })}
                             </div>
 
                         {this.props.games.map((game, idx) => {
-                            // if (game.id )
                             if (game._id !== this.state.gameState){
                                 return <div key={idx}> </div>
                             }
@@ -134,12 +113,10 @@ class UserProfile extends React.Component{
                                         </div>
                                 )
                             }
-                            
-                            
+                             
                             ;}
                         return <></>})
                         }   
-
 
                         </div>
 

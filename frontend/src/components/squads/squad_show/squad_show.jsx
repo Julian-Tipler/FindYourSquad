@@ -1,5 +1,4 @@
 import React from 'react';
-// import React, { useState, useEffect } from 'react';
 import MessagesComponent from './messages_container';
 import InputComponent from './input_container';
 import SquadShowMember from './squad_show_member'
@@ -17,7 +16,6 @@ class SquadShow extends React.Component {
         };
 
         this.state.socket.on("new-message-received", (message) => {
-            // console.log("MATT_TEST: ", this.props.match.params.squadId);
             this.props.fetchSquadMessages(this.props.match.params.squadId);
         });
 
@@ -119,7 +117,6 @@ class SquadShow extends React.Component {
                                 :
                                 <div>No Requests</div>}
                                 </div>
-                                {/* <span>{this.props.otherForm}</span> */}
                             </div>
                         <div className="requests"></div>
                         </div>

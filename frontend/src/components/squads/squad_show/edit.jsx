@@ -4,7 +4,6 @@ import '../../modal/modal.css'
 class Edit extends React.Component {
     constructor(props){
         super(props)
-        // console.log(this.props)
         this.state = {
             id: this.props.squads._id,
             generalBio: this.props.squads.generalBio,
@@ -22,7 +21,6 @@ class Edit extends React.Component {
         }
         this.props.updateSquad(change);
         this.props.closeModal();
-        // window.location.reload(false);
     }
 
     update(field){
