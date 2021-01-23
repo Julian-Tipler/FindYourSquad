@@ -12,33 +12,25 @@ class Member extends React.Component {
               displayStats = <> <div id="gamer-box">...</div ><div id="gamer-box">...</div><div id="gamer-box">...</div></> 
      
         } else {
-          // correctGameStats.map(stat =>{
 
-          // })
-          displayStats =
-           Object.keys(correctGameStats.stats).map((key, idx) => {
-             return (
-                <div key={idx} id="gamer-box">{key.length < 3 ? key.toUpperCase().split("").join("/") : key.slice(0,1).toUpperCase() + key.slice(1)}: {correctGameStats.stats[key]}</div> //key={`${idx}${stat.game}`} 
-              )
-            })
+              displayStats =
+              Object.keys(correctGameStats.stats).map((key, idx) => {
+                return (
+                    <div key={idx} id="gamer-box">{key.length < 3 ? key.toUpperCase().split("").join("/") : key.slice(0,1).toUpperCase() + key.slice(1)}: {correctGameStats.stats[key]}</div>
+                  )
+              })
         }
 
 
         return (
           <>
             <div id='gamer-box'>{this.props.member.username}</div>
-            
-      
             {displayStats}
-
-
-
-            
             <Link id='gamer-link' to={`/profile/${this.props.member._id}`}>
                 Gamer Profile
             </Link>
             
-            </>
+          </>
         );
     }
 }

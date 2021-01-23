@@ -1,5 +1,4 @@
 import React from 'react';
-// import SquadBox from './squad_box';
 import './user_profile.css';
 
 class GameStatsForm extends React.Component {
@@ -16,11 +15,6 @@ class GameStatsForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEditSubmit = this.handleEditSubmit.bind(this)
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //     this.setState({newSquad: nextProps.newSquad.text});
-  // }
- 
 
   handleSubmit(e) {
     e.preventDefault();
@@ -39,15 +33,10 @@ class GameStatsForm extends React.Component {
     this.setState({ kd: "" });
     this.setState({ kills: "" });
     this.setState({ wins: "" });
-    
-    // this.setState({ game: "" });
-    // this.setState({ squadSize: "" });
-    // this.props.history.push('/squads');  /// goes to squad page, but without new squad 
+  
   }
 
     handleEditSubmit(e) {
-      // console.log("editing")
-      // console.log(this.props.statId)
     e.preventDefault();
 
       var copied = Object.assign({}, this.state);
@@ -56,8 +45,6 @@ class GameStatsForm extends React.Component {
 
     let data = {
       id: this.props.profileUser._id,
-      // gameId: this.props.game._id,
-      // gameName: this.props.game.name,
       statId: this.props.statId,
       stats: copied
     };
@@ -67,9 +54,6 @@ class GameStatsForm extends React.Component {
     this.setState({ kills: "" });
     this.setState({ wins: "" });
     this.setState({editFormOpen: false})
-    // this.setState({ game: "" });
-    // this.setState({ squadSize: "" });
-    // this.props.history.push('/squads');  /// goes to squad page, but without new squad 
   }
 
   
@@ -85,15 +69,6 @@ class GameStatsForm extends React.Component {
 
 
   render() {
-    //   if (Object.values(this.props.games).length === 0) {
-    //     return <> </>
-    //   }
-
-    
-
-
-
-
     if (this.props.type === "create"){
 
       return (
@@ -162,8 +137,7 @@ class GameStatsForm extends React.Component {
                   onChange={this.update("wins")}
                   placeholder="Wins"
                   />
-      
-
+    
                   <input id='stats-btn' type="submit" value="Submit" />
               </div>
           </form>

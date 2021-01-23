@@ -78,14 +78,12 @@ singleFileChangedHandler = ( event ) => {
 
 
     render() {
-        console.log(this.state.selectedFile)
 
     return(
     <div className="image-uploader-container">
         <div id="oc-alert-container"></div>
             <div className="card border-light mb-3 mt-5" >
                 <div className="card-header">
-                {/* <h3 style={{ color: '#555', marginLeft: '12px' }}>Single Image Upload</h3> */}
                     <p className="text-muted">Upload Size: 250px x 250px ( Max 2MB )</p>
                         </div>
                     <div className="card-body">

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-// import { fetchUserSquads } from '../../actions/squad_actions';
 import { fetchUser, removeUser } from '../../actions/user_actions';
 import { fetchGames } from '../../actions/game_actions'
 import UserProfile from './user_profile';
@@ -26,4 +25,3 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
 
 
-//is it a good to call fetch user and get all data and references for that user or to have separate actions all at once for different slices of states to fetch 

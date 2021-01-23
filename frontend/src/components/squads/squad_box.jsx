@@ -21,7 +21,6 @@ class SquadBox extends React.Component {
     }
   }
   render() {
-    // let requestToJoinSquad
     if (Object.values(this.props).length < 1){
       return <> </>
     }
@@ -83,11 +82,6 @@ class SquadBox extends React.Component {
 
            {this.renderRequestToJoinButton()}
           </div>
-          {/* <h3>{this.props.name}</h3> */}
-
-
-
-
           <div className="squad-box-members-div">
             {this.props.squad.members.map((member) => {
               return (
@@ -98,8 +92,6 @@ class SquadBox extends React.Component {
               );
             })}
           </div>
-
-
         </div>
     }
   
@@ -111,18 +103,3 @@ class SquadBox extends React.Component {
 }
 
 export default SquadBox;
-
-
-
-
-
-
-
-
-
-//this was under render before:
-    // const data = {
-    //   id: this.props.squad._id,
-    //   newMemberId: this.props.currentUserId,
-    //   type: "addRequest"
-    // }

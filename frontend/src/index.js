@@ -6,10 +6,8 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
-// TESTING
 import { fetchSquad } from './actions/squad_actions';
 import {  } from './util/squad_api_util';
-// END TESTING
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -35,11 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
-  // window.getStore() = store.getStore
-  // TESTING START
+  
   window.dispatch = store.dispatch
   window.fetchSquad = fetchSquad
-  // TESTING END
   
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

@@ -53,13 +53,13 @@ class SquadCreate extends React.Component {
   renderErrors() {
       if (this.props.errors.length !== 0){
     return(
-      <ul>
+      <div className="create-errors">
         {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
             {this.props.errors[error]}
           </li>
         ))}
-      </ul>
+      </div>
     );
   }}
 
@@ -126,8 +126,8 @@ class SquadCreate extends React.Component {
               </select> 
               <br/>
               <input type="submit" id='create-submit-btn' value="Submit" /> 
+                <span id='error-messages-create'>{this.renderErrors()}</span>
             </div>        
-          {this.renderErrors()}
         </form>
         </div>
         <footer>

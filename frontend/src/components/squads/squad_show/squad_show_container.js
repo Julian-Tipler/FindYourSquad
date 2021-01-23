@@ -14,11 +14,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // otherForm: (
-        //     <button className="request-button" onClick={() => dispatch (openModal( { word: 'request', squad: ownProps.match.params.squadId} ))}>
-        //         Request to Join Squad
-        //     </button>
-        // ),
         fetchSquad: id => dispatch(fetchSquad(id)),
         updateSquad: data => dispatch(updateSquad(data)),
         deleteSquad: data => dispatch(deleteSquad(data)),

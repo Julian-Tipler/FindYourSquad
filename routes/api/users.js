@@ -13,14 +13,7 @@ const Squad = require("../../models/Squad");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
-// router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
-//   res.json({
-//     id: req.user.id,
-//     username: req.user.username,
-//   });
-// })
-
-//Returns user state
+// RETURNS USER STATE
 router.get('/:userId', (req, res) => {
     User.findById(req.params.userId)
         .populate("userStats")
@@ -32,9 +25,6 @@ router.get('/:userId', (req, res) => {
         )
     );
 });
-
-
-// //Updates use
 
 router.put('/:userId', (req, res) => {
   let update = { 
@@ -49,15 +39,6 @@ router.put('/:userId', (req, res) => {
     .catch(err =>
         res.status(404).json({ dataTypeError: 'Wrong data type or no user found' }  ))
 });
-
-
-///need user extra fields (outside of username and password) to be validated, but first need to 
-// see if the info will be input during registration or a put action afterwards
-
-
-
-
-
 
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -135,8 +116,7 @@ router.post("/login", (req, res) => {
 
 
 router.post("/:id/stats", passport.authenticate('jwt', { session: false }), (req, res) => {
-// user id
-//     stats/gameId,  (stats: {"kd": })
+
 
     const newStat = new Stat({
         user: req.params.id,
@@ -261,26 +241,3 @@ router.put( '/:id/img-delete', ( req, res ) => {
 })
 
 module.exports = router;  
-
-
-
-
-
-// userId param
-  // game_id body
-  // game_name body
-  // stats body  {kd: 5, kills: 5}
-
-
-// router.put("/:id/stats", passport.authenticate('jwt', { session: false }), (req, res) => {
-// // user id
-// //     stats/gameId,  (stats: {"kd": })
-//     const statId = req.params.id
-    
-//     Stat.findByIdAndUpdate(statId, {stats: req.body.stats}, { new: true })
-//         .then((stat) => res.json(stat))
-//         .catch((err) =>
-//             res.status(404).json({ nostatfound: "Could not process request." })
-//         );
-    
-// });

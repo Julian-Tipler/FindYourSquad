@@ -15,9 +15,6 @@ class MessagesContainer extends Component {
                             <div key={"c" + idx} className={`${
                                 message.sender === this.props.currentUser ? "message-container-right" : "message-container-left"
                             }`}>
-                                {/* <img src="" alt="Avatar" className={`${
-                                    message.sender === this.props.currentUser ? "right" : "left"
-                                }`}></img> */}
                                 <strong>{message.sender}</strong>
                                 <p>{message.content}</p>
                                 <span className={`${

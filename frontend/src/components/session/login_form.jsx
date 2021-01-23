@@ -38,9 +38,6 @@ class LoginForm extends React.Component {
     let user = {
       username: this.state.username,
       password: this.state.password
-      // platform: "",
-      // communityRating: 0.0,
-      // bio: ""
     };
 
     this.props.login(user); 
@@ -52,13 +49,13 @@ class LoginForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <div className="login-errors">
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>
             {this.state.errors[error]}
           </li>
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -66,46 +63,41 @@ class LoginForm extends React.Component {
     return (
         <div>
             <div className="session-container">
-
-                {/* <section className="auth-sidebar-section">
-                <div className="auth-sidebar-div">
-                    <header className="auth-side-header"></header>
-                </div>
-
-                </section> */}
                 <div className='split-screen'>
                 <div className='main-auth-left'>
                     <img className='login-pic' src={VG1} alt='login-pic' />
                 </div>
                 <div className="main-auth-right">
-                    
-                    <div className="session-form-div">
-                        <h1 id='login-title'>Welcome to Find Your Squad</h1>
-                        <p id='login-desc'>Log In Below</p>
+                  <div className="login-form-div">
+                      
+                      <div className="session-form-div">
+                          <h1 id='login-title'>Welcome to Find Your Squad</h1>
+                          <p id='login-desc'>Log In Below</p>
 
-                        <form className="login-form" onSubmit={this.handleSubmit}>
-                            <div>
-                                <input type="text"
-                                id='un'
-                                autoComplete='off'
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                placeholder="Username"
-                                />
-                            <br/>
-                                <input type="password"
-                                id='pass'
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                placeholder="Password"
-                                />
-                            <br/>
-                            <input id='login-button' type="submit" value="Login" />
-                            <button id='demo-button' onClick={this.demo}>Try A Demo</button>
-                            {this.renderErrors()}
-                            </div>
-                        </form>
-                    </div>
+                          <form className="login-form" onSubmit={this.handleSubmit}>
+                              <div>
+                                  <input type="text"
+                                  id='un'
+                                  autoComplete='off'
+                                  value={this.state.username}
+                                  onChange={this.update('username')}
+                                  placeholder="Username"
+                                  />
+                              <br/>
+                                  <input type="password"
+                                  id='pass'
+                                  value={this.state.password}
+                                  onChange={this.update('password')}
+                                  placeholder="Password"
+                                  />
+                              {this.renderErrors()}
+                              <input id='login-button' type="submit" value="Login" />
+                              <button id='demo-button' onClick={this.demo}>Try A Demo</button>
+                            
+                              </div>
+                          </form>
+                      </div>
+                  </div>
                 </div>
                 </div>
             </div>

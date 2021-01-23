@@ -15,9 +15,7 @@ class CarouselComponent extends React.Component {
             location: this.props.images[i]
         }
         this.props.deleteUserImage(data)
-        console.log('ping')
     }
-
 
     render() {
         return(
@@ -51,14 +49,3 @@ class CarouselComponent extends React.Component {
 }
 
 export default CarouselComponent
-
-
-
-//  {
-//                     properties.map(image => (
-//                         <img src={image} alt={image}/>
-//                     ))
-//                 }
-//                 <img src=""></img>
-
-

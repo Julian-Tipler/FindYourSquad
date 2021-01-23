@@ -12,16 +12,11 @@ class Squad extends React.Component {
       squads: []
       
     }
-    // this.fetchSquads = this.props.fetchSquads.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchSquads();
   }
-
-  // refresh() {
-  //   this.props.fetchSquads();
-  // }
 
   UNSAFE_componentWillReceiveProps(newState) {
     this.setState({ squads: newState.squads });
@@ -52,15 +47,8 @@ class Squad extends React.Component {
               <SquadBoxContainer 
                 squad={squad} 
                 currentUserId={this.props.currentUserId} 
-                updateSquad={this.props.updateSquad} 
-                // game={squad.game}
+                updateSquad={this.props.updateSquad}
                 key={squad._id} 
-                // name={squad.name} 
-                // generalBio={squad.generalBio}
-                // skillLevel={squad.skillLevel} 
-                // squadSize={squad.squadSize}
-                // members={squad.members}
-                // leader={squad.leader}
                 />
             ))}
 
