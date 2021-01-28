@@ -3,13 +3,13 @@ body {
     height: 92.5vh;
 }
 
-#footer{
+/* #footer{
     position: fixed;
     left: 10px;
     bottom: 10px;
     width: 100%;
     color: whitesmoke;
-}
+} */
 
 #main-h1{
     color: whitesmoke;

@@ -24,7 +24,7 @@ class Member extends React.Component {
 
         return (
           <>
-            <div id='gamer-box'>{this.props.member.username}</div>
+            <div id='gamer-box-name'>{this.props.member.username}</div>
             {displayStats}
             <Link id='gamer-link' to={`/profile/${this.props.member._id}`}>
                 Gamer Profile

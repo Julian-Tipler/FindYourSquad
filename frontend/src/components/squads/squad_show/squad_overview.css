@@ -8,6 +8,14 @@
     justify-content: space-around;
 }
 
+.member-name-squad-show {
+    width: 30%;
+    font-size: 23px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+
 .request-box{
     height: 40px;
     display: flex;
@@ -20,11 +28,12 @@
 
 #ss-gp{
     text-decoration: none;
+    color: rgb(177, 21, 21);
 }
 
 #ss-gp:hover{
     cursor: pointer;
-    color: rgb(174, 37, 37);
+    color: rgb(236, 126, 126);
 }
 
 #ss-rm{

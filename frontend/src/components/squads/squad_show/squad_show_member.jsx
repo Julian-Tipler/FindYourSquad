@@ -46,7 +46,7 @@ class SquadShowMember extends React.Component {
   renderStats() {
     let userStats = this.props.member.userStats.filter(userStat => userStat.gameName === this.props.currentSquad.game.name);
     if (userStats.length === 0) {
-        return <></>
+        return null
     } else {
         return (
             <div className="userStats">
@@ -65,7 +65,7 @@ class SquadShowMember extends React.Component {
     }
     return (
       <div className='member-box'>
-        <div>
+        <div className="member-name-squad-show">
             <Link id='ss-gp' to={`/profile/${this.props.member._id}`}>{this.props.member.username}</Link>
         </div>
         {this.renderStats()}

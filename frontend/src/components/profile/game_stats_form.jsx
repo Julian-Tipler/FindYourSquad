@@ -18,6 +18,8 @@ class GameStatsForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (this.state.kd === "" || this.state.kills === "" || this.state.wins === "" ) return null
+
 
     var copied = Object.assign({}, this.state);
     delete copied.editFormOpen;
@@ -38,6 +40,8 @@ class GameStatsForm extends React.Component {
 
     handleEditSubmit(e) {
     e.preventDefault();
+    if (this.state.kd === "" || this.state.kills === "" || this.state.wins === "" ) return null
+
 
       var copied = Object.assign({}, this.state);
     delete copied.editFormOpen;
@@ -60,7 +64,7 @@ class GameStatsForm extends React.Component {
 
   update(field) {
     return (e) =>
-    !Number(e.currentTarget.value) ? null :
+    !Number(e.currentTarget.value) && (e.currentTarget.value !== "" ) && (e.currentTarget.value !== ".") ? null :
       this.setState({
         [field]: e.currentTarget.value,
       });
@@ -114,7 +118,7 @@ class GameStatsForm extends React.Component {
 
         <div className="user-stat-form" key={`${this.props.game.name}form`}>
             <h2 id='stats-title'>Edit your {this.props.game.name} stats</h2>
-          <form onSubmit={this.handleEditSubmit}>
+          <form className="stats-form-form" onSubmit={this.handleEditSubmit}>
             <div>
                   <input
                   id='user-stats'

@@ -74,7 +74,7 @@ class UserProfile extends React.Component{
                             }
                         })}
                     </div>
-                    <div className="">
+                  
                         <div className="user-profile-main">
                             <div className="user-stat-section">
                                 {profileUser.userStats.map((stat, idx) => {
@@ -120,7 +120,7 @@ class UserProfile extends React.Component{
 
                         </div>
 
-                    </div>
+          
                 </div>
             </div>
         )
