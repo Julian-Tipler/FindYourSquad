@@ -1,4 +1,4 @@
-.member-box{
+.member-box, .request-box {
     height: 40px;
     display: flex;
     flex-direction: row;

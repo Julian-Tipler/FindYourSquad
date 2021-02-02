@@ -32,9 +32,9 @@
     margin-bottom: 15px;
 }
 
-.members .member-box {
+.members .member-box, .members .request-box {
     height: 100%;
-    padding: 3% 3%;
+    padding: 5% 5%;
     border-radius: 10px;
     background: rgb(47, 48, 51);
     justify-content: space-between;
@@ -78,7 +78,7 @@
     margin-right: 10px;
 }
 
-.members .request-box {
+/* .members .request-box {
     height: 100%;
     padding: 5% 5%;
     border-radius: 10px;
@@ -89,12 +89,12 @@
         [col1-start] 17.5% 
         [col1-end col2-start] 50% 
         [col2-end] 20%;
-}
+} */
 
 .members .request-box .userStats {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 #ss-gp{
