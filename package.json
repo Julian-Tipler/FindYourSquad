@@ -1,7 +1,7 @@
 {
-  "name": "mern_twitter",
+  "name": "mern_squad",
   "version": "1.0.0",
-  "description": "First Mern Project",
+  "description": "Find Your Squad",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
