@@ -31,7 +31,7 @@ import {
             newState.currentSquad = {};
             return newState;
         default:
-            return state;
+            return newState;
     }
   };
   
