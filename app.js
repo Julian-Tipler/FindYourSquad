@@ -62,6 +62,15 @@ mongoose
   .catch((err) => console.log(err));
 
 // app.get("/", (req, res) => res.send("Hello World"));
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname, '/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  }
+})
+
 app.use(passport.initialize());
 require("./config/passport")(passport);
 
