@@ -63,12 +63,12 @@ mongoose
 
 // app.get("/", (req, res) => res.send("Hello World"));
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'frontend/public/index.html'), function(err) {
+app.get('/', function(req, res) {
+  res.sendFile(__dirname, '/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
-  })
+  }
 })
 
 app.use(passport.initialize());
