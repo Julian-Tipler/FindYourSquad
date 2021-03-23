@@ -9,13 +9,13 @@ const games = require("./routes/api/games");
 const stats = require("./routes/api/stats");
 // define our app using express
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const app = express();
-const server = https.createServer(app);
+const server = http.createServer(app);
 const socket = require("socket.io");
 const io = socket(server, {
   cors: {
-    origin: "https://findyoursquad.herokuapp.com/#/",
+    origin: "http://findyoursquad.herokuapp.com/#/",
     methods: "*",
     allowedHeaders: ["my-custom-header"],
     credentials: true,
