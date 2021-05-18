@@ -10,7 +10,6 @@ FindYouSquad's matching algorithm takes your personal specifications and finds t
 ## Features
 
 * **Search Feature** - Users are able to specify game, squad size, and ability level in the search bar. The squad forum with refresh and the player can browse squads specific to their search and request to join.
-<img src="frontend/src/assets/images/squad-search.gif?raw=true" width="1000">
 
 * **Invite Request** - Any user of our platform can request to join any squad as long as the squad is not filled.
 <img src="frontend/src/assets/images/invite-request.gif?raw=true" width="1000">
