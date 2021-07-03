@@ -1,6 +1,6 @@
 <h1 align="center">FindYourSquad</h1> 
 <p align="center"><img ="center" src="frontend/public/favicon.ico"  width="200" height="200" /></p>
-
+ 
 
 <a href="http://findyoursquad.herokuapp.com/#/">FindYourSquad</a> is a social platform for gamers that matches teammates based on play style and skill. Through these connections, gamers can communicate with one another, arrange schedules, view each other's gaming profile, and deploy into their favorite games together.
 <br></br>
