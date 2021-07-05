@@ -85,7 +85,7 @@ io.on("connection", (socket) => {
   });
 });
 ```
-
+ 
 * Below, we use a module on "/frontend/socket.js" to establish the socket on the frontend or client side. Each time that this module is called, it will open a connection if none exists (the first if statement), connect back to the socket if a connection has already been established (the second if statement).
 
 ```js
